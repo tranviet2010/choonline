@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Image, Text,SafeAreaView } from "react-native";
+import { View, Image, Text, SafeAreaView } from "react-native";
 import AppNavigation from "./navigation";
 import { Provider, connect } from "react-redux";
 import "react-native-gesture-handler";
@@ -64,25 +64,24 @@ export default class App extends Component {
         ).toFixed(2);
       }
     );
-
     if (downloadProgress.receivedBytes == downloadProgress.totalBytes) {
       this.time = setTimeout(() => {
         this.setState({ loading: false });
       }, 2500);
     }
-    
+
     //this.setState({loading: false});
   };
   componentDidMount() {
     //  if (Platform.OS === "android") {
     SplashScreen.hide();
     // }
-  //   codePush.sync({
-  //     updateDialog: true,
-  //     installMode: codePush.InstallMode.IMMEDIATE
-  // })
-  
-}
+    //   codePush.sync({
+    //     updateDialog: true,
+    //     installMode: codePush.InstallMode.IMMEDIATE
+    // })
+
+  }
   onError = (error) => {
     console.log("An error occurred. " + error);
   };
@@ -154,65 +153,17 @@ export default class App extends Component {
         </ProgressCircle>
       </View>
     ) : (
-      <Root>
+        <Root>
           <SafeAreaProvider>
             {/* <SafeAreaView> */}
             <Provider store={store}>
-            
-                  <AppNavigation />
-                  
+
+              <AppNavigation />
+
             </Provider>
             {/* </SafeAreaView> */}
           </SafeAreaProvider>
-      </Root>
-    );
+        </Root>
+      );
   }
 }
-/**<Root>
-        <MenuProvider>
-          <SafeAreaProvider>
-            <Provider store={configureStore({})}>
-              <AppNavigation />
-            </Provider>
-          </SafeAreaProvider>
-        </MenuProvider>
-      </Root> */
-
-/** Name       │ Deployment Key                        │ Update Metadata              │ Install Metrics      │
-├────────────┼───────────────────────────────────────┼──────────────────────────────┼──────────────────────┤
-│ Production │ RCxg4AvURrKOVRny62_SJUfN0R7JiKyVxov1E │ Label: v1                    │ No installs recorded │
-│            │                                       │ App Version: 1.5             │                      │
-│            │                                       │ Mandatory: No                │                      │
-│            │                                       │ Release Time: 44 minutes ago │                      │
-│            │                                       │ Released By:                 │                      │
-├────────────┼───────────────────────────────────────┼──────────────────────────────┼──────────────────────┤
-│ Staging    │ 4h44KYqN_DMC3NmzLgmi0JTr756q5rNu0u31l │ No updates released          │ No installs recorded │ */
-
-// export default App
-// 1. npm install -g appcenter-cli
-// 2. appcenter login
-// 3. đăng nhập vào tài khoản gmail được share, copy code dán vào terminal
-//iOS// appcenter codepush release-react -a nguyenvandu199740-gmail.com/Babu-Ios -d Production
-//iOS// appcenter codepush release-react -a nguyenvandu199740-gmail.com/Babu-Ios -d Staging
-
-// └────────────┴───────────────────────────────────────┘
-//Android// appcenter codepush release-react -a nguyenvandu199740-gmail.com/Babu-Android -d Production
-//Android// appcenter codepush release-react -a nguyenvandu199740-gmail.com/Babu-Android -d Staging
-
-// 1 số lệnh:
-// - list app: appcenter apps list
-// - set current app: appcenter apps set-current nguyenquangminh20111997-g
-// mail.com/Thoxaydung-Android
-// - add app: appcenter codepush deployment add -a <owner/appname> Production
-// - list key: appcenter codepush deployment list --displayKeys
-
-//STATUS CODEPUSH
-/**UP_TO_DATE: 0
-UPDATE_INSTALLED: 1
-UPDATE_IGNORED: 2
-UNKNOWN_ERROR: 3
-SYNC_IN_PROGRESS: 4
-CHECKING_FOR_UPDATE: 5
-AWAITING_USER_ACTION: 6
-DOWNLOADING_PACKAGE: 7
-INSTALLING_UPDATE: 8 */

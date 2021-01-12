@@ -55,7 +55,7 @@ class ListProducts extends PureComponent {
       ID_CITY: "",
       I_PAGE: 1,
       NUMOFPAGE: 50,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((res) => {
         console.log("get list ctv", res)
@@ -68,7 +68,7 @@ class ListProducts extends PureComponent {
       USERNAME: this.props.username,
       PAGE: 1,
       NUMOFPAGE: 100,
-      IDSHOP: "ABC123"
+      IDSHOP: "F6LKFY"
     }).then((res) => {
       console.log("this is GetwithdrawalCTV",res);
       this.setState({
@@ -115,7 +115,7 @@ class ListProducts extends PureComponent {
                           ID_CITY: "",
                           I_PAGE: 1,
                           NUMOFPAGE: 50,
-                          IDSHOP: "ABC123",
+                          IDSHOP: "F6LKFY",
                         })
                           .then((res) => {
                             this.setState({
@@ -150,7 +150,7 @@ class ListProducts extends PureComponent {
                     <DataTable.Title >Số dư hoa hồng</DataTable.Title>
                     <DataTable.Title numeric>Chi tiết</DataTable.Title>
                   </DataTable.Header>
-                  {ListData.length == 0 ? <Text></Text> : ListData.map((Val, key) => (
+                  {ListData && ListData.length == 0 ? <Text></Text> : ListData.map((Val, key) => (
                     <TouchableOpacity
                       onPress={() => navigation.navigate("Chi tiết hoa hồng theo CTV", {
                         ID_NAME: Val.USERNAME,
@@ -172,7 +172,7 @@ class ListProducts extends PureComponent {
               </ScrollView> : <Loading />}
               <View style={{ height: 5, backgroundColor: '#B8C4C4' }}></View>
               <View>
-                <Text style={{ color: '#FF0606', fontSize: 16, paddingLeft: 10 }}>Có {data_tt.length} yêu cầu thanh toán hoa hồng mới</Text>
+                <Text style={{ color: '#FF0606', fontSize: 16, paddingLeft: 10 }}>Có {data_tt && data_tt.length} yêu cầu thanh toán hoa hồng mới</Text>
                 <TouchableOpacity
                   onPress={() => navigation.navigate("Yêu cầu thanh toán")}
                   style={{ backgroundColor: '#FF5C03', height: 40, alignItems: 'center', justifyContent: 'center' }}

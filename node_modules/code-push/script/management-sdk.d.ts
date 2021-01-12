@@ -1,0 +1,47 @@
+import { AccessKey, Account, App, CollaboratorMap, Deployment, DeploymentMetrics, Headers, Package, PackageInfo, CodePushError } from "./types";
+declare class AccountManager {
+    static AppPermission: {
+        OWNER: string;
+        COLLABORATOR: string;
+    };
+    private _accessKey;
+    private _requestManager;
+    private _adapter;
+    private _fileUploadClient;
+    constructor(accessKey: string, customHeaders?: Headers, serverUrl?: string, proxy?: string);
+    get accessKey(): string;
+    isAuthenticated(throwIfUnauthorized?: boolean): Promise<boolean>;
+    addAccessKey(friendlyName: string, ttl?: number): Promise<AccessKey>;
+    getAccessKeys(): Promise<AccessKey[]>;
+    removeAccessKey(name: string): Promise<void>;
+    getAccountInfo(): Promise<Account>;
+    getApps(): Promise<App[]>;
+    getApp(appName: string): Promise<App>;
+    addApp(appName: string, appOs: string, appPlatform: string, manuallyProvisionDeployments?: boolean): Promise<App>;
+    removeApp(appName: string): Promise<void>;
+    renameApp(oldAppName: string, newAppName: string): Promise<void>;
+    transferApp(appName: string, orgName: string): Promise<void>;
+    getCollaborators(appName: string): Promise<CollaboratorMap>;
+    addCollaborator(appName: string, email: string): Promise<void>;
+    removeCollaborator(appName: string, email: string): Promise<void>;
+    addDeployment(appName: string, deploymentName: string): Promise<Deployment>;
+    clearDeploymentHistory(appName: string, deploymentName: string): Promise<void>;
+    getDeployments(appName: string): Promise<Deployment[]>;
+    getDeployment(appName: string, deploymentName: string): Promise<Deployment>;
+    renameDeployment(appName: string, oldDeploymentName: string, newDeploymentName: string): Promise<void>;
+    removeDeployment(appName: string, deploymentName: string): Promise<void>;
+    getDeploymentMetrics(appName: string, deploymentName: string): Promise<DeploymentMetrics>;
+    getDeploymentHistory(appName: string, deploymentName: string): Promise<Package[]>;
+    release(appName: string, deploymentName: string, filePath: string, targetBinaryVersion: string, updateMetadata: PackageInfo, uploadProgressCallback?: (progress: number) => void): Promise<Package>;
+    patchRelease(appName: string, deploymentName: string, label: string, updateMetadata: PackageInfo): Promise<void>;
+    promote(appName: string, sourceDeploymentName: string, destinationDeploymentName: string, updateMetadata: PackageInfo): Promise<Package>;
+    rollback(appName: string, deploymentName: string, targetRelease?: string): Promise<void>;
+    getAccessKey(accessKeyName: string): CodePushError;
+    getSessions(): CodePushError;
+    patchAccessKey(oldName: string, newName?: string, ttl?: number): CodePushError;
+    removeSession(machineName: string): CodePushError;
+    private packageFileFromPath;
+    private generateRandomFilename;
+    private getDeprecatedMethodError;
+}
+export = AccountManager;

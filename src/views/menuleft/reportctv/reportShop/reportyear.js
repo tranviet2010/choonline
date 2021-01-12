@@ -22,7 +22,7 @@ class ReportYear extends Component {
             YEAR: '',
             MONTH: '',
             REPORT_TYPE: '1',
-            IDSHOP: "ABC123"
+            IDSHOP: "F6LKFY"
         })
             .then((res) => {
                 console.log("yearrr", res);

@@ -51,7 +51,7 @@ class MangeAgent extends Component {
       LEVEL_AGENCY: picked.LEVEL_USER,
       I_PAGE: this.offset,
       NUMOFPAGE: 20,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((result) => {
         if (result.data.ERROR === "0000") {
@@ -77,7 +77,7 @@ class MangeAgent extends Component {
         LEVEL_AGENCY: picked.LEVEL_USER,
         I_PAGE: this.offset,
         NUMOFPAGE: 20,
-        IDSHOP: "ABC123",
+        IDSHOP: "F6LKFY",
       })
         .then((result) => {
           if (result.data.ERROR === "0000") {
@@ -116,7 +116,7 @@ class MangeAgent extends Component {
           LEVEL_AGENCY: picked.LEVEL_USER,
           I_PAGE: this.offset,
           NUMOFPAGE: 20,
-          IDSHOP: "ABC123",
+          IDSHOP: "F6LKFY",
         })
           .then((result) => {
             if (result.data.ERROR === "0000") {

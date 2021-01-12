@@ -51,7 +51,7 @@ class ListProducts extends Component {
       STATUS: '',
       PAGE: 1,
       NUMOFPAGE: 200,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((res) => {
         if (res.data.ERROR == "0000") {
@@ -73,7 +73,7 @@ class ListProducts extends Component {
       END_TIME: this.state.endTime,
       PAGE: 1,
       NUMOFPAGE: 10,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((res) => {
         if (res.data.ERROR == "0000") {
@@ -123,6 +123,8 @@ class ListProducts extends Component {
     const sphot3 = data ? data.filter((Val, index, array) => {
       return Val.STATUS_TREND == 4;
     }) : null
+
+    console.log("spot ",sphot1);
     return (
       <View>
         {data ? <View>
@@ -194,8 +196,8 @@ class ListProducts extends Component {
           </View> : <View style={{ margin: sizeHeight(1) }} >
               {authUser.GROUPS === "3" ? (
                 <View style={{ height: 100, width: '100%' }}>
-                  <View style={{height: sizeHeight(5), borderRadius: 5, backgroundColor: '#149CC6',justifyContent:'center',alignItems:'center'}}>
-                    <Text style={{  color: 'white', fontSize: 16 }}>
+                  <View style={{ height: sizeHeight(5), borderRadius: 5, backgroundColor: '#149CC6', justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ color: 'white', fontSize: 16 }}>
                       Số đơn hàng đang chờ xử lý hiện tại
                 </Text>
                   </View>
@@ -277,7 +279,7 @@ class ListProducts extends Component {
               <View style={{ height: 5, backgroundColor: '#F1F2F2' }}></View>
 
             </View>}
-          <View style={{ paddingLeft: 5, paddingRight: 5 }}>
+          {sphot.lenghth == 0 ? null : <View style={{ paddingLeft: 5, paddingRight: 5 }}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
               <Text >SẢN PHẨM NỔI BẬT</Text>
               <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
@@ -314,7 +316,7 @@ class ListProducts extends Component {
                       }}
                     >
                       <Image
-                        source={{ uri: item.IMAGE_COVER }}
+                        source={item.IMAGE_COVER==null?require('../../../assets/images/emptypic.jpg'):{ uri: item.IMAGE_COVER }}
                         PlaceholderContent={<ActivityIndicator />}
                         resizeMode="contain"
                         style={styles.imageSize}
@@ -338,202 +340,213 @@ class ListProducts extends Component {
               }}
               keyExtractor={(item) => item.ID_PRODUCT.toString()}
             />
-          </View>
-          <View style={{ height: 5, backgroundColor: '#F1F2F2' }}></View>
-          <View style={{ paddingLeft: 5, paddingRight: 5, marginTop: 5 }}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <Text>SẢN PHẨM BÁN CHẠY</Text>
-              <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ fontSize: sizeFont(4), color: '#166CEE' }}
-                  onPress={() => this.props.navigation.navigate('FullItem', {
-                    data: sphot1
-                  })}
-                >Xem thêm</Text>
-                <Image source={require('../../../assets/images/right.png')}
-                  style={{ height: 15, width: 15, marginLeft: 7 }}
-                />
+          </View>}
+
+          {sphot1.length == 0 ? null : <View>
+            <View style={{ height: 5, backgroundColor: '#F1F2F2' }}></View>
+            <View style={{ paddingLeft: 5, paddingRight: 5, marginTop: 5 }}>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <Text>SẢN PHẨM BÁN CHẠY</Text>
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                  <Text style={{ fontSize: sizeFont(4), color: '#166CEE' }}
+                    onPress={() => this.props.navigation.navigate('FullItem', {
+                      data: sphot1
+                    })}
+                  >Xem thêm</Text>
+                  <Image source={require('../../../assets/images/right.png')}
+                    style={{ height: 15, width: 15, marginLeft: 7 }}
+                  />
+                </View>
               </View>
-            </View>
-            <FlatList
-              data={sphot1}
-              horizontal={true}
-              renderItem={({ item, index }) => {
-                this.count = this.count + 1;
-                return (
-                  <TouchableOpacity
-                    style={styles.touchFlatListChild}
-                    onPress={() =>
-                      navigation.navigate("DetailProducts", {
-                        ID_PRODUCT: item.ID_PRODUCT,
-                        NAME: "Home",
-                      })
-                    }
-                  >
-                    <View
-                      style={{
-                        width: "100%",
-                        height: sizeHeight(15),
-                        justifyContent: "center",
-                      }}
+              <FlatList
+                data={sphot1}
+                horizontal={true}
+                renderItem={({ item, index }) => {
+                  this.count = this.count + 1;
+                  return (
+                    <TouchableOpacity
+                      style={styles.touchFlatListChild}
+                      onPress={() =>
+                        navigation.navigate("DetailProducts", {
+                          ID_PRODUCT: item.ID_PRODUCT,
+                          NAME: "Home",
+                        })
+                      }
                     >
-                      <Image
-                        source={{ uri: item.IMAGE_COVER }}
-                        PlaceholderContent={<ActivityIndicator />}
-                        resizeMode="contain"
-                        style={styles.imageSize}
-                      />
-                    </View>
-                    <Text style={styles.textName}>
-                      {_.truncate(item.PRODUCT_NAME, {
-                        length: 12,
-                      })}{" "}
-                    </Text>
-                    <Text style={styles.textPrice}>
-                      {numeral(
-                        handleMoney(status, item, authUser)
-                      ).format("0,0")} đ
+                      <View
+                        style={{
+                          width: "100%",
+                          height: sizeHeight(15),
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Image
+                          source={item.IMAGE_COVER==null?require('../../../assets/images/emptypic.jpg'):{ uri: item.IMAGE_COVER }}
+                          PlaceholderContent={<ActivityIndicator />}
+                          resizeMode="contain"
+                          style={styles.imageSize}
+                        />
+                      </View>
+                      <Text style={styles.textName}>
+                        {_.truncate(item.PRODUCT_NAME, {
+                          length: 12,
+                        })}{" "}
+                      </Text>
+                      <Text style={styles.textPrice}>
+                        {numeral(
+                          handleMoney(status, item, authUser)
+                        ).format("0,0")} đ
                           </Text>
-                    <Text>
-                      {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text>
-                        HH: <Text style={{ color: '#3399FF' }}>{numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")} ({item.COMISSION_PRODUCT}%)</Text>
-                      </Text>}
-                    </Text>
-                  </TouchableOpacity>
-                );
-              }}
-              keyExtractor={(item) => item.ID_PRODUCT.toString()}
-            />
-          </View>
-          <View style={{ height: 5, backgroundColor: '#F1F2F2' }}></View>
-          <View style={{ paddingLeft: 5, paddingRight: 5, marginTop: 5 }}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <Text>SẢN PHẨM MỚI</Text>
-              <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ fontSize: sizeFont(4), color: '#166CEE' }}
-                  onPress={() => this.props.navigation.navigate('FullItem', {
-                    data: sphot2
-                  })}
-                >Xem thêm</Text>
-                <Image source={require('../../../assets/images/right.png')}
-                  style={{ height: 15, width: 15, marginLeft: 7 }}
-                />
-              </View>
-            </View>
-            <FlatList
-              data={sphot2}
-              horizontal={true}
-              renderItem={({ item, index }) => {
-                this.count = this.count + 1;
-                return (
-                  <TouchableOpacity
-                    style={styles.touchFlatListChild}
-                    onPress={() =>
-                      navigation.navigate("DetailProducts", {
-                        ID_PRODUCT: item.ID_PRODUCT,
-                        NAME: "Home",
-                      })
-                    }
-                  >
-                    <View
-                      style={{
-                        width: "100%",
-                        height: sizeHeight(15),
-                        justifyContent: "center",
-                      }}
-                    >
-                      <Image
-                        source={{ uri: item.IMAGE_COVER }}
-                        PlaceholderContent={<ActivityIndicator />}
-                        resizeMode="contain"
-                        style={styles.imageSize}
-                      />
-                    </View>
-                    <Text style={styles.textName}>
-                      {_.truncate(item.PRODUCT_NAME, {
-                        length: 12,
-                      })}{" "}
-                    </Text>
-                    <Text style={styles.textPrice}>
-                      {numeral(
-                        handleMoney(status, item, authUser)
-                      ).format("0,0")} đ
+                      <Text>
+                        {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text>
+                          HH: <Text style={{ color: '#3399FF' }}>{numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")} ({item.COMISSION_PRODUCT}%)</Text>
+                        </Text>}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                }}
+                keyExtractor={(item) => item.ID_PRODUCT.toString()}
+              />
+            </View></View>
+
+          }
+          {
+            sphot2.length == 0 ? null : <View>
+              <View style={{ height: 5, backgroundColor: '#F1F2F2' }}></View>
+              <View style={{ paddingLeft: 5, paddingRight: 5, marginTop: 5 }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                  <Text>SẢN PHẨM MỚI</Text>
+                  <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: sizeFont(4), color: '#166CEE' }}
+                      onPress={() => this.props.navigation.navigate('FullItem', {
+                        data: sphot2
+                      })}
+                    >Xem thêm</Text>
+                    <Image source={require('../../../assets/images/right.png')}
+                      style={{ height: 15, width: 15, marginLeft: 7 }}
+                    />
+                  </View>
+                </View>
+                <FlatList
+                  data={sphot2}
+                  horizontal={true}
+                  renderItem={({ item, index }) => {
+                    this.count = this.count + 1;
+                    return (
+                      <TouchableOpacity
+                        style={styles.touchFlatListChild}
+                        onPress={() =>
+                          navigation.navigate("DetailProducts", {
+                            ID_PRODUCT: item.ID_PRODUCT,
+                            NAME: "Home",
+                          })
+                        }
+                      >
+                        <View
+                          style={{
+                            width: "100%",
+                            height: sizeHeight(15),
+                            justifyContent: "center",
+                          }}
+                        >
+                          <Image
+                            source={item.IMAGE_COVER==null?require('../../../assets/images/emptypic.jpg'):{ uri: item.IMAGE_COVER }}
+                            PlaceholderContent={<ActivityIndicator />}
+                            resizeMode="contain"
+                            style={styles.imageSize}
+                          />
+                        </View>
+                        <Text style={styles.textName}>
+                          {_.truncate(item.PRODUCT_NAME, {
+                            length: 12,
+                          })}{" "}
+                        </Text>
+                        <Text style={styles.textPrice}>
+                          {numeral(
+                            handleMoney(status, item, authUser)
+                          ).format("0,0")} đ
                           </Text>
-                    <Text>
-                      {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text>
-                        HH: <Text style={{ color: '#3399FF' }}>{numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")} ({item.COMISSION_PRODUCT}%)</Text>
-                      </Text>}
-                    </Text>
-                  </TouchableOpacity>
-                );
-              }}
-              keyExtractor={(item) => item.ID_PRODUCT.toString()}
-            />
-          </View>
-          <View style={{ height: 5, backgroundColor: '#F1F2F2' }}></View>
-          <View style={{ paddingLeft: 5, paddingRight: 5, marginTop: 5 }}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <Text>SẢN PHẨM KHUYẾN MÃI</Text>
-              <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ fontSize: sizeFont(4), color: '#166CEE' }}
-                  onPress={() => this.props.navigation.navigate('FullItem', {
-                    data: sphot3
-                  })}
-                >Xem thêm</Text>
-                <Image source={require('../../../assets/images/right.png')}
-                  style={{ height: 15, width: 15, marginLeft: 7 }}
+                        <Text>
+                          {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text>
+                            HH: <Text style={{ color: '#3399FF' }}>{numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")} ({item.COMISSION_PRODUCT}%)</Text>
+                          </Text>}
+                        </Text>
+                      </TouchableOpacity>
+                    );
+                  }}
+                  keyExtractor={(item) => item.ID_PRODUCT.toString()}
                 />
               </View>
             </View>
-            <FlatList
-              data={sphot3}
-              horizontal={true}
-              renderItem={({ item, index }) => {
-                this.count = this.count + 1;
-                return (
-                  <TouchableOpacity
-                    style={styles.touchFlatListChild}
-                    onPress={() =>
-                      navigation.navigate("DetailProducts", {
-                        ID_PRODUCT: item.ID_PRODUCT,
-                        NAME: "Home",
-                      })
-                    }
-                  >
-                    <View
-                      style={{
-                        width: "100%",
-                        height: sizeHeight(15),
-                        justifyContent: "center",
-                      }}
+          }
+          {sphot3.length == 0 ? null : <View>
+            <View style={{ height: 5, backgroundColor: '#F1F2F2' }}></View>
+            <View style={{ paddingLeft: 5, paddingRight: 5, marginTop: 5 }}>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <Text>SẢN PHẨM KHUYẾN MÃI</Text>
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                  <Text style={{ fontSize: sizeFont(4), color: '#166CEE' }}
+                    onPress={() => this.props.navigation.navigate('FullItem', {
+                      data: sphot3
+                    })}
+                  >Xem thêm</Text>
+                  <Image source={require('../../../assets/images/right.png')}
+                    style={{ height: 15, width: 15, marginLeft: 7 }}
+                  />
+                </View>
+              </View>
+              <FlatList
+                data={sphot3}
+                horizontal={true}
+                renderItem={({ item, index }) => {
+                  this.count = this.count + 1;
+                  return (
+                    <TouchableOpacity
+                      style={styles.touchFlatListChild}
+                      onPress={() =>
+                        navigation.navigate("DetailProducts", {
+                          ID_PRODUCT: item.ID_PRODUCT,
+                          NAME: "Home",
+                        })
+                      }
                     >
-                      <Image
-                        source={{ uri: item.IMAGE_COVER }}
-                        PlaceholderContent={<ActivityIndicator />}
-                        resizeMode="contain"
-                        style={styles.imageSize}
-                      />
-                    </View>
-                    <Text style={styles.textName}>
-                      {_.truncate(item.PRODUCT_NAME, {
-                        length: 12,
-                      })}{" "}
+                      <View
+                        style={{
+                          width: "100%",
+                          height: sizeHeight(15),
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Image
+                          source={item.IMAGE_COVER==null?require('../../../assets/images/emptypic.jpg'):{ uri: item.IMAGE_COVER }}
+                          PlaceholderContent={<ActivityIndicator />}
+                          resizeMode="contain"
+                          style={styles.imageSize}
+                        />
+                      </View>
+                      <Text style={styles.textName}>
+                        {_.truncate(item.PRODUCT_NAME, {
+                          length: 12,
+                        })}{" "}
+                      </Text>
+                      <Text style={styles.textPrice}>
+                        {numeral(
+                          handleMoney(status, item, authUser)
+                        ).format("0,0")} đ
                     </Text>
-                    <Text style={styles.textPrice}>
-                      {numeral(
-                        handleMoney(status, item, authUser)
-                      ).format("0,0")} đ
-                    </Text>
-                    <Text>
-                      {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text>
-                        HH: <Text style={{ color: '#3399FF' }}>{numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")} ({item.COMISSION_PRODUCT}%)</Text>
-                      </Text>}
-                    </Text>
-                  </TouchableOpacity>
-                );
-              }}
-              keyExtractor={(item) => item.ID_PRODUCT.toString()}
-            />
+                      <Text>
+                        {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text>
+                          HH: <Text style={{ color: '#3399FF' }}>{numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")} ({item.COMISSION_PRODUCT}%)</Text>
+                        </Text>}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                }}
+                keyExtractor={(item) => item.ID_PRODUCT.toString()}
+              />
+            </View>
           </View>
+          }
           <View style={{ height: 5, backgroundColor: '#F1F2F2' }}></View>
         </View> : null}
       </View>

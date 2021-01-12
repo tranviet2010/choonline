@@ -30,7 +30,7 @@ class Tranning extends Component {
     GetInformation({
       USERNAME: authUser.USERNAME,
       TYPES: 2,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((result) => {
         if (result.data.ERROR === "0000") {

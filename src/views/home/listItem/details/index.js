@@ -122,7 +122,7 @@ class DetailProducts extends Component {
     const { ID_PRODUCT } = this.props.route.params;
     await getDetails({
       USERNAME: status === "" ? null : authUser.USERNAME,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
       IDPRODUCT: ID_PRODUCT,
     })
       .then((result) => {
@@ -273,14 +273,14 @@ class DetailProducts extends Component {
           {
             text: "KHÔNG CÓ GIÁ SP",
             onPress: () => {
-              Clipboard.setString(`https://f5sell.com/catalog?v=568&s=ABC123&c=${data.SUB_ID}&ctvid=YU2L0E`)
+              Clipboard.setString(`https://f5sell.com/catalog?v=568&s=F6LKFY&c=${data.SUB_ID}&ctvid=YU2L0E`)
             },
             style: "default",
           },
           {
             text: "HIỂN THỊ GIÁ SP",
             onPress: () => {
-              Clipboard.setString(`https://f5sell.com/catalog?s=ABC123&c=${data.SUB_ID}&ctvid=YU2L0E`)
+              Clipboard.setString(`https://f5sell.com/catalog?s=F6LKFY&c=${data.SUB_ID}&ctvid=YU2L0E`)
             },
             style: "default",
           }
@@ -301,14 +301,14 @@ class DetailProducts extends Component {
           {
             text: "KHÔNG CÓ GIÁ SP",
             onPress: () => {
-              Clipboard.setString(`https://f5sell.com/catalog?v=536&s=ABC123&c=${data.SUB_ID}&ctvid=YU2L0E&p=${data.CODE_PRODUCT}`)
+              Clipboard.setString(`https://f5sell.com/catalog?v=536&s=F6LKFY&c=${data.SUB_ID}&ctvid=YU2L0E&p=${data.CODE_PRODUCT}`)
             },
             style: "default",
           },
           {
             text: "HIỂN THỊ GIÁ SP",
             onPress: () => {
-              Clipboard.setString(`https://f5sell.com/catalog?s=ABC123&c=${data.SUB_ID}&ctvid=YU2L0E&p=${data.CODE_PRODUCT}`)
+              Clipboard.setString(`https://f5sell.com/catalog?s=F6LKFY&c=${data.SUB_ID}&ctvid=YU2L0E&p=${data.CODE_PRODUCT}`)
             },
             style: "default",
           }
@@ -437,7 +437,7 @@ class DetailProducts extends Component {
                 <TouchableOpacity
                   onPress={() =>
                     this.props.navigation.navigate("Chi tiết chính sách", {
-                      item: '159',
+                      item: '566',
                     })
                   }
                 >
@@ -512,7 +512,7 @@ class DetailProducts extends Component {
               />
             </View> */}
             {status === "" || authUser.GROUPS == "3" ? <View>
-              <Text style={{ padding: 5, color: 'blue', fontStyle: 'italic' }}>Hãy đăng ký tài khoản để được mua sản phẩm này với giá gốc, tham gia bán hàng cùng ABC123 và hưởng hoa hồng CỰC SỐC</Text>
+              <Text style={{ padding: 5, color: 'blue', fontStyle: 'italic' }}>Hãy đăng ký tài khoản để được mua sản phẩm này với giá gốc, tham gia bán hàng cùng F6LKFY và hưởng hoa hồng CỰC SỐC</Text>
               <View style={{ marginBottom: sizeHeight(5), justifyContent: 'center', alignItems: 'center' }}>
                 <TouchableOpacity
                   style={{

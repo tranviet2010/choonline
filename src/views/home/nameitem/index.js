@@ -47,8 +47,8 @@ class NameItems extends Component {
     const { navigation, status, authUser } = this.props;
     getListProducts({
       ID_PARENT: 0,
-      IDSHOP: "ABC123",
-      IDUSER: "ABC123",
+      IDSHOP: "F6LKFY",
+      IDUSER: "F6LKFY",
     })
       .then((result) => {
         if (result.data.ERROR == "0000") {
@@ -89,8 +89,8 @@ class NameItems extends Component {
   handleLoad = () => {
     getListProducts({
       ID_PARENT: 0,
-      IDSHOP: "ABC123",
-      IDUSER: "ABC123",
+      IDSHOP: "F6LKFY",
+      IDUSER: "F6LKFY",
     })
       .then((result) => {
         if (result.data.ERROR == "0000") {
@@ -112,7 +112,7 @@ class NameItems extends Component {
         PARENTID: valueParent.ID,
         USERNAME: authUser.USERNAME,
         USER_CODE: authUser.USER_CODE,
-        IDSHOP: "ABC123",
+        IDSHOP: "F6LKFY",
       })
         .then((result) => {
           this.setState({ loadingAdd: false }, () => {

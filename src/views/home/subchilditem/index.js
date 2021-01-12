@@ -56,7 +56,7 @@ class SubChildItem extends Component {
             SUB_ID: ID,
             PAGE: this.offset,
             NUMOFPAGE: 10,
-            IDSHOP: "ABC123",
+            IDSHOP: "F6LKFY",
           })
             .then((result) => {
               if (result.data.ERROR === "0000") {
@@ -91,7 +91,7 @@ class SubChildItem extends Component {
       SUB_ID: ID,
       PAGE: this.offset,
       NUMOFPAGE: 10,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((result) => {
         if (result.data.ERROR === "0000") {
@@ -117,7 +117,7 @@ class SubChildItem extends Component {
       SUB_ID: ID,
       PAGE: this.offset,
       NUMOFPAGE: 10,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((result) => {
         if (result.data.ERROR === "0000") {

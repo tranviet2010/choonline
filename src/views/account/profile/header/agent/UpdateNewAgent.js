@@ -234,7 +234,7 @@ class UpdateNewAgent extends Component {
       TENTK: bankName,
       TENNH: nameBank,
       AVATAR: imageAvatar,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
       CMT: numCMNN,
       IMG1: CMT_1,
       IMG2: CMT_2,

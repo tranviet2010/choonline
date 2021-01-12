@@ -40,10 +40,13 @@ class OrderMain extends Component {
     render() {
         const { Data } = this.props;
         const { district } = this.state;
+        console.log("distric",district);
         return (
             <View style={styles.status}>
                 <View style={styles.status1}><Text>Nhận hàng tại</Text></View>
-                <View style={styles.status2}><Text>{Data.ADDRESS_RECEIVER + '-' + district + '-' + this.checkCity()}</Text></View>
+                {district!=''?<View style={styles.status2}><Text>{Data.ADDRESS_RECEIVER + '-' + district + '-' + this.checkCity()}</Text></View>:
+                <View style={styles.status2}><Text>{Data.ADDRESS_RECEIVER}</Text></View>
+            }
             </View>
         )
     }

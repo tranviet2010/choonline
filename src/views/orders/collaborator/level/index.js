@@ -36,12 +36,12 @@ class LevelCollaborator extends Component {
       I_PAGE: this.offset,
       NUMOFPAGE: 10,
       LEVEL: "",
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((result) => {})
       .catch((error) => {
       });
-    getCollorator({ IDSHOP: "ABC123" })
+    getCollorator({ IDSHOP: "F6LKFY" })
       .then((result) => {
         if (result.data.ERROR == "0000") {
           this.setState(

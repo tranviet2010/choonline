@@ -22,7 +22,7 @@ class ReportList extends Component {
             CODE_PRODUCT:'',
             PAGE:1, 
             NUMOFPAGE:10,
-            IDSHOP:"ABC123"
+            IDSHOP:"F6LKFY"
         })
             .then((result) => {
                 console.log("this is ReportItem",result);

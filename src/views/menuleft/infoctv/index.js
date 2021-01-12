@@ -40,7 +40,7 @@ class InfoCTV extends Component {
             I_CITY: '',
             I_PAGE: 1,
             NUMOFPAGE: 50,
-            IDSHOP: "ABC123",
+            IDSHOP: "F6LKFY",
         })
             .then((result) => {
                 console.log("aaaaaaaaaaaaaa", result)
@@ -149,7 +149,7 @@ class InfoCTV extends Component {
                                         ID_CITY: selectedValue,
                                         I_PAGE: 1,
                                         NUMOFPAGE: 25,
-                                        IDSHOP: "ABC123",
+                                        IDSHOP: "F6LKFY",
                                     })
                                         .then((res) => {
                                             console.log('anc+errr', res)

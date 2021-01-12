@@ -42,7 +42,7 @@ class ListNotification extends Component {
     await updateNotify({
       USERNAME: authUser.USERNAME,
       ID_NOTIFY: item.ID,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((result) => {
         console.log("updateNotify", result)
@@ -54,7 +54,7 @@ class ListNotification extends Component {
       USERNAME: authUser.USERNAME,
       PAGE: 1,
       NUMOFPAGE: 15,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((result) => {
         console.log("getListNotify", result);
@@ -101,10 +101,10 @@ class ListNotification extends Component {
         ListFooterComponent={() =>
           loadMore === true ? (
             <View style={{ marginTop: sizeHeight(2) }}>
-              <ActivityIndicator
+              {/* <ActivityIndicator
                 // color={COLOR.BUTTON}
                 size={"large"}
-              />
+              /> */}
             </View>
           ) : null
         }
@@ -134,9 +134,9 @@ class ListNotification extends Component {
                     <Text style={{fontStyle:'italic',color:'gray'}}>
                       {item.SENT_TIME}
                     </Text>
-                    <Text style={{ fontWeight: "bold", fontSize: sizeFont(4) }}>
+                    {/* <Text style={{ fontWeight: "bold", fontSize: sizeFont(4) }}>
                       {this.handleType(item)}
-                    </Text>
+                    </Text> */}
                   </View>
                   <View style={{width:sizeWidth(85)}}>
                     <Text>

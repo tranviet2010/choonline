@@ -107,7 +107,7 @@ export default class SignUp extends Component {
           ID_DISTRICT: "",
           ADDRESS: districtText,
           PASSWORD: passwordText,
-          IDSHOP: "ABC123",
+          IDSHOP: "F6LKFY",
         })
           .then((result) => {
             if (result.data.ERROR == "0000") {

@@ -30,7 +30,7 @@ class SplashScreen extends Component {
             console.log('err')
         })
         this.props.LoginPhone({
-            IDSHOP: 'ABC123',
+            IDSHOP: 'F6LKFY',
             USERNAME: username,
             PASSWORD: password,
         })

@@ -69,7 +69,7 @@ class Subchilditem extends Component {
       END_TIME: this.state.endTime,
       PAGE: 1,
       NUMOFPAGE: 10,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((res) => {
         if (res.data.ERROR == "0000") {
@@ -91,7 +91,7 @@ class Subchilditem extends Component {
     GetCTVDetail({
       USERNAME: username,
       USER_CTV: ID_NAME,
-      IDSHOP: "ABC123"
+      IDSHOP: "F6LKFY"
     })
       .then((result) => {
         if (result.data.ERROR === "0000") {
@@ -189,7 +189,7 @@ class Subchilditem extends Component {
                       END_TIME: this.state.endTime,
                       PAGE: 1,
                       NUMOFPAGE: 10,
-                      IDSHOP: "ABC123",
+                      IDSHOP: "F6LKFY",
                     })
                       .then((res) => {
                         console.log("search nè", res)

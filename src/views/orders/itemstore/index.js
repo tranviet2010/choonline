@@ -73,7 +73,7 @@ class ItemStore extends Component {
             END_TIME: dayEnd,
             PAGE: this.offset,
             NUMOFPAGE: 8,
-            IDSHOP: "ABC123",
+            IDSHOP: "F6LKFY",
           })
             .then((result) => {
               if (result.data.ERROR == "0000") {
@@ -114,7 +114,7 @@ class ItemStore extends Component {
           END_TIME: dayEnd,
           PAGE: this.offset,
           NUMOFPAGE: 8,
-          IDSHOP: "ABC123",
+          IDSHOP: "F6LKFY",
         })
           .then((result) => {
             if (result.data.ERROR == "0000") {
@@ -141,7 +141,7 @@ class ItemStore extends Component {
       END_TIME: dayEnd,
       PAGE: this.offset,
       NUMOFPAGE: 8,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((result) => {
         if (result.data.ERROR == "0000") {
@@ -170,7 +170,7 @@ class ItemStore extends Component {
       END_TIME: dayEnd,
       PAGE: this.offset,
       NUMOFPAGE: 10,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((result) => {
         if (result.data.ERROR == "0000") {

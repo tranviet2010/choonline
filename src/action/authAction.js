@@ -24,7 +24,6 @@ export const LoginPhone = (data) => (dispatch) => {
       });
   });
 };
-
 export const GetIdShop = (data) => (dispatch) => {
   return new Promise((resolve, reject) => {
     return getShopInfo(data)
@@ -45,8 +44,6 @@ export const GetIdShop = (data) => (dispatch) => {
       });
   });
 };
-
-
 export const UpdateDivice = (data) => (dispatch) => {
   return new Promise((resolve, reject) => {
     return updateDevice(data)

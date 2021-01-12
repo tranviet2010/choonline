@@ -151,7 +151,7 @@ class UserOrder extends Component {
             STATUS: '',
             PAGE: 1,
             NUMOFPAGE: 100,
-            IDSHOP: 'ABC123',
+            IDSHOP: 'F6LKFY',
         })
             .then((res) => {
                 console.log("aaaaaaaaaa",res);
@@ -308,7 +308,7 @@ class UserOrder extends Component {
                                         STATUS: this.state.selectedValue,
                                         PAGE: 1,
                                         NUMOFPAGE: 50,
-                                        IDSHOP: 'ABC123',
+                                        IDSHOP: 'F6LKFY',
                                     })
                                         .then((res) => {
                                             console.log("khong có dữ liệu", res);

@@ -283,7 +283,7 @@ class DetailAddressCart extends Component {
             ID_DISTRICT: district.MAQH,
             ADDRESS: address,
             ID_WARD: districChild.XAID,
-            IDSHOP: 'http://banbuonthuoc.moma.vn',
+            IDSHOP: 'F6LKFY',
           })
             .then((result) => {
               console.log("this is orderProduct", result);

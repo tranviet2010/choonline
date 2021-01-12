@@ -11,7 +11,7 @@ export default function policyCar() {
         USERNAME: "123456",
         TYPES: 2,
         CATEGORY: "",
-        IDSHOP: "ABC123",
+        IDSHOP: "F6LKFY",
       })
       console.log(result)
       setdata(result.data)

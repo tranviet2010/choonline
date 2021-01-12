@@ -39,7 +39,7 @@ class getwithdawal extends Component {
             USERNAME: this.props.username,
             PAGE: 1,
             NUMOFPAGE: 100,
-            IDSHOP: "ABC123"
+            IDSHOP: "F6LKFY"
         }).then((res) => {
             this.setState({
                 data_tt: res.data.INFO

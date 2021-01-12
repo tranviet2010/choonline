@@ -23,7 +23,7 @@ export default class LevelCTV extends Component {
   }
   handleLevelCTV = () => {
     GetLevelCTV({
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((result) => {
         if (result.data.ERROR === "0000") {

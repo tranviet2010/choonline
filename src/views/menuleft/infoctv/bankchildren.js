@@ -40,7 +40,7 @@ class BankChildren extends Component {
             ID_CITY: '',
             I_PAGE: 1,
             NUMOFPAGE: 25,
-            IDSHOP: "ABC123",
+            IDSHOP: "F6LKFY",
         })
             .then((res) => {
                 if (res.data.ERROR == "0000") {
@@ -62,7 +62,7 @@ class BankChildren extends Component {
             END_TIME: this.state.endTime,
             PAGE: 1,
             NUMOFPAGE: 10,
-            IDSHOP: "ABC123",
+            IDSHOP: "F6LKFY",
         })
             .then((res) => {
                 console.log("roseeee", res);

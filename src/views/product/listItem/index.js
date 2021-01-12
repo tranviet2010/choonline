@@ -16,6 +16,7 @@ import {
   Linking,
   Alert,
 } from "react-native";
+import {AlertCommon} from "../../../components/error";
 import { _retrieveData } from "../../../utils/asynStorage";
 import { HeaderLeftComponet } from "../../../components/header"
 import IconComponets from "../../../components/icon";
@@ -60,7 +61,7 @@ class ListProducts extends PureComponent {
     getListSubProducts({
       USERNAME: this.props.username,
       ID_PARENT: '',
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
       SEARCH_NAME: text,
     })
       .then((result) => {
@@ -93,7 +94,7 @@ class ListProducts extends PureComponent {
     getListProduct1({
       USERNAME: this.props.username,
       ID_PARENT: '',
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((res) => {
         if (res.data.ERROR == "0000") {
@@ -109,14 +110,14 @@ class ListProducts extends PureComponent {
     getListSubProducts({
       USERNAME: this.props.username,
       ID_PARENT: '',
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
       SEARCH_NAME: this.state.search,
     })
       .then((result) => {
+        console.log('subproduct========',result);
         if (result.data.ERROR == "0000") {
           for (let i = 0; i < result.data.DETAIL.length; i++) {
             result.data.DETAIL[i].data = result.data.DETAIL[i].INFO;
-
             //resultArray.push(result.data.DETAIL[i]);
           }
           this.setState(
@@ -127,7 +128,7 @@ class ListProducts extends PureComponent {
               this.setState({ loading: false });
             }
           );
-        } else {
+        } else { 
           this.setState({ loading: false }, () =>
             AlertCommon("Thông báo", result.data.RESULT, () => null)
           );

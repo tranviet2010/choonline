@@ -132,7 +132,7 @@ class UserChildren extends Component {
                 TENTK: tentk,
                 TENNH: tennh,
                 AVATAR: this.state.imageAvatar,
-                IDSHOP: "ABC123",
+                IDSHOP: "F6LKFY",
                 DOB: '',
                 CMT: cmnd,
                 IMG1: CMT_1,
@@ -239,7 +239,7 @@ class UserChildren extends Component {
             END_TIME: this.state.endTime,
             PAGE: 1,
             NUMOFPAGE: 10,
-            IDSHOP: "ABC123",
+            IDSHOP: "F6LKFY",
         })
             .then((res) => {
                 console.log("roseeee", res);
@@ -256,7 +256,7 @@ class UserChildren extends Component {
             GetCTVDetail({
                 USERNAME: this.props.username,
                 USER_CTV: this.props.username,
-                IDSHOP: "ABC123",
+                IDSHOP: "F6LKFY",
             })
             .then((res) => {
                 console.log("ctvdetail", res);

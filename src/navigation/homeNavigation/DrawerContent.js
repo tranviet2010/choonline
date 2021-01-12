@@ -239,7 +239,7 @@ class DrawerContent extends Component {
 
                         onPress={() => { this.props.navigation.navigate('Đào tạo') }}
                     />}
-                    <DrawerItem
+                    {/* <DrawerItem
                         icon={({ color, size }) => (
                             <Image
                                 source={require('../../assets/images/qrcode.png')}
@@ -249,7 +249,7 @@ class DrawerContent extends Component {
                         label={({ focused, color }) => <Text style={{ color: '#E1AC06', fontSize: 16 }}>Quét mã QR code</Text>}
                         style={{height:sizeHeight(5.5),backgroundColor:'#fff',justifyContent:'center'}}
                         onPress={() => { }}
-                    />
+                    /> */}
                     {this.props.status == '' ? null : <DrawerItem
                         icon={({ color, size }) => (
                             <Image

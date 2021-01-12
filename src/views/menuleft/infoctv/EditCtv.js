@@ -108,7 +108,7 @@ class EditCtv extends Component {
                 TENTK: tentk,
                 TENNH: tennh,
                 AVATAR: this.state.imageAvatar,
-                IDSHOP: "ABC123",
+                IDSHOP: "F6LKFY",
                 DOB: dob,
                 CMT: cmnd,
                 IMG1: CMT_1,
@@ -231,7 +231,7 @@ class EditCtv extends Component {
         GetCTVDetail({
             USERNAME: id,
             USER_CTV: id,
-            IDSHOP: "ABC123",
+            IDSHOP: "F6LKFY",
         })
             .then((res) => {
 

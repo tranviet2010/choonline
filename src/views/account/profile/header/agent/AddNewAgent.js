@@ -119,7 +119,7 @@ class AddNewAgent extends Component {
       TENTK: nameAccount,
       TENNH: nameBank,
       AVATAR: imageAvatar,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
       CMT: passport,
       IMG1: CMT_1,
       IMG2: CMT_2,
@@ -136,7 +136,7 @@ class AddNewAgent extends Component {
             () => {
               this.props
                 .GetProfile({
-                  IDSHOP: "ABC123",
+                  IDSHOP: "F6LKFY",
                   USER_CTV: this.props.authUser.USERNAME,
                   USERNAME: this.props.authUser.USERNAME,
                 })

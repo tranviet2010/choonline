@@ -45,7 +45,7 @@ class Home extends Component {
         if (result) {
           await this.props
             .GetProfile({
-              IDSHOP: "ABC123",
+              IDSHOP: "F6LKFY",
               USER_CTV: result.substr(1).slice(0, -1),
               USERNAME: result.substr(1).slice(0, -1),
             })
@@ -58,7 +58,7 @@ class Home extends Component {
             USERNAME: result.substr(1).slice(0, -1),
             PAGE: 1,
             NUMOFPAGE: 5,
-            IDSHOP: "ABC123",
+            IDSHOP: "F6LKFY",
           })
             .then((result) => {
               if (result.data.ERROR === "0000") {
@@ -72,7 +72,7 @@ class Home extends Component {
           await getListSubProducts({
             USERNAME: null,
             ID_PARENT: null,
-            IDSHOP: "ABC123",
+            IDSHOP: "F6LKFY",
             SEARCH_NAME: this.state.search,
           })
             .then((result) => {

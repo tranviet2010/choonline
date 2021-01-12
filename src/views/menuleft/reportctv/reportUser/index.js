@@ -26,7 +26,7 @@ class UserReport extends Component {
             MOTH: this.state.moth,
             PAGE: '1',
             NUMOFPAGE: '10',
-            IDSHOP: "ABC123"
+            IDSHOP: "F6LKFY"
         })
             .then((res) => {
                 console.log("this is config", res);

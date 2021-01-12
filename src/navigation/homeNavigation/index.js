@@ -136,7 +136,7 @@ MyHomeStack = (props) => {
                     {authUser.GROUPS!=3?<HeaderLeftComponet
                       navigation={navigation}
                       onPress={() =>
-                        navigation.navigate("Carts", {
+                        navigation.navigate("CartHome", {
                           NAME: "HomePay",
                         })
                       }
@@ -162,7 +162,7 @@ MyHomeStack = (props) => {
                 <View>
                   <HeaderLeftComponet
                     navigation={navigation}
-                    onPress={() => navigation.navigate("Thông báo", {
+                    onPress={() => navigation.navigate("Info", {
                       NAME: "HomePay",
                     })}
                     name="bell"
@@ -185,7 +185,6 @@ MyHomeStack = (props) => {
                 </View>
                 <TouchableOpacity 
                 onPress={()=>Linking.openURL('http://google.com')}
-                
             >
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <Image
@@ -200,9 +199,10 @@ MyHomeStack = (props) => {
         })}
       />
       <HomeStack.Screen
-        name="Thông báo"
+        name="Info"
         component={Notification}
         options={({ route }) => ({
+          title:'Thông báo',
           headerTitleAlign: "center",
           headerBackTitle: null,
           headerStyle: {
@@ -301,7 +301,7 @@ MyHomeStack = (props) => {
         })}
       />
       <HomeStack.Screen
-        name="Carts"
+        name="CartHome"
         component={Carts}
         options={({ route }) => ({
           headerTitleAlign: "center",
@@ -617,13 +617,13 @@ MyHomeStack = (props) => {
                     {authUser.GROUPS!=3?<HeaderLeftComponet
                       navigation={navigation}
                       onPress={() =>
-                        navigation.navigate("Carts", {
+                        navigation.navigate("CartHome", {
                           NAME: "HomePay",
                         })
                       }
                       name="shopping-cart"
                       size={sizeFont(6)}
-                      color="white"
+                      color="#fff"
                     />:null}
                     {listItem.length != 0 ? (
                       <View style={styles.viewList}>

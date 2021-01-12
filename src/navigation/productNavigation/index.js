@@ -350,11 +350,6 @@ MyHomeStack = (props) => {
                   >
                     <HeaderLeftComponet
                       navigation={navigation}
-                      onPress={() =>
-                        navigation.navigate("Carts", {
-                          NAME: "DetailProducts",
-                        })
-                      }
                       name="shopping-cart"
                       size={sizeFont(6)}
                       color="white"

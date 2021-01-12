@@ -89,13 +89,7 @@ class UpdateInformation extends Component {
             NAME: authUser.DISTRICT,
             MAQH: authUser.DISTRICT_ID,
           },
-      districChild:
-        authUser.WARD == null
-          ? ""
-          : {
-            NAME: authUser.WARD,
-            XAID: authUser.WARD_ID,
-          },
+      districChild:'',
       loading: false,
       imageAvatar: !authUser.AVATAR ? "" : authUser.AVATAR,
       CMT_1: authUser.IMG1 ? authUser.IMG1 : "",
@@ -150,7 +144,6 @@ class UpdateInformation extends Component {
         // () => this.focusFullName.focus()
       );
     } else if (
-      phoneText.trim() === "" ||
       !isVietnamesePhoneNumber(phoneText) ||
       phoneText.length > 10
     ) {
@@ -170,7 +163,7 @@ class UpdateInformation extends Component {
       );
     }
     else if (
-      (nameAccount!=null || nameAccount.length > 100) &&
+      nameAccount && (nameAccount.length > 100) &&
       account.trim() !== ""
     ) {
       Alert.alert(
@@ -197,7 +190,7 @@ class UpdateInformation extends Component {
     } else if (dayOfBirth == "") {
       Alert.alert("Thông báo", "Nhập ngày tháng năm sinh của bạn", () => null);
     } else if (
-      nameBank.length === 0 &&
+      nameBank && nameBank.length === 0 &&
       (account.length !== 0 ||
         nameAccount.length !== 0 ||
         brankBank.length !== 0)
@@ -208,7 +201,7 @@ class UpdateInformation extends Component {
         () => null
       );
     } else if (
-      account.length === 0 &&
+      account && account.length === 0 &&
       (nameBank.length !== 0 ||
         nameAccount.length !== 0 ||
         brankBank.length !== 0 ||
@@ -221,7 +214,7 @@ class UpdateInformation extends Component {
         // () => this.focusBankNum.focus()
       );
     } else if (
-      nameAccount.length === 0 &&
+      nameAccount && nameAccount.length === 0 &&
       (account.length !== 0 || nameBank.length !== 0 || brankBank.length !== 0)
     ) {
       Alert.alert(
@@ -230,7 +223,7 @@ class UpdateInformation extends Component {
         // () => this.focusNameBank.focus()
       );
     } else if (
-      (chinhanh.length > 50 || !alphanumeric(chinhanh)) &&
+      chinhanh && (chinhanh.length > 50 || !alphanumeric(chinhanh)) &&
       chinhanh.trim() !== ""
     ) {
       Alert.alert(
@@ -246,7 +239,7 @@ class UpdateInformation extends Component {
       UpdateInforAccount({
         USERNAME: authUser.USERNAME,
         USER_CTV: authUser.USERNAME,
-        NAME: userName,
+        NAME: userName, 
         DOB: dayOfBirth,
         GENDER: gender,
         EMAIL: email.trim(),
@@ -255,14 +248,14 @@ class UpdateInformation extends Component {
         ADDRESS: address.trim(),
         STK: account.trim(),
         TENTK: nameAccount,
-        TENNH: nameBank.vn_name,
+        TENNH: nameBank,
         AVATAR: imageAvatar,
-        IDSHOP: 'ABC123',
+        IDSHOP: 'F6LKFY',
         CMT: passport.trim(),
         IMG1: CMT_1,
         CHINHANHNH: chinhanh,
         IMG2: CMT_2,
-        WARD_NAME: districChild.NAME,
+        WARD_NAME: districChild?districChild.vn_name:null,
         OLD_PWD: "",
         NEW_PWD: "",
         MOBILE: phoneText.trim(),
@@ -283,7 +276,7 @@ class UpdateInformation extends Component {
                   }
                 })
                 this.props.LoginPhone({
-                  IDSHOP: 'ABC123',
+                  IDSHOP: 'F6LKFY',
                   USERNAME: authUser.USERNAME,
                   PASSWORD: password,
                 })
@@ -476,7 +469,7 @@ class UpdateInformation extends Component {
     GetCTVDetail({
       USERNAME: authUser.USERNAME,
       USER_CTV: authUser.USERNAME,
-      IDSHOP: 'ABC123'
+      IDSHOP: 'F6LKFY'
     }).then((res) => {
       console.log("abccccc", res.data)
       this.setState({
@@ -531,7 +524,9 @@ class UpdateInformation extends Component {
       photo,
       rose,
     } = this.state;
-    console.log('authUser',nameAccount);
+    const {authUser}=this.props;
+    console.log('authUser',CMT_1);
+    console.log("districChild======",authUser);
     return (
       <Provider>
         <ScrollView keyboardShouldPersistTaps="handled">
@@ -822,8 +817,7 @@ class UpdateInformation extends Component {
                   type: "email",
                   size: sizeFont(6),
                   name: "chevron-down",
-                  value:
-                    districChild.NAME == undefined ? districChild : districChild.NAME,
+                  value:districChild==undefined?'':districChild.NAME,
                   onChangeText: (text) => null,
                   primary: "#017DFF",
                   color: COLOR.HEADER,

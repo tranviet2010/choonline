@@ -51,7 +51,7 @@ class ChildListItem extends Component {
     await getListSubChildProducts({
       USERNAME: this.props.username == "" ? null : this.props.username,
       SUB_ID: ID,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
       SEARCH_NAME: this.state.search,
     })
       .then((result) => {
@@ -94,7 +94,7 @@ class ChildListItem extends Component {
     await getListSubChildProducts({
       USERNAME: this.props.username,
       SUB_ID: ID,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
       SEARCH_NAME: "",
     })
       .then((result) => {

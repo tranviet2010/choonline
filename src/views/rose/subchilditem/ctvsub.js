@@ -141,7 +141,7 @@ class ctvsub extends Component {
             END_TIME: this.state.endTime,
             PAGE: 1,
             NUMOFPAGE: 10,
-            IDSHOP: 'ABC123',
+            IDSHOP: 'F6LKFY',
         })
             .then((res) => {
                 console.log("aaaaaaaaaaaaaaaaaaaaa", res)
@@ -248,7 +248,7 @@ class ctvsub extends Component {
                                     END_TIME: this.state.endTime,
                                     PAGE: 1,
                                     NUMOFPAGE: 10,
-                                    IDSHOP: 'ABC123',
+                                    IDSHOP: 'F6LKFY',
                                 })
                                     .then((res) => {
                                         if (res.data.ERROR == "0000") {
@@ -345,7 +345,7 @@ class ctvsub extends Component {
                                     await withDrawal({
                                         USERNAME: username,
                                         AMOUNT: momney,
-                                        IDSHOP: 'ABC123',
+                                        IDSHOP: 'F6LKFY',
                                     })
                                         .then((res) => {
                                             Alert.alert('Thông báo', `${res.data.RESULT}`)

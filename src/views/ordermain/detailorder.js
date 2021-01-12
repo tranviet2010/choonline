@@ -80,7 +80,7 @@ class OrderMain extends Component {
         await getDetailOrdered({
             USERNAME: this.props.username,
             CODE_ORDER: ID,
-            IDSHOP: 'ABC123',
+            IDSHOP: 'F6LKFY',
         })
             .then((res) => {
                 console.log("this getDetailOrdered", res);
@@ -98,7 +98,7 @@ class OrderMain extends Component {
         await listStores({
             USERNAME: this.props.username,
             CODE_ORDER: ID,
-            IDSHOP: 'ABC123',
+            IDSHOP: 'F6LKFY',
         })
             .then((res) => {
                 console.log("this is listStores", res)
@@ -160,7 +160,7 @@ class OrderMain extends Component {
             STATUS: '',
             PAGE: 1,
             NUMOFPAGE: 300,
-            IDSHOP: 'ABC123',
+            IDSHOP: 'F6LKFY',
         })
             .then((res) => {
                 console.log("get list Order", res);
@@ -219,7 +219,7 @@ class OrderMain extends Component {
                     DISTCOUNT: '',
                     PAYED: payed,
                     SURCHARGE: phuphi,
-                    IDSHOP: 'ABC123',
+                    IDSHOP: 'F6LKFY',
                 })
                     .then((result) => {
                         console.log("this is updateOrder", result);
@@ -295,7 +295,7 @@ class OrderMain extends Component {
         // getConfigCommission({
         //     USERNAME: this.props.authUser.USERNAME,
         //     VALUES: this.handleTotlaMoney,
-        //     IDSHOP: 'ABC123'
+        //     IDSHOP: 'F6LKFY'
         // })
         //     .then((res) => {
         //         console.log("ressssssssss", res.data.VALUE)
@@ -309,13 +309,8 @@ class OrderMain extends Component {
     }
     render() {
         const { selectedValue, Data, loading, List, message, setSelectedValue, modalVisible, tramtong } = this.state;
-        console.log("this is data", Data);
-        console.log("data full ", this.props.authUser);
-
         // console.log("this is List", List);
         const { ID, STATUS } = this.props.route.params;
-        console.log("this is List", List);
-        console.log("this is STATUS", STATUS);
         var sumMoney = 0;
         var sumRose = 0;
         const sumAllMoney = () => {
@@ -482,7 +477,7 @@ class OrderMain extends Component {
                                 <View style={styles.status1}><Text>Số điện thoại</Text></View>
                                 <View style={styles.status2}><Text>{Data.MOBILE_RECEIVER}</Text></View>
                             </View>
-                            <AdressShip Data={Data} city={this.props.route.params.CITY}/>
+                            <AdressShip Data={Data} city={this.props.route.params.CITY} />
                         </View>
 
                         <View>
@@ -579,7 +574,7 @@ class OrderMain extends Component {
                                         labelStyle={{
                                             fontSize: 14,
                                             textAlign: 'left',
-                                            
+
                                         }}
                                         itemStyle={{
                                             justifyContent: 'flex-start',
@@ -670,7 +665,7 @@ class OrderMain extends Component {
                                 />
                             </View>
                             {this.props.authUser.GROUPS == 3 ? <View>
-                                {STATUS == 4 || STATUS==0 ? null : <View style={{ justifyContent: 'center', flexDirection: 'row', marginTop: 10 }}>
+                                {STATUS == 4 || STATUS == 0 ? null : <View style={{ justifyContent: 'center', flexDirection: 'row', marginTop: 10 }}>
                                     <TouchableOpacity
                                         onPress={() => { this.handleBook() }}
                                         style={{

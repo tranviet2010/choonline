@@ -34,7 +34,7 @@ class index extends Component {
             PR_CODE: '',
             REPORT_TYPE: selectedMoth,
             DISPLAY_TYPE: display,
-            IDSHOP: "ABC123"
+            IDSHOP: "F6LKFY"
         })
             .then((result) => {
                 console.log("this is ReportItem", result);

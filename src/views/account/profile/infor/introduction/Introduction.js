@@ -33,7 +33,7 @@ class Introduction extends Component {
       USERNAME: authUser.USERNAME,
       TYPES: 1,
       CATEGORY: "",
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((result) => {
         if (result.data.ERROR === "0000") {

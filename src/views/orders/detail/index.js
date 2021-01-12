@@ -74,7 +74,7 @@ class DetailsOrdered extends Component {
     await getDetailOrdered({
       USERNAME: authUser.USERNAME,
       CODE_ORDER: CODE_ORDER,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((result) => {
         console.log("data getdetailOrderd",result)
@@ -168,7 +168,7 @@ class DetailsOrdered extends Component {
       CODE_ORDER: item.ID_CODE_ORDER,
       STATUS: statusOrser,
       NOTE: noteShop,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then(async (result) => {
         if (result.data.ERROR === "0000") {
@@ -198,7 +198,7 @@ class DetailsOrdered extends Component {
       CODE_ORDER: item.ID_CODE_ORDER,
       STATUS: statusOrser,
       NOTE: noteShop,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
       ID: item.ID_CODE_ORDER,
       TIME_RECEIVER: dayEnd,
       UNIT: checked === false ? 0 : 1,

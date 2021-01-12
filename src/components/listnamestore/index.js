@@ -29,7 +29,7 @@ export default class ListNameStore extends Component {
   }
   handleLevelCTV = () => {
     GetListStore({
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
       USERNAME: "babu",
       INDEXPAGE: this.offset,
       NUMOFPAGE: 20,
@@ -59,7 +59,7 @@ export default class ListNameStore extends Component {
       this.offset = this.offset + 1;
       this.setState({ loadingMore: true }, () => {
         GetListStore({
-          IDSHOP: "ABC123",
+          IDSHOP: "F6LKFY",
           USERNAME: "babu",
           INDEXPAGE: this.offset,
           NUMOFPAGE: 20,

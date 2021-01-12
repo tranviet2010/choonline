@@ -38,7 +38,7 @@ class DetailNews extends Component {
             USERNAME: authUser.USERNAME,
             TYPES: 4,
             CATEGORY: "",
-            IDSHOP: "ABC123",
+            IDSHOP: "F6LKFY",
         })
             .then((result) => {
                 if (result.data.ERROR === "0000") {

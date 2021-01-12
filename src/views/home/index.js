@@ -16,6 +16,8 @@ import {
 } from "../../utils/helper/size.helper";
 import { connect } from "react-redux";
 import { LoginPhone, UpdateDivice, GetProfile } from "../../action/authAction";
+import { GetInformation } from "../../service/account";
+
 import { _retrieveData } from "../../utils/asynStorage";
 import { Getwithdrawal } from "../../service/order";
 import { AUTH, USER_NAME } from "../../utils/asynStorage/store";
@@ -62,7 +64,7 @@ class Home extends Component {
         if (result) {
           await this.props
             .GetProfile({
-              IDSHOP: "ABC123",
+              IDSHOP: "F6LKFY",
               USER_CTV: result.substr(1).slice(0, -1),
               USERNAME: result.substr(1).slice(0, -1),
             })
@@ -76,7 +78,7 @@ class Home extends Component {
             USERNAME: result.substr(1).slice(0, -1),
             PAGE: 1,
             NUMOFPAGE: 5,
-            IDSHOP: "ABC123",
+            IDSHOP: "F6LKFY",
           })
             .then((result) => {
               if (result.data.ERROR === "0000") {
@@ -91,7 +93,7 @@ class Home extends Component {
           await getListSubProducts({
             USERNAME: null,
             ID_PARENT: null,
-            IDSHOP: "ABC123",
+            IDSHOP: "F6LKFY",
             SEARCH_NAME: this.state.search,
           })
             .then((result) => {
@@ -123,7 +125,7 @@ class Home extends Component {
   //     END_TIME: this.state.endTime,
   //     PAGE: 1,
   //     NUMOFPAGE: 10,
-  //     IDSHOP: "ABC123",
+  //     IDSHOP: "F6LKFY",
   //   })
   //     .then((res) => {
   //       console.log("data_rose", res)
@@ -142,10 +144,33 @@ class Home extends Component {
     this.handleLoad();
     
     const { navigation } = this.props;
+
+    GetInformation({
+      USERNAME: this.props.authUser.USERNAME,
+      TYPES: 4,
+      CATEGORY: "",
+      IDSHOP: "F6LKFY",
+    })
+      .then((result) => {
+        if (result.data.ERROR === "0000") {
+          this.setState(
+            {
+              data_news: result.data.INFO,
+              
+            },
+            () => this.setState({ loading: false })
+          );
+        } else {
+          this.setState({ loading: false });
+        }
+      })
+      .catch((err) => {
+        this.setState({ loading: false });
+      });
     
   getListTrend({
       USERNAME: '',
-      IDSHOP: 'ABC123',
+      IDSHOP: 'F6LKFY',
     })
       .then((result) => {
         if (result.data.ERROR === "0000") {
@@ -247,6 +272,7 @@ class Home extends Component {
             <View>
                  
             </View> */}
+            {this.state.data_news==[]?null:<View>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between',paddingTop:5 }}>
                 <Text style={styles.title}>TIN TỨC</Text>
                 <TouchableOpacity
@@ -260,11 +286,11 @@ class Home extends Component {
                 </TouchableOpacity>
               </View>
               <View>
-                <News navigation={navigation} />
+                <News navigation={navigation} data={this.state.data_news}/>
+              </View>
               </View>
 
-
-
+              }
             </View>
           </ScrollView>
         </View>

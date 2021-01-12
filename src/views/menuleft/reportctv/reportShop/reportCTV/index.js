@@ -25,7 +25,7 @@ class ReportList extends Component {
             YEAR: this.state.selectyear,
             MONTH: this.state.selectmonth,
             REPORT_TYPE: this.state.selectisu,
-            IDSHOP: "ABC123"
+            IDSHOP: "F6LKFY"
         })
             .then((result) => {
                 console.log("this is ReportCTVTT", result);

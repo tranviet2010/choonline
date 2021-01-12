@@ -48,8 +48,8 @@ class Item extends PureComponent {
     this.setState({ expand_child: !expand_child, loading: true }, () => {
       getParentsItem({
         ID_PARENT: item.ID,
-        IDSHOP: "ABC123",
-        IDUSER: "ABC123",
+        IDSHOP: "F6LKFY",
+        IDUSER: "F6LKFY",
       })
         .then((result) => {
           if (result.data.ERROR == "0000") {
@@ -177,8 +177,8 @@ class ItemCategory extends React.PureComponent {
     this.setState({ loading: true }, () => {
       getParentsItem({
         ID_PARENT: item.ID,
-        IDSHOP: "ABC123",
-        IDUSER: "ABC123",
+        IDSHOP: "F6LKFY",
+        IDUSER: "F6LKFY",
       })
         .then((result) => {
           if (result.data.ERROR == "0000") {
@@ -227,7 +227,7 @@ class ItemCategory extends React.PureComponent {
         PARENTID: item.ID_PARENT,
         USERNAME: authUser.USERNAME,
         USER_CODE: authUser.USER_CODE,
-        IDSHOP: "ABC123",
+        IDSHOP: "F6LKFY",
       })
         .then(async (result) => {
           if (result.data.ERROR === "0000") {
@@ -246,7 +246,7 @@ class ItemCategory extends React.PureComponent {
     deleteProductCategory({
       USERNAME: authUser.USERNAME,
       USER_CODE: authUser.USER_CODE,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
       ID: null,
     })
       .then((result) => {

@@ -24,7 +24,7 @@ class Tranning extends Component {
     GetInformation({
       USERNAME: authUser.USERNAME,
       TYPES: 3,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((result) => {
         console.log("dào tạo",result)

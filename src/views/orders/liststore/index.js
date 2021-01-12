@@ -28,7 +28,7 @@ export default class ListStores extends Component {
     listStores({
       USERNAME: authUser.USERNAME,
       CODE_ORDER: item.CODE_ORDER,
-      IDSHOP: "ABC123",
+      IDSHOP: "F6LKFY",
     })
       .then((result) => {
         if (result.data.ERROR === "0000") {

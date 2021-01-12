@@ -49,7 +49,7 @@ class chinhsach extends Component {
           USERNAME: this.props.authUser.USERNAME,
           TYPES: 3,
           ID_PARENT: '',
-          IDSHOP: "ABC123",
+          IDSHOP: "F6LKFY",
           CATEGORY: '',
         })
           .then((result) => {

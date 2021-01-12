@@ -28,33 +28,35 @@ class News extends Component {
       loading: true,
     };
   }
-  componentDidMount() {
-    const { authUser } = this.props;
-    GetInformation({
-      USERNAME: authUser.USERNAME,
-      TYPES: 4,
-      CATEGORY: "",
-      IDSHOP: "ABC123",
-    })
-      .then((result) => {
-        if (result.data.ERROR === "0000") {
-          this.setState(
-            {
-              data: result.data.INFO,
+  // componentDidMount() {
+  //   const { authUser } = this.props;
+  //   GetInformation({
+  //     USERNAME: authUser.USERNAME,
+  //     TYPES: 4,
+  //     CATEGORY: "",
+  //     IDSHOP: "F6LKFY",
+  //   })
+  //     .then((result) => {
+  //       if (result.data.ERROR === "0000") {
+  //         this.setState(
+  //           {
+  //             data: result.data.INFO,
               
-            },
-            () => this.setState({ loading: false })
-          );
-        } else {
-          this.setState({ loading: false });
-        }
-      })
-      .catch((err) => {
-        this.setState({ loading: false });
-      });
-  }
+  //           },
+  //           () => this.setState({ loading: false })
+  //         );
+  //       } else {
+  //         this.setState({ loading: false });
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       this.setState({ loading: false });
+  //     });
+  // }
   render() {
     const { loading, data } = this.state;
+    const datanew=this.props.data;
+    console.log("data newss",datanew);
     return loading === true ? (
       <Spinner
         visible={loading}
