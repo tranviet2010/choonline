@@ -2,8 +2,9 @@
 
 
 # Other files and folders
-.node_modules/
-
+node_modules
+*.log
+.nvm
 # Executables
 
 
