@@ -18,7 +18,7 @@ export const UpdateInforAccount = (data) => {
 export const GetListCTV = (data) => {
   return new Promise((resolve, reject) => {
     return api
-      .post("get_list_ctv", data)
+      .post("get_list_ctv_child", data)
       .then((result) => {
         console.log('result__',result);
         resolve(result);
@@ -121,6 +121,19 @@ export const ReportFluc = (data) => {
   return new Promise((resolve, reject) => {
     return api
       .post("report_fluctuations", data)
+      .then((result) => {
+        resolve(result);
+      })
+      .catch((error) => {
+        console.log(error);
+        reject(error);
+      });
+  });
+};
+export const BlockAccout = (data) => {
+  return new Promise((resolve, reject) => {
+    return api
+      .post("update_status_user", data)
       .then((result) => {
         resolve(result);
       })

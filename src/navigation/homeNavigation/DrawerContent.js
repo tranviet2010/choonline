@@ -98,7 +98,8 @@ class DrawerContent extends Component {
         }
         return Alert.alert(
             "Thông báo",
-            `Hãy giới thiệu ${this.props.idshop.SHOP_NAME} cho bạn bè để cùng xây dựng cộng đồng ${this.props.idshop.SHOP_NAME} Xin cảm ơn`,
+            // `Hãy giới thiệu ${this.props.idshop.SHOP_NAME} cho bạn bè để cùng xây dựng cộng đồng ${this.props.idshop.SHOP_NAME} Xin cảm ơn`,
+            `Hãy giới thiệu CHỢ CHUNG CƯ cho bạn bè để cùng xây dựng cộng đồng mua bán hàng online mạnh hơn. Xin cảm ơn`,
             [
                 {
                     text: "Để sau",
@@ -127,10 +128,10 @@ class DrawerContent extends Component {
     render() {
         const { authUser, status } = this.props;
         const { data } = this.state;
-        console.log("thís is authuser", authUser);
+        console.log("this is authuser", authUser);
         return (
             <SafeAreaView style={{ flex:1,backgroundColor:COLOR.MAIN }}>
-                {status != '' ? <View><TouchableOpacity style={{ flexDirection: 'row', backgroundColor: "#E1AC06", height: 100, justifyContent: 'space-between', alignItems: "center", paddingLeft: 10 }}
+                {status != '' ? <View><TouchableOpacity style={{ flexDirection: 'row', backgroundColor: "#4d7335", height: 100, justifyContent: 'space-between', alignItems: "center", paddingLeft: 10 }}
                     onPress={() => { this.props.navigation.navigate('Thông tin CTV') }}
                 >
                     <View style={{ flexDirection: 'row' }}>
@@ -155,7 +156,7 @@ class DrawerContent extends Component {
                         />
                     </View>
 
-                </TouchableOpacity></View> : <View style={{ flexDirection: 'row', backgroundColor: "#E1AC06", height: 100, alignItems: "center", paddingLeft: 10, }}
+                </TouchableOpacity></View> : <View style={{ flexDirection: 'row', backgroundColor: "#4d7335", height: 100, alignItems: "center", paddingLeft: 10, }}
 
                 >
                         <View style={{
@@ -172,7 +173,7 @@ class DrawerContent extends Component {
 
                         }}>
                             <TouchableOpacity
-                                style={{ borderWidth: 1, backgroundColor: '#E1AC06', borderColor: 'white', width: sizeWidth(27), height: sizeHeight(5), alignItems: 'center', justifyContent: 'center', marginLeft: sizeWidth(4) }}
+                                style={{ borderWidth: 1, backgroundColor: '#4d7335', borderColor: 'white', width: sizeWidth(27), height: sizeHeight(5), alignItems: 'center', justifyContent: 'center', marginLeft: sizeWidth(4) }}
                                 onPress={() => {
                                     this.setState({ showAlertOption: true });
                                     this.props.navigation.navigate('SignUp')
@@ -187,12 +188,12 @@ class DrawerContent extends Component {
                                     this.props.navigation.navigate('SignIn')
                                 }}
                             >
-                                <Text style={{ color: '#E1AC06', fontSize: 14 }}>Đăng nhập</Text>
+                                <Text style={{ color: '#4d7335', fontSize: 14 }}>Đăng nhập</Text>
                             </TouchableOpacity>
                         </View>
                     </View>}
                 <Drawer.Section>
-                    {/* {this.props.status === '' ? null : <DrawerItem
+                    {this.props.status === '' ? null : <DrawerItem
                         icon={({ color, size }) => (
                             <Image
                                 source={require('../../assets/images/info.png')}
@@ -200,9 +201,9 @@ class DrawerContent extends Component {
                             />
                         )}
                         style={{height:sizeHeight(5.5),backgroundColor:'#fff',justifyContent:'center'}}
-                        label={({ focused, color }) => <Text style={{ color: '#E1AC06', fontSize: 16 }}>Danh sách CTV/ KH</Text>}
+                        label={({ focused, color }) => <View>{this.props.authUser.GROUPS==3?<Text style={{ color: '#4d7335', fontSize: 16 }}>Danh sách CTV/ KH</Text>:<Text style={{ color:'#4d7335', fontSize: 16 }}>Danh sách CTV</Text>}</View>}
                         onPress={() => { this.props.navigation.navigate('ctvdow') }}
-                    />} */}
+                    />}
 
                     <DrawerItem
                         icon={({ color, size }) => (
@@ -211,7 +212,7 @@ class DrawerContent extends Component {
                                 style={{ width: 30, height: 30 }}
                             />
                         )}
-                        label={({ focused, color }) => <Text style={{ color: '#E1AC06', fontSize: 16 }}>Chính sách</Text>}
+                        label={({ focused, color }) => <Text style={{ color: '#4d7335', fontSize: 16 }}>Chính sách</Text>}
                         style={{height:sizeHeight(5.5),backgroundColor:'#fff',justifyContent:'center'}}
                         onPress={() => { this.props.navigation.navigate('Chính sách') }}
                     />
@@ -223,7 +224,7 @@ class DrawerContent extends Component {
                             />
                         )}
                         style={{height:sizeHeight(5.5),backgroundColor:'#fff',justifyContent:'center'}}
-                        label={({ focused, color }) => <Text style={{ color: '#E1AC06', fontSize: 16 }}>Báo cáo</Text>}
+                        label={({ focused, color }) => <Text style={{ color: '#4d7335', fontSize: 16 }}>Báo cáo</Text>}
 
                         onPress={() => { this.props.navigation.navigate('report') }}
                     />}
@@ -235,7 +236,7 @@ class DrawerContent extends Component {
                             />
                         )}
                         style={{height:sizeHeight(5.5),backgroundColor:'#fff',justifyContent:'center'}}
-                        label={({ focused, color }) => <Text style={{ color: '#E1AC06', fontSize: 16 }}>Đào tạo</Text>}
+                        label={({ focused, color }) => <Text style={{ color: '#4d7335', fontSize: 16 }}>Đào tạo</Text>}
 
                         onPress={() => { this.props.navigation.navigate('Đào tạo') }}
                     />}
@@ -246,7 +247,7 @@ class DrawerContent extends Component {
                                 style={{ width: 30, height: 30 }}
                             />
                         )}
-                        label={({ focused, color }) => <Text style={{ color: '#E1AC06', fontSize: 16 }}>Quét mã QR code</Text>}
+                        label={({ focused, color }) => <Text style={{ color: '#4d7335', fontSize: 16 }}>Quét mã QR code</Text>}
                         style={{height:sizeHeight(5.5),backgroundColor:'#fff',justifyContent:'center'}}
                         onPress={() => { }}
                     /> */}
@@ -258,7 +259,7 @@ class DrawerContent extends Component {
                             />
                         )}
 
-                        label={({ focused, color }) => <Text style={{ color: '#E1AC06', fontSize: 16 }}>Tin tức, sự kiện</Text>}
+                        label={({ focused, color }) => <Text style={{ color: '#4d7335', fontSize: 16 }}>Tin tức, sự kiện</Text>}
                         style={{height:sizeHeight(5.5),backgroundColor:'#fff',justifyContent:'center'}}
                         onPress={() => { this.props.navigation.navigate('Tin tức-sự kiện') }}
                     />}
@@ -269,7 +270,7 @@ class DrawerContent extends Component {
                                 style={{ width: 30, height: 30 }}
                             />
                         )}
-                        label={({ focused, color }) => <Text style={{ color: '#E1AC06', fontSize: 16 }}>Chia sẻ ứng dụng</Text>}
+                        label={({ focused, color }) => <Text style={{ color: '#4d7335', fontSize: 16 }}>Chia sẻ ứng dụng</Text>}
                         style={{height:sizeHeight(5.5),backgroundColor:'#fff',justifyContent:'center'}}
                         onPress={() => this.shareApp()}
 
@@ -281,7 +282,7 @@ class DrawerContent extends Component {
                                 style={{ width: 30, height: 30 }}
                             />
                         )}
-                        label={({ focused, color }) => <Text style={{ color: '#E1AC06', fontSize: 16 }}>Giới thiệu F5sell</Text>}
+                        label={({ focused, color }) => <Text style={{ color: '#4d7335', fontSize: 16 }}>Giới thiệu F5sell</Text>}
                         style={{height:sizeHeight(5.5),backgroundColor:'#fff',justifyContent:'center'}}
                         onPress={() => { this.props.navigation.navigate('Giới thiệu') }}
                     />

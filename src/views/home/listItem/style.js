@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     // paddingHorizontal: sizeWidth(2),
   },
   textPrice: {
-    color: COLOR.BUTTON,
+    color: 'red',
     fontSize: sizeFont(3.8),
     paddingVertical: sizeHeight(1),
     //paddingHorizontal: sizeWidth(2),
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    backgroundColor: "#E1AC06",
+    backgroundColor: "#4d7335",
     borderRadius: 10,
     width:sizeWidth(90),
     height:sizeHeight(20),

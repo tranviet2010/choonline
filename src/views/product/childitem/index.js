@@ -86,6 +86,16 @@ class ChildListItem extends Component {
         this.setState({ loadingSearch: false });
       });
   };
+  checkTime = (a, b) => {
+    var start = a;
+    var end = b;
+    var datePart1 = start.split("/");
+    var datePart2 = end.split("/");
+
+    var dateObject1 = new Date(+datePart1[2], datePart1[1] - 1, +datePart1[0]);
+    var dateObject2 = new Date(+datePart2[2], datePart2[1] - 1, +datePart2[0]);
+    return dateObject2 - dateObject1;
+  }
   componentWillUnmount() {
     clearTimeout(this.message);
   }
@@ -219,6 +229,10 @@ class ChildListItem extends Component {
                           })
                         }
                       >
+                         {item.END_PROMOTION && this.checkTime(item.START_PROMOTION, item.END_PROMOTION) >= 0 ?
+                            <View style={{ position: 'absolute', right: 5, top: 5, width: sizeWidth(10), height: sizeHeight(2.5),backgroundColor:'red', justifyContent: 'center', alignItems: 'center',zIndex:100,borderRadius:2 }}>
+                              <Text style={{ fontSize: sizeFont(3), color: '#fff',fontSize:sizeFont(2) }}>-{numeral((item.PRICE - item.PRICE_PROMOTION) / item.PRICE * 100).format('0.00')}%</Text>
+                            </View> : null}
                         <View
                           style={{
                             width: "100%",
@@ -239,12 +253,19 @@ class ChildListItem extends Component {
                         <Text style={styles.textCode}>
                           {item.MODEL_PRODUCT}{" "}
                         </Text>
-                        <Text style={styles.textPrice}>
-                          {numeral(handleMoney(status, item, authUser)).format(
-                            "0,0"
-                          )}
-                          VNĐ
-                        </Text>
+                        {item.END_PROMOTION && this.checkTime(item.START_PROMOTION, item.END_PROMOTION) >=0 ? <View>
+                            <View style={styles.textPrice1}>
+                              <View style={{flexDirection:'row',alignItems:'center',alignItems:'center'}}>
+                                <Text style={styles.textPrice}>{numeral(item.PRICE_PROMOTION).format("0,0")} đ</Text>
+                                <Text style={{ textDecorationLine: 'line-through', color: 'gray', fontSize: sizeFont(3),marginLeft:sizeWidth(1)}}>{numeral(item.PRICE).format("0,0")} đ</Text>
+                              </View>
+                              {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text style={{ color: '#3399FF', fontSize: sizeFont(3.5), paddingBottom: 5 }}>HH: {numeral(item.COMISSION_PRODUCT * item.PRICE_PROMOTION * 0.01).format("0,0")}đ ({item.COMISSION_PRODUCT}%)</Text>}
+                            </View>
+                          </View> : <View style={{ flexDirection: 'column' }}><Text style={styles.textPrice}>
+                            {numeral(item.PRICE).format("0,0")} đ
+                          </Text>
+                              {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text style={{ color: '#3399FF', fontSize: sizeFont(3.5), paddingBottom: 5 }}>HH: {numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")}đ ({item.COMISSION_PRODUCT}%)</Text>}
+                            </View>}
                       </TouchableOpacity>
                     );
                   }}

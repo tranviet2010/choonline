@@ -367,7 +367,7 @@ class ctvsub extends Component {
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                         <TouchableOpacity
                             onPress={() => {
-                                this.props.navigation.navigate('detailrose1')
+                                this.props.navigation.navigate('detailrose')
                             }}
                             style={{ justifyContent: 'center', alignItems: 'center', marginTop: 10, width: sizeWidth(80), height: sizeHeight(5), backgroundColor: '#4a8939' }}
                         ><Text style={{ color: '#fff', textAlign: 'center', fontSize: 16, padding: 4 }}>Yêu cầu trả hoa hồng</Text></TouchableOpacity>

@@ -12,8 +12,10 @@ import {
   Image,
   KeyboardAvoidingView,
 } from "react-native";
+import moment from "moment";
 import { connect } from "react-redux";
 import { Provider } from "react-native-paper";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { Avatar, CheckBox } from "react-native-elements";
 import {
   sizeHeight,
@@ -74,6 +76,9 @@ class DetailAddressCart extends Component {
       showAlert: false,
       codeuser: '',
       checked: true,
+      showCalendar: false,
+      showCalendar1: false,
+      showCalendar2:false,
       note: "",
       ROSE: this.props.route.params.ROSE,
       SUM: this.props.route.params.SUM,
@@ -83,6 +88,9 @@ class DetailAddressCart extends Component {
       shipcode: false,
       Numbercode: 'CK',
       money: '',
+      dateAdd: '',
+      timeAdd: '',
+      timeAdd1: '',
       moneyAll: '',
       modalVisible: false,
       tramtong: '',
@@ -104,12 +112,27 @@ class DetailAddressCart extends Component {
   changeDistrict = (text) => {
     if (text == "- tất cả -") {
       this.setState({ district: "", districChild: "" });
-    } else this.setState({ district: text, districChild: "",checkquan:!this.state.checkquan });
+    } else this.setState({ district: text, districChild: "", checkquan: !this.state.checkquan });
+  };
+  handleDate = (item) => {
+    this.setState({ showCalendar: false }, () =>
+      this.setState({ dateAdd: moment(item).format("DD/MM/YYYY") })
+    );
+  };
+  handleTime = (item) => {
+    this.setState({ showCalendar1: false }, () =>
+      this.setState({ timeAdd: moment(item).format("HH:mm") })
+    );
+  };
+  handleTime1 = (item) => {
+    this.setState({ showCalendar2: false }, () =>
+      this.setState({ timeAdd1: moment(item).format("HH:mm") })
+    );
   };
   changeDistrictChild = (text) => {
     if (text == "- tất cả -") {
       this.setState({ districChild: "" });
-    } else this.setState({ districChild: text,checkxa:!this.state.checkxa });
+    } else this.setState({ districChild: text, checkxa: !this.state.checkxa });
   };
   checkTime = (a, b) => {
     var start = a;
@@ -210,6 +233,9 @@ class DetailAddressCart extends Component {
       phoneText,
       userName,
       city,
+      dateAdd,
+      timeAdd,
+      timeAdd1,
       district,
       address,
       Numbercode,
@@ -223,7 +249,7 @@ class DetailAddressCart extends Component {
     Keyboard.dismiss();
     if (
       userName.trim() == "" ||
-      
+
       userName.length > 50
     ) {
       AlertCommon(
@@ -273,6 +299,9 @@ class DetailAddressCart extends Component {
             PRICE: result.PRICE,
             MONEY: moneyAll.substring(0, moneyAll.length - 1),
             BONUS: result.BONUS,
+            REQUEST_DATE:dateAdd,
+            REQUEST_TIME_START:timeAdd,
+            REQUEST_TIME_END:timeAdd1,
             FULL_NAME: userName,
             DISTCOUNT: money,
             NOTE: note,
@@ -417,7 +446,7 @@ class DetailAddressCart extends Component {
     getConfigCommission({
       USERNAME: this.props.authUser.USERNAME,
       VALUES: this.state.SUM,
-      IDSHOP: 'http://banbuonthuoc.moma.vn'
+      IDSHOP: 'F6LKFY'
     })
       .then((res) => {
         this.setState({
@@ -431,7 +460,7 @@ class DetailAddressCart extends Component {
     GetCTVDetail({
       USERNAME: this.props.authUser.USERNAME,
       USER_CTV: this.props.authUser.USERNAME,
-      IDSHOP: 'http://banbuonthuoc.moma.vn'
+      IDSHOP: 'F6LKFY'
     })
       .then((res) => {
         this.setState({
@@ -456,12 +485,19 @@ class DetailAddressCart extends Component {
       ROSE,
       check,
       checktinh,
+      dateAdd,
+      timeAdd,
+      timeAdd1,
+      showCalendar2,
+      showCalendar,
+      showCalendar1,
       checkquan,
       checkxa,
       tramtong
     } = this.state;
     const { listItem, authUser } = this.props;
     console.log("this is item", this.props.authUser);
+    console.log("this us timeAdd",timeAdd);
     var abc = this.allOne(listItem);
     if (money > abc) {
       Alert.alert('Lỗi', "Số tiền giảm giá không vượt quá hoa hồng tổng")
@@ -536,7 +572,7 @@ class DetailAddressCart extends Component {
         >
           <View style={styles.infor}>
             <Text style={styles.textInfor}>Thông tin khách hàng</Text>
-            {this.props.authUser.GROUPS == 8 ? null : <Text onPress={() => this.setState({ check: false, checktinh: false,checkquan:false,checkxa:false })}
+            {this.props.authUser.GROUPS == 8 ? null : <Text onPress={() => this.setState({ check: false, checktinh: false, checkquan: false, checkxa: false })}
               style={{ color: '#fff', textDecorationLine: 'underline' }}
             >Tự đặt hàng</Text>}
           </View>
@@ -734,6 +770,42 @@ class DetailAddressCart extends Component {
                   }}
                   styleChild={styles.styleChild}
                 />
+                <View>
+                  <View style={{ width: sizeWidth(35), marginTop: sizeHeight(2), }}>
+                    <TouchableOpacity>
+                      <Text style={styles.textDayTitle}>Ngày nhận hàng</Text>
+                      <Text
+                        style={styles.textDayOfBirth}
+                        onPress={() => this.setState({ showCalendar: true })}
+                      >
+                        {dateAdd}{" "}
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+                  <View style={{ marginTop: sizeHeight(2) }}>
+                    <Text style={styles.textDayTitle}>Thời gian nhận hàng</Text>
+                    <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
+                      <TouchableOpacity>
+                        <Text style={styles.textDayTitle}>Từ</Text>
+                        <Text
+                          style={styles.textDayOfBirth}
+                          onPress={() => this.setState({ showCalendar1: true })}
+                        >
+                          {timeAdd}{" "}
+                        </Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity>
+                        <Text style={styles.textDayTitle}>Đến</Text>
+                        <Text
+                          style={styles.textDayOfBirth}
+                          onPress={() => this.setState({ showCalendar2: true })}
+                        >
+                          {timeAdd1}{" "}
+                        </Text>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                </View>
               </View>}
             </View>
           </View>
@@ -846,7 +918,6 @@ class DetailAddressCart extends Component {
                   </View>
                   <Text style={{ marginLeft: 10 }}>COD</Text>
                 </TouchableOpacity>
-
                 <TouchableOpacity style={{ flexDirection: 'row' }}
                   onPress={() => { this.setState({ shipcode: false, Numbercode: 'CK' }) }}
                 >
@@ -883,6 +954,33 @@ class DetailAddressCart extends Component {
                 </Text>
               </TouchableOpacity>
             </View>
+            <DateTimePickerModal
+              isVisible={showCalendar}
+              mode="date"
+              date={new Date(moment("01/01/2021").format("DD/MM/YYYY"))}
+              onConfirm={(day) => {
+                this.handleDate(day);
+              }}
+              onCancel={() => this.setState({ showCalendar: false })}
+            />
+            <DateTimePickerModal
+              isVisible={showCalendar1}
+              mode="time"
+              maximumDate={new Date()}
+              onConfirm={(day) => {
+                this.handleTime(day);
+              }}
+              onCancel={() => this.setState({ showCalendar1: false })}
+            />
+            <DateTimePickerModal
+              isVisible={showCalendar2}
+              mode="time"
+              maximumDate={new Date()}
+              onConfirm={(day) => {
+                this.handleTime1(day);
+              }}
+              onCancel={() => this.setState({ showCalendar2: false })}
+            />
           </View>
 
           {this.state.loading ? (

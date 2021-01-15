@@ -40,11 +40,11 @@ class OrderMain extends Component {
     render() {
         const { Data } = this.props;
         const { district } = this.state;
-        console.log("distric",district);
+        console.log("add ship",Data);
         return (
             <View style={styles.status}>
                 <View style={styles.status1}><Text>Nhận hàng tại</Text></View>
-                {district!=''?<View style={styles.status2}><Text>{Data.ADDRESS_RECEIVER + '-' + district + '-' + this.checkCity()}</Text></View>:
+                {district!=''?<View style={styles.status2}><Text>{Data&&Data.ADDRESS_RECEIVER+'- '+ district + '-' + this.checkCity()}. Từ {Data&&Data.REQUEST_TIME_START} đến {Data&&Data.REQUEST_TIME_END} ngày {Data&&Data.REQUEST_DATE}</Text></View>:
                 <View style={styles.status2}><Text>{Data.ADDRESS_RECEIVER}</Text></View>
             }
             </View>
@@ -107,7 +107,8 @@ const styles = StyleSheet.create({
         borderColor: '#CCCECE',
         borderWidth: 1,
         justifyContent: 'center',
-        paddingLeft: 10
+        paddingLeft: 10,
+        paddingRight:10,
     },
     confix15: {
         justifyContent: 'center',

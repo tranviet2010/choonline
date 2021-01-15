@@ -121,7 +121,7 @@ class getwithdawal extends Component {
             IS_PROCESS: this.state.selectedValue,
             PAGE: 1,
             NUMOFPAGE: 100,
-            IDSHOP: 'http://banbuonthuoc.moma.vn'
+            IDSHOP: 'F6LKFY'
         }).then((res) => {
             console.log("hey zo", res);
             this.setState({
@@ -167,7 +167,7 @@ class getwithdawal extends Component {
                                 await withDrawal({
                                     USERNAME: username,
                                     AMOUNT: monney,
-                                    IDSHOP: 'http://banbuonthuoc.moma.vn',
+                                    IDSHOP: 'F6LKFY',
                                 })
                                     .then((res) => {
                                         console.log("hisssssssss", res)
@@ -252,7 +252,7 @@ class getwithdawal extends Component {
                                     <DropDownPicker
                                         items={[
                                             { label: 'Tất cả', value: '' },
-                                            { label: 'Đang xử lý', value: '0' },
+                                            { label: 'Chờ xử lý', value: '0' },
                                             { label: 'Đã xử lý', value: '1' },
 
                                         ]}
@@ -276,7 +276,7 @@ class getwithdawal extends Component {
                                         this.handleLoad();
 
                                     }}
-                                    style={{ width: sizeWidth(30), height: sizeHeight(5), backgroundColor: COLOR.MAIN, justifyContent: 'center', alignItems: 'center' }}
+                                    style={{ width: sizeWidth(30), height: sizeHeight(5), backgroundColor: COLOR.HEADER, justifyContent: 'center', alignItems: 'center' }}
                                 >
                                     <Text style={{ color: '#fff' }}>Tìm kiếm</Text>
                                 </TouchableOpacity>

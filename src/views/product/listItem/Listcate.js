@@ -12,9 +12,7 @@ export default class Listcate extends Component {
         this.state = {
             active: false,
         }
-
     }
-
     render() {
         const { Val, navigation } = this.props;
         console.log("thiss is val", Val);

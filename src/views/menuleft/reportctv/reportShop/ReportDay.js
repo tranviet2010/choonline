@@ -13,8 +13,8 @@ class ReportDay extends Component {
         super(props)
         this.state = {
             data: [],
-            selectMonth: '1',
-            selectYear: '2020',
+            selectMonth: '',
+            selectYear: '2021',
         }
     }
     handLoad = () => {
@@ -23,7 +23,7 @@ class ReportDay extends Component {
             YEAR: this.state.selectYear,
             MONTH: this.state.selectMonth,
             REPORT_TYPE: '3',
-            IDSHOP: "F6LKFY",
+            IDSHOP: 'F6LKFY',
         })
             .then((result) => {
                 if (result.data.ERROR == '0000') {
@@ -31,7 +31,9 @@ class ReportDay extends Component {
                         data: result.data.INFO
                     })
                 } else {
-                    Alert.alert('Thông báo', 'Không có dữ liệu')
+                    this.setState({
+                        data: []
+                    })
 
                 }
             })
@@ -44,12 +46,12 @@ class ReportDay extends Component {
         var sumTT = 0;
 
 
-        
-            for (var i = 0; i < data.length; i++) {
-                sumOrder = sumOrder + data[i].TOTAL_ORDER;
-            }
-            return sumOrder;
-       
+
+        for (var i = 0; i < data.length; i++) {
+            sumOrder = sumOrder + data[i].TOTAL_ORDER;
+        }
+        return sumOrder;
+
 
     }
     allData1 = () => {
@@ -113,13 +115,14 @@ class ReportDay extends Component {
                         >
                             <DropDownPicker
                                 items={[
+                                    { label:'2021',value:'2021'},
                                     { label: '2020', value: '2020' },
                                     { label: '2019', value: '2019' }
                                 ]}
                                 defaultValue={selectYear}
                                 placeholder="Chọn năm"
                                 containerStyle={{ height: 40 }}
-                                style={{ backgroundColor: '#fafafa', width: sizeWidth(30), borderColor: '#E1AC06', borderWidth: 1 }}
+                                style={{ backgroundColor: '#fafafa', width: sizeWidth(30), borderColor: '#4a8939', borderWidth: 1 }}
                                 itemStyle={{
                                     justifyContent: 'flex-start'
                                 }}
@@ -139,25 +142,25 @@ class ReportDay extends Component {
                             }}
                         >
                             <DropDownPicker
-                            
+
                                 items={[
-                                    { label:'1', value:'1' },
-                                    { label:'2', value:'2' },
-                                    { label:'3', value:'3' },
-                                    { label:'4', value:'4' },
-                                    { label:'5', value:'5' },
-                                    { label:'6', value:'6' },
-                                    { label:'7', value:'7' },
-                                    { label:'8', value:'8' },
-                                    { label:'9', value:'9' },
-                                    { label:'10', value:'10' },
-                                    { label:'11', value:'11' },
-                                    { label:'12', value:'12' },
+                                    { label: '1', value: '1' },
+                                    { label: '2', value: '2' },
+                                    { label: '3', value: '3' },
+                                    { label: '4', value: '4' },
+                                    { label: '5', value: '5' },
+                                    { label: '6', value: '6' },
+                                    { label: '7', value: '7' },
+                                    { label: '8', value: '8' },
+                                    { label: '9', value: '9' },
+                                    { label: '10', value: '10' },
+                                    { label: '11', value: '11' },
+                                    { label: '12', value: '12' },
                                 ]}
                                 defaultValue={selectMonth}
-                                placeholder="Chọn tháng"
+                                placeholder=""
                                 containerStyle={{ height: 40 }}
-                                style={{ backgroundColor: '#fafafa', width: sizeWidth(30), borderColor: '#E1AC06', borderWidth: 1 }}
+                                style={{ backgroundColor: '#fafafa', width: sizeWidth(30), borderColor: '#4a8939', borderWidth: 1 }}
                                 itemStyle={{
                                     justifyContent: 'flex-start'
                                 }}
@@ -169,11 +172,12 @@ class ReportDay extends Component {
                         </View>
                     </View>
                 </View>
-                <ScrollView horizontal={true} styles={{zIndex:-100}}>
+                <View style={{zIndex:-100}}>
+                    <ScrollView horizontal={true}>
                         <View style={{ flexDirection: 'column' }}>
                             <View style={[styles.mainUser, styles.custom, styles.customTop]}>
                                 <View style={[styles.row2, styles.row21]}>
-                                    <Text style={{ color: '#fff' }}>Năm</Text>
+                                    <Text style={{ color: '#fff' }}>Ngày</Text>
                                 </View>
                                 <View style={[styles.row3, styles.row21]}>
                                     <Text style={{ color: '#fff' }}>Số lượng ĐH</Text>
@@ -191,12 +195,12 @@ class ReportDay extends Component {
                                     <Text style={{ color: '#fff' }}>Thực thu</Text>
                                 </View>
                             </View>
-                            <View>
+                            {data.length!=0?<View>
                                 {data.map((val, key) => {
                                     return (
                                         <View style={[styles.mainUser, styles.custom]}>
                                             <View style={[styles.row2, styles.row22]}>
-                                                <Text style={{ color: '#000' }}>{val.YEAR}</Text>
+                                                <Text style={{ color: '#000' }}>{val.DAY}</Text>
                                             </View>
                                             <View style={[styles.row3, styles.row22]}>
                                                 <Text style={{ color: '#000' }}>{val.TOTAL_ORDER}</Text>
@@ -216,7 +220,7 @@ class ReportDay extends Component {
                                         </View>
                                     )
                                 })}
-                            </View>
+                            </View>:<View style={{height:sizeHeight(20),justifyContent:'center',alignItems:'center'}}><Text style={{color:'gray'}}>Không có dữ liệu</Text></View>}
                             <View style={[styles.mainUser, styles.custom, styles.customTop]}>
                                 <View style={[styles.row2, styles.row23]}>
                                     <Text style={{ color: '#fff' }}>Tổng</Text>
@@ -231,14 +235,15 @@ class ReportDay extends Component {
                                     <Text style={{ color: '#fff' }}>{numeral(this.allData3()).format("0,0")}</Text>
                                 </View>
                                 <View style={[styles.row7, styles.row23]}>
-                                    <Text style={{ color: '#fff' }}>{}</Text>
+                                    <Text style={{ color: '#fff' }}>{ }</Text>
                                 </View>
                                 <View style={[styles.row6, styles.row23]}>
                                     <Text style={{ color: '#fff' }}>{numeral(this.allData4()).format("0,0")}</Text>
                                 </View>
                             </View>
                         </View>
-                </ScrollView>
+                    </ScrollView>
+                </View>
             </View>
 
         )
@@ -257,7 +262,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        alignItems:'center',
+        alignItems: 'center',
         padding: 10,
     },
     mainUser: {
@@ -335,7 +340,7 @@ const styles = StyleSheet.create({
     },
     row23: {
         color: '#fff',
-        backgroundColor: '#E1AC06',
+        backgroundColor: '#4a8939',
         justifyContent: 'center',
         alignItems: 'center',
     },

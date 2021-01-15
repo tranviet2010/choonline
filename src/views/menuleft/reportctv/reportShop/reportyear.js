@@ -18,7 +18,7 @@ class ReportYear extends Component {
     }
     handLoad = () => {
         ReportDefault({
-            USERNAME: 'f5shop',
+            USERNAME: this.props.username,
             YEAR: '',
             MONTH: '',
             REPORT_TYPE: '1',
@@ -39,12 +39,12 @@ class ReportYear extends Component {
         var sumTT = 0;
 
 
-        
-            for (var i = 0; i < data.length; i++) {
+        if(data){
+        for (var i = 0; i < data.length; i++) {
                 sumOrder = sumOrder + data[i].TOTAL_ORDER;
             }
             return sumOrder;
-       
+        }
 
     }
     allData1 = () => {
@@ -54,11 +54,12 @@ class ReportYear extends Component {
         var sumCommitsion = 0;
         var sumTT = 0;
 
-
+        if(data){
         for (let i = 0; i < data.length; i++) {
             sumMonney += data[i].TOTAL_MONEY;
         }
         return sumMonney;
+    }
 
     }
     allData3 = () => {
@@ -68,22 +69,23 @@ class ReportYear extends Component {
         var sumCommitsion = 0;
         var sumTT = 0;
 
-
+        if(data){
         for (let i = 0; i < data.length; i++) {
             sumCommitsion += data[i].TOTAL_COMMISSION;
         }
         return sumCommitsion;
+    }
 
     }
     allData4 = () => {
         const { data } = this.state;
         var sumTT = 0;
-
-
+        if(data){
         for (let i = 0; i < data.length; i++) {
             sumTT += data[i].TOTAL_TT;
         }
         return sumTT;
+    }
 
     }
 
@@ -101,7 +103,7 @@ class ReportYear extends Component {
                     <TouchableOpacity
                     onPress={()=>{this.props.navigation.navigate("reportday")}} 
                     >
-                        <View style={{ flexDirection: 'column' }}>
+                        <View style={{ flexDirection: 'column'}}>
                             <View style={[styles.mainUser, styles.custom, styles.customTop]}>
                                 <View style={[styles.row2, styles.row21]}>
                                     <Text style={{ color: '#fff' }}>Năm</Text>
@@ -123,7 +125,7 @@ class ReportYear extends Component {
                                 </View>
                             </View>
                             <View>
-                                {data.map((val, key) => {
+                                {data && data.map((val, key) => {
                                     return (
                                         <View style={[styles.mainUser, styles.custom]}>
                                             <View style={[styles.row2, styles.row22]}>
@@ -261,7 +263,7 @@ const styles = StyleSheet.create({
     },
     row23: {
         color: '#fff',
-        backgroundColor: '#E1AC06',
+        backgroundColor: '#4d7335',
         justifyContent: 'center',
         alignItems: 'center',
     },

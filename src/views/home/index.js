@@ -17,7 +17,6 @@ import {
 import { connect } from "react-redux";
 import { LoginPhone, UpdateDivice, GetProfile } from "../../action/authAction";
 import { GetInformation } from "../../service/account";
-
 import { _retrieveData } from "../../utils/asynStorage";
 import { Getwithdrawal } from "../../service/order";
 import { AUTH, USER_NAME } from "../../utils/asynStorage/store";
@@ -233,7 +232,7 @@ class Home extends Component {
           <StatusBar
             barStyle={"light-content"}
             backgroundColor={COLOR.HEADER}
-          //translucent
+          //translucent 
           />
 
           <ScrollView>

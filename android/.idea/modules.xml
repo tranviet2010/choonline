@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/partmarket.iml" filepath="$PROJECT_DIR$/.idea/modules/partmarket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/partmarket.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/partmarket.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1683069736/partmarket.react-native-code-push.iml" filepath="$PROJECT_DIR$/.idea/modules/-1683069736/partmarket.react-native-code-push.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1088461418/partmarket.react-native-community_async-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/-1088461418/partmarket.react-native-community_async-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1131595677/partmarket.react-native-community_datetimepicker.iml" filepath="$PROJECT_DIR$/.idea/modules/1131595677/partmarket.react-native-community_datetimepicker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1830105619/partmarket.react-native-community_masked-view.iml" filepath="$PROJECT_DIR$/.idea/modules/1830105619/partmarket.react-native-community_masked-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/765263241/partmarket.react-native-community_toolbar-android.iml" filepath="$PROJECT_DIR$/.idea/modules/765263241/partmarket.react-native-community_toolbar-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1058517269/partmarket.react-native-date-picker.iml" filepath="$PROJECT_DIR$/.idea/modules/-1058517269/partmarket.react-native-date-picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2016043299/partmarket.react-native-device-info.iml" filepath="$PROJECT_DIR$/.idea/modules/2016043299/partmarket.react-native-device-info.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1793560028/partmarket.react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/-1793560028/partmarket.react-native-gesture-handler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/586090967/partmarket.react-native-image-crop-picker.iml" filepath="$PROJECT_DIR$/.idea/modules/586090967/partmarket.react-native-image-crop-picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-452732062/partmarket.react-native-image-picker.iml" filepath="$PROJECT_DIR$/.idea/modules/-452732062/partmarket.react-native-image-picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-949066376/partmarket.react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/-949066376/partmarket.react-native-reanimated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-677932659/partmarket.react-native-safe-area-context.iml" filepath="$PROJECT_DIR$/.idea/modules/-677932659/partmarket.react-native-safe-area-context.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1592004069/partmarket.react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/1592004069/partmarket.react-native-screens.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-826794051/partmarket.react-native-share.iml" filepath="$PROJECT_DIR$/.idea/modules/-826794051/partmarket.react-native-share.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1090248048/partmarket.react-native-splash-screen.iml" filepath="$PROJECT_DIR$/.idea/modules/1090248048/partmarket.react-native-splash-screen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1799684290/partmarket.react-native-svg.iml" filepath="$PROJECT_DIR$/.idea/modules/1799684290/partmarket.react-native-svg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1172535346/partmarket.react-native-vector-icons.iml" filepath="$PROJECT_DIR$/.idea/modules/1172535346/partmarket.react-native-vector-icons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/850946647/partmarket.react-native-webview.iml" filepath="$PROJECT_DIR$/.idea/modules/850946647/partmarket.react-native-webview.iml" />
+    </modules>
+  </component>
+</project>

@@ -73,7 +73,7 @@ class InfoCTV extends Component {
                 <View>
                     <View style={{ justifyContent: 'space-evenly', alignItems: 'center', flexDirection: 'row', marginTop: 10, marginBottom: 5 }}>
                         <Text style={{ width: sizeWidth(20) }}>Tỉnh</Text>
-                        <View style={{flexDirection:'row',height: sizeHeight(5), width: sizeWidth(55), borderColor: '#E1AC06', borderWidth: 1, justifyContent: 'space-between', alignItems: 'center',paddingLeft:5,paddingRight:5 }}>
+                        <View style={{flexDirection:'row',height: sizeHeight(5), width: sizeWidth(55), borderColor: '#4d7335', borderWidth: 1, justifyContent: 'space-between', alignItems: 'center',paddingLeft:5,paddingRight:5 }}>
 
 
                             <Modal
@@ -136,7 +136,7 @@ class InfoCTV extends Component {
                         <TextInput
                             placeholder="Theo tên hoặc mã user"
                             onChangeText={(text) => { this.setState({ codeuser: text }) }}
-                            style={{ width: sizeWidth(55), height: sizeHeight(5), borderColor: '#E1AC06', borderWidth: 1, paddingLeft: 10 }}
+                            style={{ width: sizeWidth(55), height: sizeHeight(5), borderColor: '#4d7335', borderWidth: 1, paddingLeft: 10 }}
                         />
                     </View>
                     <View>
@@ -172,7 +172,7 @@ class InfoCTV extends Component {
                             }}
                             style={{ justifyContent: 'center', alignItems: 'center' }}
                         >
-                            <View style={{ backgroundColor: '#E1AC06', width: sizeWidth(30), height: sizeHeight(5), marginBottom: 10, justifyContent: 'center', alignItems: 'center' }}>
+                            <View style={{ backgroundColor: '#4d7335', width: sizeWidth(30), height: sizeHeight(5), marginBottom: 10, justifyContent: 'center', alignItems: 'center' }}>
                                 <Text style={{ color: 'white' }}>Lọc</Text>
                             </View>
                         </TouchableOpacity>
@@ -195,7 +195,7 @@ class InfoCTV extends Component {
                                         <Text style={{ color: 'white' }}>Loại TK</Text>
                                     </View>
                                 </View>
-                                <ScrollView style={{ borderColor: '#E1AC06', borderWidth: 2, backgroundColor: '#EFEFEF' }}>
+                                <ScrollView style={{ borderColor: '#4d7335', borderWidth: 2, backgroundColor: '#EFEFEF' }}>
                                     <View style={{ marginTop: -2 }}>
                                         {data.length === 0 ? null : data.map((Val, key) => (
                                             <View>
@@ -265,20 +265,20 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     children: {
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
         alignItems: 'center',
         justifyContent: 'center',
         width: sizeWidth(25),
         height: sizeHeight(5),
         borderBottomWidth: 1,
-        borderBottomColor: '#E1AC06',
+        borderBottomColor: '#4d7335',
     },
     cuttoms: {
         borderLeftColor: 'white',
         height: sizeHeight(5),
         borderLeftWidth: 1,
-        backgroundColor: "#E1AC06",
+        backgroundColor: "#4d7335",
         justifyContent: 'center',
         alignItems: 'center',
         width: sizeWidth(25),

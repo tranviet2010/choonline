@@ -72,7 +72,7 @@ class ListProducts extends PureComponent {
     }).then((res) => {
       console.log("this is GetwithdrawalCTV",res);
       this.setState({
-        data_tt: res.data.INFO
+        data_tt: res.data.INFO.filter((val)=>val.STATUS==null)
       })
     })
       .catch((err) => { })
@@ -135,7 +135,7 @@ class ListProducts extends PureComponent {
                 </View>
               </View>
               {loading === false ? 
-              <ScrollView style={{ marginTop: sizeHeight(1), height: sizeHeight(50) }}  
+              <ScrollView style={{ marginTop: sizeHeight(1), height: sizeHeight(40) }}  
               >
                 <DataTable
                   refreshControl={

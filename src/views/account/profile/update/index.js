@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, ScrollView, TouchableOpacity, Image, Keyboard, Alert, Clipboard,Platform } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, Image, Keyboard, Alert, Clipboard, Platform, Modal } from "react-native";
 import { connect } from "react-redux";
 import { Avatar } from "react-native-elements";
 import { LoginPhone } from "../../../../action/authAction";
@@ -72,8 +72,9 @@ class UpdateInformation extends Component {
       nameBank: authUser.TEN_NH,
       chinhanh: authUser.CHINHANH_NH,
       showAlert: false,
+      numberPick:0,
       brankBank: '',
-
+      modalVisible: false,
       rose: authUser.COMISSION,
       city:
         authUser.CITY == null
@@ -89,13 +90,14 @@ class UpdateInformation extends Component {
             NAME: authUser.DISTRICT,
             MAQH: authUser.DISTRICT_ID,
           },
-      districChild:'',
+      districChild: '',
+      modalVisible1:false,
       loading: false,
       imageAvatar: !authUser.AVATAR ? "" : authUser.AVATAR,
       CMT_1: authUser.IMG1 ? authUser.IMG1 : "",
       CMT_2: authUser.IMG2 ? authUser.IMG2 : "",
       showCalendar: false,
-      photo:null,
+      photo: null,
     };
     this.message = "";
     this.refs.focusFullName;
@@ -171,13 +173,13 @@ class UpdateInformation extends Component {
         "Tên tài khoản không quá 100 ký tự và không chứa ký tự đặc biệt",
         // () => this.focusBankNum.focus()
       );
-    } else if (email!=null && !validateEmail(email) && email.trim().length !== 0) {
+    } else if (email != null && !validateEmail(email) && email.trim().length !== 0) {
       Alert.alert("Thông báo", "Nhập sai định dạng email",
         // () =>this.focusEmail.focus()
       );
     } else if (
       passport.trim() !== "" &&
-      ( passport!=null ||
+      (passport != null ||
         !alphanumeric(passport) ||
         passport.length > 20 ||
         passport.length < 8)
@@ -239,7 +241,7 @@ class UpdateInformation extends Component {
       UpdateInforAccount({
         USERNAME: authUser.USERNAME,
         USER_CTV: authUser.USERNAME,
-        NAME: userName, 
+        NAME: userName,
         DOB: dayOfBirth,
         GENDER: gender,
         EMAIL: email.trim(),
@@ -255,7 +257,7 @@ class UpdateInformation extends Component {
         IMG1: CMT_1,
         CHINHANHNH: chinhanh,
         IMG2: CMT_2,
-        WARD_NAME: districChild?districChild.vn_name:null,
+        WARD_NAME: districChild ? districChild.vn_name : null,
         OLD_PWD: "",
         NEW_PWD: "",
         MOBILE: phoneText.trim(),
@@ -446,9 +448,37 @@ class UpdateInformation extends Component {
       }
     });
   };
-  
+  handleImageCamera = (type) => {
+    launchCamera(options, async (response) => {
+      console.log("Response = ", response);
 
-  
+      if (response.didCancel) {
+        console.log("User cancelled image picker");
+      } else if (response.error) {
+        console.log("ImagePicker Error: ", response.error);
+      } else if (response.customButton) {
+        console.log("User tapped custom button: ", response.customButton);
+      } else {
+        const source = { uri: response.uri };
+
+        // You can also display the image using data:
+        // const source = { uri: 'data:image/jpeg;base64,' + response.data };
+        this.setState(
+          {
+            loading: true,
+          },
+          () => this.upload(source, response.data, type)
+        );
+
+        console.log("image", response);
+      }
+    });
+  }
+  handlePicCamere = () => {
+
+  }
+
+
   changeStateAccount = (text) => {
     this.setState({
       account: text,
@@ -474,7 +504,7 @@ class UpdateInformation extends Component {
       console.log("abccccc", res.data)
       this.setState({
         districChild: res.data.WARD,
-        imageAvatar:res.data.AVATAR
+        imageAvatar: res.data.AVATAR
       })
     })
   }
@@ -513,6 +543,7 @@ class UpdateInformation extends Component {
       nameBank,
       nameAccount,
       account,
+      modalVisible1,
       showAlert,
       loading,
       imageAvatar,
@@ -520,13 +551,15 @@ class UpdateInformation extends Component {
       CMT_2,
       chinhanh,
       nameLogin,
+      modalVisible,
       showCalendar,
       photo,
       rose,
     } = this.state;
-    const {authUser}=this.props;
-    console.log('authUser',CMT_1);
-    console.log("districChild======",authUser);
+    const { authUser } = this.props;
+    console.log('authUser', CMT_1);
+    console.log("districChild======", authUser);
+    console.log("this.state.numberPick",this.state.numberPick);
     return (
       <Provider>
         <ScrollView keyboardShouldPersistTaps="handled">
@@ -558,7 +591,10 @@ class UpdateInformation extends Component {
 
             <TouchableOpacity
               style={styles.viewTouchCamera}
-              onPress={() => this.handleImage(1)}
+              onPress={() => this.setState({
+                modalVisible: true,
+                numberPick:1,
+              })}
             >
               <IconComponets
                 name="camera"
@@ -817,7 +853,7 @@ class UpdateInformation extends Component {
                   type: "email",
                   size: sizeFont(6),
                   name: "chevron-down",
-                  value:districChild==undefined?'':districChild.NAME,
+                  value: districChild == undefined ? '' : districChild.NAME,
                   onChangeText: (text) => null,
                   primary: "#017DFF",
                   color: COLOR.HEADER,
@@ -900,7 +936,10 @@ class UpdateInformation extends Component {
                 <View style={styles.viewCMT}>
                   <TouchableOpacity
                     style={styles.touchCMT}
-                    onPress={() => this.handleImage(2)}
+                    onPress={() => this.setState({
+                      modalVisible:true,
+                      numberPick:2
+                    })}
                   >
                     {CMT_1 == "" ? (
                       <IconComponets
@@ -925,7 +964,10 @@ class UpdateInformation extends Component {
                 <View style={styles.viewCMT}>
                   <TouchableOpacity
                     style={styles.touchCMT}
-                    onPress={() => this.handleImage(3)}
+                    onPress={() => this.setState({
+                      modalVisible:true,
+                      numberPick:3
+                    })}
                   >
                     {CMT_2 == "" ? (
                       <IconComponets
@@ -1098,6 +1140,48 @@ class UpdateInformation extends Component {
             title="Thông báo"
             onClose={() => this.setState({ showAlert: false })}
           />
+          <View style={styles.centeredView}>
+            <Modal
+              animationType="slide"
+              transparent={true}
+              visible={modalVisible}
+              onRequestClose={() => {
+                Alert.alert("Modal has been closed.");
+              }}
+            >
+              <View style={styles.centeredView}>
+                <View style={styles.modalView}>
+                  <View style={{position:'absolute',bottom:sizeHeight(20)}}>
+                    <TouchableOpacity
+                      onPress={() => {
+                        this.handleImage(this.state.numberPick)
+                      }}
+                    >
+                      <Text style={{fontSize:sizeFont(5),color:'#2196F3',textDecorationLine:'underline'}}>Chọn từ thư viện...</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      onPress={() => this.handleImageCamera(this.state.numberPick)}
+                    >
+                      <Text style={{fontSize:sizeFont(5),color:'#2196F3',textDecorationLine:'underline',marginTop:sizeHeight(2)}}>Chọn từ camera...</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                    style={{ ...styles.openButton }}
+                    onPress={() => {
+                      this.setState({
+                        modalVisible: !modalVisible
+                      })
+                    }}
+                  >
+                    <Text style={styles.textStyle}>Cancle</Text>
+                  </TouchableOpacity>
+                  </View>
+
+
+                </View>
+              </View>
+            </Modal>
+          </View>
+          
           <DateTimePickerModal
             isVisible={showCalendar}
             mode="date"

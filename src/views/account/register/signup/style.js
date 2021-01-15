@@ -9,7 +9,7 @@ const { StyleSheet } = require("react-native");
 
 const styles = StyleSheet.create({
   conatainer: {
-    backgroundColor: "#E1AC06",
+    backgroundColor: "#4d7335",
   },
   logo: { marginTop: sizeHeight(-5) },
 

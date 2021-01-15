@@ -105,7 +105,7 @@ const AppStack = (props) => {
         },
       })}
       tabBarOptions={{
-        activeTintColor: "#E1AC06",
+        activeTintColor: "#4d7335",
         inactiveTintColor: "#969696",
         tabStyle: {
           paddingTop: 10,

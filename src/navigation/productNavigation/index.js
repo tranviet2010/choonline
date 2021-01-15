@@ -164,7 +164,7 @@ MyHomeStack = (props) => {
                 <View>
                   <HeaderLeftComponet
                     navigation={navigation}
-                    onPress={() => navigation.navigate("Thông báo", {
+                    onPress={() => navigation.navigate("notiProduct", {
                       NAME: 'Product',
                     })}
                     name="bell"
@@ -191,9 +191,10 @@ MyHomeStack = (props) => {
         })}
       />
       <HomeStack.Screen
-        name="Thông báo"
+        name="notiProduct"
         component={Notification}
         options={({ route }) => ({
+          title:'Thông báo',
           headerTitleAlign: "center",
           headerBackTitle: null,
           headerStyle: {

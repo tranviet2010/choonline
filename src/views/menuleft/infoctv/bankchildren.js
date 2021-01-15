@@ -89,7 +89,7 @@ class BankChildren extends Component {
                             <View>
                                 <View style={{ height: 4.5, backgroundColor: '#AAAAAA' }}></View>
                                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 20 }}>
-                                    <View style={{ width:sizeWidth(100),backgroundColor:'#E1AC06' }}>
+                                    <View style={{ width:sizeWidth(100),backgroundColor:'#4d7335' }}>
                                         <Text style={{ fontSize: 16,padding:10,fontWeight:'bold',color:'white' }}>Tài khoản ngân hàng</Text> 
                                     </View>
 

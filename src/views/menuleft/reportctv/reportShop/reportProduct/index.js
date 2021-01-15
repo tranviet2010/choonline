@@ -57,8 +57,8 @@ class index extends Component {
     }
     render() {
         const { selectedValue, isselectedValue,display, load, selectedMoth, selectedYear, data } = this.state;
-        const color = load ? '#E1AC06' : '#F5F5F5';
-        const color3 = load ? '#F5F5F5' : '#E1AC06';
+        const color = load ? '#4d7335' : '#F5F5F5';
+        const color3 = load ? '#F5F5F5' : '#4d7335';
         const colorText1 = load ? 'white' : 'black';
         const colorText2 = load ? 'black' : 'white';
         return (
@@ -83,7 +83,7 @@ class index extends Component {
                             defaultValue={selectedValue}
                             placeholder="- Tất cả -"
                             containerStyle={{ height: 40 }}
-                            style={{ backgroundColor: '#fafafa', width: sizeWidth(35), borderColor: '#E1AC06', borderWidth: 2 }}
+                            style={{ backgroundColor: '#fafafa', width: sizeWidth(35), borderColor: '#4d7335', borderWidth: 2 }}
                             itemStyle={{
                                 justifyContent: 'flex-start'
                             }}
@@ -113,7 +113,7 @@ class index extends Component {
                                 defaultValue={selectedYear}
                                 placeholder="Năm"
                                 containerStyle={{ height: 40 }}
-                                style={{ backgroundColor: '#fafafa', width: sizeWidth(35), borderColor: '#E1AC06', borderWidth: 2 }}
+                                style={{ backgroundColor: '#fafafa', width: sizeWidth(35), borderColor: '#4d7335', borderWidth: 2 }}
                                 itemStyle={{
                                     justifyContent: 'flex-start'
                                 }}
@@ -141,7 +141,7 @@ class index extends Component {
                                     defaultValue={selectedMoth}
                                     placeholder=""
                                     containerStyle={{ height: 40 }}
-                                    style={{ backgroundColor: '#fafafa', width: sizeWidth(35), borderColor: '#E1AC06', borderWidth: 2 }}
+                                    style={{ backgroundColor: '#fafafa', width: sizeWidth(35), borderColor: '#4d7335', borderWidth: 2 }}
                                     itemStyle={{
                                         justifyContent: 'flex-start'
                                     }}
@@ -177,7 +177,7 @@ class index extends Component {
                             defaultValue={display}
                             placeholder="Danh mục sản phẩm"
                             containerStyle={{ height: 40 }}
-                            style={{ backgroundColor: '#fafafa', width: sizeWidth(50), borderColor: '#E1AC06', borderWidth: 2 }}
+                            style={{ backgroundColor: '#fafafa', width: sizeWidth(50), borderColor: '#4d7335', borderWidth: 2 }}
                             itemStyle={{
                                 justifyContent: 'flex-start'
                             }}
@@ -193,7 +193,7 @@ class index extends Component {
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 10 }}>
                     <View>
                         <TouchableOpacity
-                            style={{ width: sizeWidth(46), height: sizeHeight(7), borderColor: '#E1AC06', borderWidth: 2, justifyContent: 'center', backgroundColor: `${color}` }}
+                            style={{ width: sizeWidth(46), height: sizeHeight(7), borderColor: '#4d7335', borderWidth: 2, justifyContent: 'center', backgroundColor: `${color}` }}
                             onPress={() => this.setState({
                                 load: true,
                             })}
@@ -203,7 +203,7 @@ class index extends Component {
                     </View>
                     <View>
                         <TouchableOpacity
-                            style={{ width: sizeWidth(46), height: sizeHeight(7), borderColor: '#E1AC06', borderWidth: 2, justifyContent: 'center', backgroundColor: `${color3}` }}
+                            style={{ width: sizeWidth(46), height: sizeHeight(7), borderColor: '#4d7335', borderWidth: 2, justifyContent: 'center', backgroundColor: `${color3}` }}
                             onPress={() => this.setState({
                                 load: false,
 
@@ -288,7 +288,7 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
     },
     container: {
-        borderColor: '#E1AC06',
+        borderColor: '#4d7335',
         borderWidth: 2,
         borderRadius: 10,
         alignItems: "center"

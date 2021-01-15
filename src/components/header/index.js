@@ -30,7 +30,7 @@ export class HeaderLeftComponet extends Component {
       <TouchableOpacity
         onPress={onPress}
         style={{
-          marginLeft: sizeWidth(2.5),
+          marginLeft: sizeWidth(1),
           paddingHorizontal: sizeWidth(2),
           flexDirection: "row",
         }}

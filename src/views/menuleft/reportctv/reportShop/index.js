@@ -34,7 +34,7 @@ class index extends Component {
                         <IconComponets
                             name="chevron-right"
                             size={sizeFont(5)}
-                            color={"#E1AC06"}
+                            color={"#4d7335"}
                         />
                     </TouchableOpacity>
                 </View>
@@ -56,7 +56,7 @@ class index extends Component {
                         <IconComponets
                             name="chevron-right"
                             size={sizeFont(5)}
-                            color={"#E1AC06"}
+                            color={"#4d7335"}
                         />
                     </TouchableOpacity>
                 </View>

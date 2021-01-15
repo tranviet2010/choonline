@@ -119,7 +119,7 @@ class Notification extends Component {
       IDSHOP: 'F6LKFY',
     })
       .then((result) => {
-        console.log("this is getListNotify", result);
+        console.log("this is getListNotify",result);
         if (result.data.ERROR === "0000") {
           this.setState({ data: result.data.INFO }, () => {
             this.setState({
@@ -149,17 +149,18 @@ class Notification extends Component {
         customIndicator={<ElementCustom />}
       />
     ) : (
-        <View style={{ alignItems: "center", flex: 1 }}>
-          <ListNotification
-            data={data}
-            handleLoad={this.handleLoad}
-            onMomentumScrollBegin={this.onMomentumScrollBegin}
-            loadMore={loadMore}
-            onRefresh={this.onRefresh}
-            navigation={this.props.navigation}
-          />
-        </View>
-      );
+      <View style={{ alignItems: "center", flex: 1 }}>
+        <ListNotification
+          data={data}
+          handleLoad={this.handleLoad}
+          onMomentumScrollBegin={this.onMomentumScrollBegin}
+          loadMore={loadMore}
+          onRefresh={this.onRefresh}
+          navigation={this.props.navigation}
+        />
+        
+      </View>
+    );
   }
 }
 const mapStateToProps = (state) => {

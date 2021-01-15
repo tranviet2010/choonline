@@ -107,22 +107,34 @@ class DetailProducts extends Component {
                         </View>
                     </View>
                 </Modal>
-                <TouchableOpacity
+                <View
                     style={styles.openButton1}
-                    onPress={() => {
-                        this.setState({ setSelectedValue: true })
-                    }}
+                    
                 >
-                    <Text style={styles.textStyle}>Lựa chọn</Text>
-                    <View style={{ flexDirection: 'row' }}>
-                        {data.length != 0 ? data.map((val) => {
-                            return (
-                                <Text style={{ marginLeft: 10, fontSize: 11 }}>{val.NAME}</Text>
-                            )
-                        }) : null}
-                    </View>
+                    <Text style={styles.textStyle}>Đơn vị tính</Text>
+                    <View style={{}}>
+                                {data.length != 0 ? data.map((val) => {
+                                    return (
+                                        <View>
+                                            
+                                            <View style={{ flexDirection: 'row',width:sizeWidth(40) }}>
+                                                {val.INFO.map((value) => (
+                                                    <View style={{width:sizeWidth(25),height:sizeHeight(5),
+                                                    justifyContent:'center',alignItems:'center'}}
+                                                    onPress={()=>{
+                                                        console.log(value.SUB_PROPERTIES)
+                                                    }}
+                                                    >
+                                                        <Text>{value.SUB_PROPERTIES}</Text>
+                                                    </View>
+                                                ))}
+                                            </View>
+                                        </View>
+                                    )
+                                }) : null}
+                            </View>
 
-                </TouchableOpacity>
+                </View  >
             </View>
         );
     }

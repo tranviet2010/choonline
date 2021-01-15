@@ -24,6 +24,51 @@ const styles = StyleSheet.create({
     right: sizeWidth(20),
     bottom: sizeHeight(0),
   },
+
+
+
+
+
+  centeredView: {
+    flex: 1,
+    justifyContent:'flex-end',
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    width:sizeWidth(100),
+    height:sizeHeight(50),
+    backgroundColor: "white",
+    
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  openButton: {
+    padding: 10,
+    elevation: 2
+  },
+  textStyle: {
+    color: "#2196F3",
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize:sizeFont(5),
+    marginTop:sizeHeight(1),
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  },
+
+
+
+
   styleChild: {
     borderRadius: 6,
     height: 55,

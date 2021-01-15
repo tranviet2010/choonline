@@ -54,12 +54,13 @@ class ReportMonth extends Component {
                         <DropDownPicker
                             items={[
                                 { label: '2019', value: '2019' },
-                                { label: '2020', value: '2020' }
+                                { label: '2020', value: '2020' },
+                                { label: '2021', value: '2021' },
                             ]}
                             defaultValue={selectedValue}
                             placeholder="- Tất cả -"
                             containerStyle={{ height: 40 }}
-                            style={{ backgroundColor: '#fafafa', width: sizeWidth(35), borderColor: '#E1AC06', borderWidth: 2 }}
+                            style={{ backgroundColor: '#fafafa', width: sizeWidth(35), borderColor: '#4d7335', borderWidth: 2 }}
                             itemStyle={{
                                 justifyContent: 'flex-start'
                             }}
@@ -110,7 +111,7 @@ const mapStateToProps = (state) => {
 };
 const styles = StyleSheet.create({
     container:{
-        borderColor:'#E1AC06',
+        borderColor:'#4d7335',
         borderWidth:1.5,
         borderRadius:5,
         marginLeft:10,
@@ -123,58 +124,58 @@ const styles = StyleSheet.create({
         height: sizeHeight(5),
         textAlign: 'center',
         width: sizeWidth(12),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
     },
     row2: {
         paddingTop: sizeHeight(1),
         textAlign: 'center',
         width: sizeWidth(30),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
     },
     row3: {
         paddingTop: sizeHeight(1),
         textAlign: 'center',
         width: sizeWidth(30),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
     },
     row4: {
         paddingTop: sizeHeight(1),
         textAlign: 'center',
         width: sizeWidth(30),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
     },
     row5: {
         paddingTop: sizeHeight(1),
         textAlign: 'center',
         width: sizeWidth(30),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
     },
     row6: {
         paddingTop: sizeHeight(1),
         textAlign: 'center',
         width: sizeWidth(30),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
     },
     row7: {
         paddingTop: sizeHeight(1),
         textAlign: 'center',
         width: sizeWidth(20),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
     },
     custom: {
-        borderBottomColor: '#E1AC06',
+        borderBottomColor: '#4d7335',
         borderBottomWidth: 1,
 
     },
     customTop: {
-        borderTopColor: '#E1AC06',
+        borderTopColor: '#4d7335',
         borderTopWidth: 1,
     }
 })

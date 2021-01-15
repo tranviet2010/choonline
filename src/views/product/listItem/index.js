@@ -143,10 +143,11 @@ class ListProducts extends PureComponent {
     var end = b;
     var datePart1 = start.split("/");
     var datePart2 = end.split("/");
+    // var dateObject1 = new Date(+datePart1[2], datePart1[1] - 1, +datePart1[0]);
+    // var dateObject2 = new Date(+datePart2[2], datePart2[1] - 1, +datePart2[0]);
+    // return dateObject2 - dateObject1;
+    var timeStart=moment([datePart1[2],])
 
-    var dateObject1 = new Date(+datePart1[2], datePart1[1] - 1, +datePart1[0]);
-    var dateObject2 = new Date(+datePart2[2], datePart2[1] - 1, +datePart2[0]);
-    return dateObject2 - dateObject1;
   }
   handleScreen = (text, title, type) => {
     const { navigation } = this.props;
@@ -164,9 +165,10 @@ class ListProducts extends PureComponent {
       countNotify
     } = this.props;
     const { Data, loading, Rose, dataList, open, search, data, open2, value } = this.state;
+    console.log("auth",this.props.authUser);
     return (
       <View style={{ marginBottom: sizeHeight(5) }}>
-        <View style={{ flexDirection: 'row', paddingTop: sizeHeight(5), height: sizeHeight(12), backgroundColor: '#E1AC06', justifyContent: 'space-between', alignItems: 'center' }}>
+        <View style={{ flexDirection: 'row', paddingTop: sizeHeight(5), height: sizeHeight(12), backgroundColor: '#4d7335', justifyContent: 'space-between', alignItems: 'center' }}>
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <Image
               source={require('../../../assets/images/list.png')}
@@ -192,10 +194,10 @@ class ListProducts extends PureComponent {
               backgroundColor: 'white'
             }}
           />
-          <View style={{ flexDirection: 'row-reverse' }}>
+          <View style={{ flexDirection: 'row-reverse',alignItems:'center',justifyContent:'center' }}>
             <View>
               <TouchableOpacity
-                style={{ flexDirection: "row", marginRight: sizeWidth(2) }}
+                style={{ flexDirection: "row"}}
                 onPress={() =>
                   navigation.navigate("Carts", {
                     NAME: "Product",
@@ -231,7 +233,7 @@ class ListProducts extends PureComponent {
             <View>
               <HeaderLeftComponet
                 navigation={navigation}
-                onPress={() => navigation.navigate("Thông báo", {
+                onPress={() => navigation.navigate("notiProduct", {
                   NAME: 'Product',
                 })}
                 name="bell"
@@ -259,7 +261,7 @@ class ListProducts extends PureComponent {
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <Image
                   source={require("../../../assets/images/mess.png")}
-                  style={{ width: 30, height: 30, justifyContent: 'center', alignItems: 'center', marginLeft: sizeWidth(1) }}
+                  style={{ width: 25, height: 25, justifyContent: 'center', alignItems: 'center', marginLeft: sizeWidth(1) }}
                 />
               </View>
             </TouchableOpacity >
@@ -284,8 +286,8 @@ class ListProducts extends PureComponent {
               </View>
             </TouchableHighlight>
 
-            <View>
-              {open ? <View style={{ zIndex: 2000 }}>{dataList.map((Val) => {
+            <ScrollView>
+              {open ? <View>{dataList.map((Val) => {
                 return (
                   // <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: sizeWidth(95), height: sizeHeight(4.5), backgroundColor: 'white', color: '#149CC6', fontSize: 16, paddingLeft: 10, borderBottomColor: '#149CC6', borderBottomWidth: 1 }}>
                   //   <Text
@@ -301,11 +303,15 @@ class ListProducts extends PureComponent {
                   <Listcate Val={Val} navigation={navigation} />
                 )
               })}</View> : null}
-            </View>
+            </ScrollView>
 
           </View>
 
         </View>
+
+
+
+        
         <View style={{ marginTop: sizeHeight(1) }}>
           <Animated.SectionList
             onScroll={Animated.event(
@@ -379,9 +385,9 @@ class ListProducts extends PureComponent {
 
                           {item.END_PROMOTION && this.checkTime(item.START_PROMOTION, item.END_PROMOTION) >=0 ? <View>
                             <View style={styles.textPrice1}>
-                              <View style={{flexDirection:'row',alignItems:'center'}}>
+                              <View style={{flexDirection:'row',alignItems:'center',alignItems:'center'}}>
                                 <Text style={styles.textPrice}>{numeral(item.PRICE_PROMOTION).format("0,0")} đ</Text>
-                                <Text style={{ textDecorationLine: 'line-through', color: 'gray', fontSize: sizeFont(3) }}>{numeral(item.PRICE).format("0,0")} đ</Text>
+                                <Text style={{ textDecorationLine: 'line-through', color: 'gray', fontSize: sizeFont(3),marginLeft:sizeWidth(1)}}>{numeral(item.PRICE).format("0,0")} đ</Text>
                               </View>
                               {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text style={{ color: '#3399FF', fontSize: sizeFont(3.5), paddingBottom: 5 }}>HH: {numeral(item.COMISSION_PRODUCT * item.PRICE_PROMOTION * 0.01).format("0,0")}đ ({item.COMISSION_PRODUCT}%)</Text>}
                             </View>

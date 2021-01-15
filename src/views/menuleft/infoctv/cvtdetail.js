@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, Image, TouchableOpacity, AlertCommon, Alert, TextInput, TouchableHighlight, Switch } from 'react-native';
-import { GetListCTV } from "../../../service/account";
-import Modal from 'react-native-modal';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Alert, TextInput, TouchableHighlight, Switch } from 'react-native';
 import { Getwithdrawal, GetCTVDetail } from "../../../service/rose";
-import { changePass } from "../../../service/auth";
-import { FormTextInput } from "../../../components/textinput";
-import { COLOR } from "../../../utils/color/colors";
+import { ElementCustom, AlertCommon } from "../../../components/error";
 import { resetPass } from "../../../service/auth";
-import { UpdateInforAccount } from "../../../service/account";
-import Provide from "../../../utils/provide/bank";
-import ImagePicker from "react-native-image-picker";
-import IconComponets from "../../../components/icon"
+import { BlockAccout } from "../../../service/account";
+
 import moment from "moment";
 var numeral = require("numeral");
 import {
@@ -56,14 +50,14 @@ class UserChildren extends Component {
             passold: '',
             cmnd: Data.SO_CMT,
             loading: false,
-            imageAvatar: '',
+            imageAvatar: Data.AVATAR,
             photo: '',
             ctvdetail: [],
             CMT_1: Data.IMG1,
             CMT_2: Data.IMG2,
             setupacc: Data.GROUP_DES,
             rosectv: '',
-            isEnabled: true,
+            isEnabled: Data.STATUS == 1 ? true : false,
             city:
             {
                 NAME: Data?.CITY,
@@ -81,6 +75,7 @@ class UserChildren extends Component {
             },
             endTime: moment(new Date()).format("DD/MM/YYYY"),
         }
+        this.message = '';
     }
     setupaccout = (text) => {
         this.setState({ setupacc: text })
@@ -89,18 +84,32 @@ class UserChildren extends Component {
         this.setState({
             isEnabled: !this.state.isEnabled
         })
+        this.blockAaccout();
     }
     reset = () => {
         resetPass({
             USERNAME: this.props.username,
             USER_CTV: this.props.username,
-            IDSHOP: "F6LKFY"
+            IDSHOP: 'F6LKFY'
         })
             .then((res) => {
                 Alert.alert('Thông báo', `${res.data.RESULT}`)
             })
             .catch((err) => {
             });
+    }
+    blockAaccout = () => {
+        const { Data } = this.props.route.params;
+        BlockAccout({
+            STATUS: this.state.isEnabled == true ? 0 : 1,
+            USER_ID: Data.ID
+        })
+            .then((res) => {
+                AlertCommon("Thông báo", res.data.RESULT, () => {
+                    this.props.navigation.popToTop();
+                    this.props.navigation.navigate("ctvdow");
+                })
+            })
     }
     componentDidMount() {
         const { Data } = this.props.route.params;
@@ -111,7 +120,7 @@ class UserChildren extends Component {
             END_TIME: this.state.endTime,
             PAGE: 1,
             NUMOFPAGE: 10,
-            IDSHOP: "F6LKFY",
+            IDSHOP: 'F6LKFY',
         })
             .then((res) => {
                 console.log("roseeee", res);
@@ -128,7 +137,7 @@ class UserChildren extends Component {
         GetCTVDetail({
             USERNAME: Data.USERNAME,
             USER_CTV: Data.USERNAME,
-            IDSHOP: "F6LKFY",
+            IDSHOP: 'F6LKFY',
         })
             .then((res) => {
                 console.log("ctvdetail", res);
@@ -149,7 +158,7 @@ class UserChildren extends Component {
             isEnabled } = this.state;
         const { Data } = this.props.route.params;
         const { authUser } = this.props;
-        console.log("chiu thoi", ctvdetail);
+
         return (
 
             <View>
@@ -157,13 +166,13 @@ class UserChildren extends Component {
                 <ScrollView>
                     <View style={{ backgroundColor: '#fff', height: sizeHeight(18), flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 10 }}>
                         <View>
-                            <View style={{ flexDirection: 'row',justifyContent:'space-between',alignItems:'center' }}>
+                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                                 <View>
                                     <Text style={{ color: '#000', fontSize: 16, fontWeight: 'bold', height: sizeHeight(4) }}>{usernam}</Text>
                                     <Text style={{ color: '#000', height: sizeHeight(4) }}>User: {ctvdetail.USERNAME}</Text>
                                     <Text style={{ color: '#000', height: sizeHeight(4) }}>Mã CTV/ KH: {ctvdetail.USER_CODE}</Text>
                                 </View>
-                                <View style={{width:sizeWidth(16),height:sizeHeight(9),borderColor:'gray',borderWidth:1,borderRadius:100,justifyContent:'center',alignItems:'center',backgroundColor:'gray'}}> 
+                                <View style={{ width: sizeWidth(16), height: sizeHeight(9), borderColor: 'gray', borderWidth: 1, borderRadius: 100, justifyContent: 'center', alignItems: 'center', backgroundColor: 'gray' }}>
                                     <Image
                                         source={ctvdetail.AVATAR == null ? require('../../../assets/images/user.png') : { uri: ctvdetail.AVATAR }}
                                         style={{ width: 40, height: 40 }}
@@ -175,7 +184,7 @@ class UserChildren extends Component {
                                 <View >
                                     <Switch
                                         trackColor={{ false: "#f4f3f4", true: "#EEEEEE" }}
-                                        thumbColor={isEnabled ? "#E1AC06" : "#f4f3f4"}
+                                        thumbColor={isEnabled ? "#4a8939" : "#f4f3f4"}
                                         ios_backgroundColor="#3e3e3e"
                                         onValueChange={this.toggleSwitch}
                                         value={isEnabled}
@@ -212,39 +221,32 @@ class UserChildren extends Component {
                                     id: Data.USERNAME,
                                     Data1: Data,
                                 })
-                            }} style={{ fontSize: 16, padding: 10, color: 'white' }}>Sửa</Text>
+                            }} style={{ fontSize: 16, padding: 10, color: 'white', textDecorationLine: 'underline' }}>Sửa</Text>
                         </View>
                         <View>
                             <View style={styles.content}>
                                 <Text>Họ và tên:</Text>
-                                <TextInput
-                                    value={usernam}
-                                    onChangeText={(text) => { this.setState({ usernam: text }) }}
-                                />
+                                <Text>{ctvdetail.FULL_NAME}</Text>
                             </View>
 
                             <View style={styles.content}>
                                 <Text>Giới tính:</Text>
-                                <Text>{Data.GENDERNAME}</Text>
+                                <Text>{ctvdetail.GENDER_NAME}</Text>
                             </View>
                             <View style={styles.content}>
                                 <Text>Số điện thoại:</Text>
-                                <TextInput
-                                    value={Data.MOBILE == null ? `null` : ctvdetail.MOBILE}
-                                    onChangeText={(text) => { this.setState({ phone: text }) }}
-                                />
+                                <Text>
+                                    {ctvdetail.MOBILE}
+
+                                </Text>
                             </View>
                             <View style={styles.content}>
                                 <Text>Email:</Text>
-                                <TextInput
-                                    value={email}
-                                    onChangeText={(text) => { this.setState({ email: text }) }}
-                                />
+                                <Text>{ctvdetail.EMAIL}</Text>
                             </View>
                             <View style={styles.content}>
-
                                 <Text>Loại tài khoản</Text>
-                                <Text>{setupacc}</Text>
+                                <Text>{ctvdetail.GROUP_DES}</Text>
                             </View>
                             {/* <View style={styles.content}>
                                         <Text>Số điện thoại:</Text>
@@ -252,10 +254,7 @@ class UserChildren extends Component {
                                     </View> */}
                             <View style={styles.content}>
                                 <Text>Ngày sinh:</Text>
-                                <TextInput
-                                    value={ctvdetail.DOB}
-                                    onChangeText={(text) => { this.setState({ dateOfBirth: text }) }}
-                                />
+                                <Text>{ctvdetail.DOB}</Text>
                             </View>
                             <View style={styles.content}>
                                 <Text>Hoa hồng theo CTV:</Text>
@@ -267,7 +266,6 @@ class UserChildren extends Component {
                                 </View>
                             </View>
                             {/* <View style={styles.content}>
-
                                 <Text>Tỉnh/ thành phố</Text>
                                 <TouchableOpacity
                                     onPress={() => {
@@ -282,7 +280,7 @@ class UserChildren extends Component {
                                     <IconComponets
                                         name="chevron-down"
                                         size={sizeFont(5)}
-                                        color="#E1AC06"
+                                        color="#4a8939"
                                     />
                                 </TouchableOpacity>
                             </View> */}
@@ -302,7 +300,7 @@ class UserChildren extends Component {
                                     <IconComponets
                                         name="chevron-down"
                                         size={sizeFont(5)}
-                                        color="#E1AC06"
+                                        color="#4a8939"
                                     />
                                 </TouchableOpacity>
                             </View> */}
@@ -322,7 +320,7 @@ class UserChildren extends Component {
                                     <IconComponets
                                         name="chevron-down"
                                         size={sizeFont(5)}
-                                        color="#E1AC06"
+                                        color="#4a8939"
                                     />
                                 </TouchableOpacity>
                             </View> */}
@@ -330,42 +328,39 @@ class UserChildren extends Component {
                                 <Text>Địa chỉ:</Text>
                                 <View style={{ width: sizeWidth(50), height: sizeHeight(7) }}>
                                     <Text>
-                                        {`${Data.CITY},${Data.DISTRICT},${Data.ADDRESS}`}
+                                        {`${ctvdetail.CITY},${ctvdetail.DISTRICT},${ctvdetail.ADDRESS}`}
                                     </Text>
                                 </View>
                             </View>
                             <View style={styles.content}>
                                 <Text>Số cmnd:</Text>
-                                <TextInput
-                                    value={cmnd}
-                                    onChangeText={(text) => { this.setState({ cmnd: text }) }}
-                                />
+                                <Text>{ctvdetail.SO_CMT}</Text>
                             </View>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 15, marginBottom: 15 }}>
                                 <View style={{ alignItems: 'center' }}>
-                                    <TouchableOpacity
-                                        style={{ width: sizeWidth(40), height: sizeHeight(15), borderColor: "#E1AC06", borderWidth: 2, borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}
-                                        onPress={() => { this.handleImage(2) }}
+                                    <View
+                                        style={{ width: sizeWidth(40), height: sizeHeight(15), borderColor: "#4a8939", borderWidth: 2, borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}
+
                                     >
                                         <Image
-                                            source={ctvdetail.IMG1 == null ? require('../../../assets/images/update.png') : { uri: ctvdetail.IMG1 }}
+                                            source={ctvdetail.IMG1 == null ? require('../../../assets/images/camera.png') : { uri: ctvdetail.IMG1 }}
                                             style={{ width: 120, height: 80 }}
                                         />
 
-                                    </TouchableOpacity>
+                                    </View>
                                     <Text style={{ marginTop: 5 }}>Ảnh mặt trước cmnd</Text>
                                 </View>
                                 <View style={{ alignItems: 'center' }}>
-                                    <TouchableOpacity
-                                        style={{ width: sizeWidth(40), height: sizeHeight(15), borderColor: "#E1AC06", borderWidth: 2, borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}
-                                        onPress={() => { this.handleImage(3) }}
+                                    <View
+                                        style={{ width: sizeWidth(40), height: sizeHeight(15), borderColor: "#4a8939", borderWidth: 2, borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}
+
                                     >
                                         <Image
-                                            source={ctvdetail.IMG2 == null ? require('../../../assets/images/update.png') : { uri: ctvdetail.IMG2 }}
+                                            source={ctvdetail.IMG2 == null ? require('../../../assets/images/camera.png') : { uri: ctvdetail.IMG2 }}
                                             style={{ width: 120, height: 80 }}
                                         />
 
-                                    </TouchableOpacity>
+                                    </View>
                                     <Text style={{ marginTop: 5 }}>Ảnh mặt sau cmnd</Text>
                                 </View>
                             </View>
@@ -383,25 +378,16 @@ class UserChildren extends Component {
                         <View>
                             <View style={styles.content}>
                                 <Text>Số tài khoản:</Text>
-                                <TextInput
-                                    value={stk}
-                                    onChangeText={(text) => { this.setState({ stk: text }) }}
-                                />
+                                <Text>{ctvdetail.STK}</Text>
                             </View>
 
                             <View style={styles.content}>
                                 <Text>Tên tài khoản:</Text>
-                                <TextInput
-                                    value={tentk}
-                                    onChangeText={(text) => { this.setState({ tentk: text }) }}
-                                />
+                                <Text>{ctvdetail.TENTK}</Text>
                             </View>
                             <View style={styles.content1}>
                                 <Text>Ngân hàng, chi nhánh:</Text>
-                                <TextInput
-                                    value={tennh}
-                                    onChangeText={(text) => { this.setState({ tennh: text }) }}
-                                />
+                                <Text>{ctvdetail.TEN_NH}</Text>
                             </View>
                         </View>
 
@@ -414,8 +400,6 @@ class UserChildren extends Component {
                                 {numeral(Data.BALANCE).format("0,0")}đ
                                     </Text></Text>
                         </View>
-
-
                         <View>
                             <TouchableOpacity
                                 onPress={() => {
@@ -437,7 +421,7 @@ class UserChildren extends Component {
                                 <Text style={{ padding: 10, fontSize: sizeFont(4.5) }}>Để nâng cấp thành tài khoản CTV bạn cần nhập vào mã giới thiệu</Text>
                                 <TextInput
                                     placeholder="- Mã giới thiệu"
-                                    style={{ paddingLeft: 10, width: sizeWidth(60), height: sizeHeight(6), borderColor: '#E1AC06', borderWidth: 2, borderRadius: 5 }}
+                                    style={{ paddingLeft: 10, width: sizeWidth(60), height: sizeHeight(6), borderColor: '#4a8939', borderWidth: 2, borderRadius: 5 }}
 
                                 />
                             </View> : null}
@@ -451,7 +435,11 @@ class UserChildren extends Component {
                             }}
 
 
-                            onPress={() => { }
+                            onPress={() => {
+                                this.props.navigation.navigate("order", {
+                                    id: Data.USERNAME,
+                                })
+                            }
                             }>
                             <Text style={{ padding: 10, color: '#fff', fontWeight: 'bold' }}>Xem đơn hàng</Text>
                         </TouchableOpacity>

@@ -34,7 +34,6 @@ class ListProducts extends Component {
       stickyHeaderIndices: [0, 1, 2, 0],
       scrollY: new Animated.Value(0),
       Data: [],
-      loading: false,
       Rose: [],
       endTime: moment(new Date()).format("DD/MM/YYYY"),
       loading: true,
@@ -54,9 +53,10 @@ class ListProducts extends Component {
       IDSHOP: "F6LKFY",
     })
       .then((res) => {
+        console.log("đơn hàng",res);
         if (res.data.ERROR == "0000") {
           this.setState({
-            Data: res.data.INFO
+            Data: res.data.INFO.filter((val)=>val.STATUS==1)
           })
         } else {
           this.showToast(res);
@@ -93,7 +93,17 @@ class ListProducts extends Component {
   //         search:this.props.search
   //     })
   //   }
-  // }
+  // }'
+  checkTime = (a, b) => {
+    var start = a;
+    var end = b;
+    var datePart1 = start.split("/");
+    var datePart2 = end.split("/");
+
+    var dateObject1 = new Date(+datePart1[2], datePart1[1] - 1, +datePart1[0]);
+    var dateObject2 = new Date(+datePart2[2], datePart2[1] - 1, +datePart2[0]);
+    return dateObject2 - dateObject1;
+  }
   componentDidMount() {
     this.handleLoad();
     this.handleLoad1();
@@ -159,7 +169,7 @@ class ListProducts extends Component {
                           justifyContent: 'center', alignItems: 'center', borderRadius: 5, backgroundColor: 'white'
                         }}
                       >
-                        <Text style={{ color: '#E1AC06' }}>Đăng ký</Text>
+                        <Text style={{ color: '#4d7335' }}>Đăng ký</Text>
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -308,6 +318,10 @@ class ListProducts extends Component {
                       })
                     }
                   >
+                      {item.END_PROMOTION && this.checkTime(item.START_PROMOTION, item.END_PROMOTION) >= 0 ?
+                            <View style={{ position: 'absolute', right: 5, top: 5, width: sizeWidth(10), height: sizeHeight(2.5),backgroundColor:'red', justifyContent: 'center', alignItems: 'center',zIndex:100,borderRadius:2 }}>
+                              <Text style={{ fontSize: sizeFont(3), color: '#fff',fontSize:sizeFont(2) }}>-{numeral((item.PRICE - item.PRICE_PROMOTION) / item.PRICE * 100).format('0.00')}%</Text>
+                            </View> : null}
                     <View
                       style={{
                         width: "100%",
@@ -327,14 +341,19 @@ class ListProducts extends Component {
                         length: 12,
                       })}{" "}
                     </Text>
-                    <Text style={styles.textPrice}>
-                      {numeral(
-                        handleMoney(status, item, authUser)
-                      ).format("0,0")} đ
+                    {item.END_PROMOTION && this.checkTime(item.START_PROMOTION, item.END_PROMOTION) >=0 ? <View>
+                            <View style={styles.textPrice1}>
+                              <View style={{flexDirection:'row',alignItems:'center',alignItems:'center'}}>
+                                <Text style={styles.textPrice}>{numeral(item.PRICE_PROMOTION).format("0,0")} đ</Text>
+                                <Text style={{ textDecorationLine: 'line-through', color: 'gray', fontSize: sizeFont(3),marginLeft:sizeWidth(1)}}>{numeral(item.PRICE).format("0,0")} đ</Text>
+                              </View>
+                              {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text style={{ color: '#3399FF', fontSize: sizeFont(3.5), paddingBottom: 5 }}>HH: {numeral(item.COMISSION_PRODUCT * item.PRICE_PROMOTION * 0.01).format("0,0")}đ ({item.COMISSION_PRODUCT}%)</Text>}
+                            </View>
+                          </View> : <View style={{ flexDirection: 'column' }}><Text style={styles.textPrice}>
+                            {numeral(item.PRICE).format("0,0")} đ
                           </Text>
-                    {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text>
-                      HH: <Text style={{ color: '#3399FF' }}>{numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")} ({item.COMISSION_PRODUCT}%)</Text>
-                    </Text>}
+                              {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text style={{ color: '#3399FF', fontSize: sizeFont(3.5), paddingBottom: 5 }}>HH: {numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")}đ ({item.COMISSION_PRODUCT}%)</Text>}
+                            </View>}
                   </TouchableOpacity>
                 );
               }}
@@ -373,6 +392,10 @@ class ListProducts extends Component {
                         })
                       }
                     >
+                      {item.END_PROMOTION && this.checkTime(item.START_PROMOTION, item.END_PROMOTION) >= 0 ?
+                            <View style={{ position: 'absolute', right: 5, top: 5, width: sizeWidth(10), height: sizeHeight(2.5),backgroundColor:'red', justifyContent: 'center', alignItems: 'center',zIndex:100,borderRadius:2 }}>
+                              <Text style={{ fontSize: sizeFont(3), color: '#fff',fontSize:sizeFont(2) }}>-{numeral((item.PRICE - item.PRICE_PROMOTION) / item.PRICE * 100).format('0.00')}%</Text>
+                            </View> : null}
                       <View
                         style={{
                           width: "100%",
@@ -392,16 +415,19 @@ class ListProducts extends Component {
                           length: 12,
                         })}{" "}
                       </Text>
-                      <Text style={styles.textPrice}>
-                        {numeral(
-                          handleMoney(status, item, authUser)
-                        ).format("0,0")} đ
+                      {item.END_PROMOTION && this.checkTime(item.START_PROMOTION, item.END_PROMOTION) >=0 ? <View>
+                            <View style={styles.textPrice1}>
+                              <View style={{flexDirection:'row',alignItems:'center',alignItems:'center'}}>
+                                <Text style={styles.textPrice}>{numeral(item.PRICE_PROMOTION).format("0,0")} đ</Text>
+                                <Text style={{ textDecorationLine: 'line-through', color: 'gray', fontSize: sizeFont(3),marginLeft:sizeWidth(1)}}>{numeral(item.PRICE).format("0,0")} đ</Text>
+                              </View>
+                              {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text style={{ color: '#3399FF', fontSize: sizeFont(3.5), paddingBottom: 5 }}>HH: {numeral(item.COMISSION_PRODUCT * item.PRICE_PROMOTION * 0.01).format("0,0")}đ ({item.COMISSION_PRODUCT}%)</Text>}
+                            </View>
+                          </View> : <View style={{ flexDirection: 'column' }}><Text style={styles.textPrice}>
+                            {numeral(item.PRICE).format("0,0")} đ
                           </Text>
-                      <Text>
-                        {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text>
-                          HH: <Text style={{ color: '#3399FF' }}>{numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")} ({item.COMISSION_PRODUCT}%)</Text>
-                        </Text>}
-                      </Text>
+                              {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text style={{ color: '#3399FF', fontSize: sizeFont(3.5), paddingBottom: 5 }}>HH: {numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")}đ ({item.COMISSION_PRODUCT}%)</Text>}
+                            </View>}
                     </TouchableOpacity>
                   );
                 }}
@@ -442,6 +468,10 @@ class ListProducts extends Component {
                           })
                         }
                       >
+                        {item.END_PROMOTION && this.checkTime(item.START_PROMOTION, item.END_PROMOTION) >= 0 ?
+                            <View style={{ position: 'absolute', right: 5, top: 5, width: sizeWidth(10), height: sizeHeight(2.5),backgroundColor:'red', justifyContent: 'center', alignItems: 'center',zIndex:100,borderRadius:2 }}>
+                              <Text style={{ fontSize: sizeFont(3), color: '#fff',fontSize:sizeFont(2) }}>-{numeral((item.PRICE - item.PRICE_PROMOTION) / item.PRICE * 100).format('0.00')}%</Text>
+                            </View> : null}
                         <View
                           style={{
                             width: "100%",
@@ -461,16 +491,19 @@ class ListProducts extends Component {
                             length: 12,
                           })}{" "}
                         </Text>
-                        <Text style={styles.textPrice}>
-                          {numeral(
-                            handleMoney(status, item, authUser)
-                          ).format("0,0")} đ
+                        {item.END_PROMOTION && this.checkTime(item.START_PROMOTION, item.END_PROMOTION) >=0 ? <View>
+                            <View style={styles.textPrice1}>
+                              <View style={{flexDirection:'row',alignItems:'center',alignItems:'center'}}>
+                                <Text style={styles.textPrice}>{numeral(item.PRICE_PROMOTION).format("0,0")} đ</Text>
+                                <Text style={{ textDecorationLine: 'line-through', color: 'gray', fontSize: sizeFont(3),marginLeft:sizeWidth(1)}}>{numeral(item.PRICE).format("0,0")} đ</Text>
+                              </View>
+                              {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text style={{ color: '#3399FF', fontSize: sizeFont(3.5), paddingBottom: 5 }}>HH: {numeral(item.COMISSION_PRODUCT * item.PRICE_PROMOTION * 0.01).format("0,0")}đ ({item.COMISSION_PRODUCT}%)</Text>}
+                            </View>
+                          </View> : <View style={{ flexDirection: 'column' }}><Text style={styles.textPrice}>
+                            {numeral(item.PRICE).format("0,0")} đ
                           </Text>
-                        <Text>
-                          {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text>
-                            HH: <Text style={{ color: '#3399FF' }}>{numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")} ({item.COMISSION_PRODUCT}%)</Text>
-                          </Text>}
-                        </Text>
+                              {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text style={{ color: '#3399FF', fontSize: sizeFont(3.5), paddingBottom: 5 }}>HH: {numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")}đ ({item.COMISSION_PRODUCT}%)</Text>}
+                            </View>}
                       </TouchableOpacity>
                     );
                   }}
@@ -510,6 +543,10 @@ class ListProducts extends Component {
                         })
                       }
                     >
+                      {item.END_PROMOTION && this.checkTime(item.START_PROMOTION, item.END_PROMOTION) >= 0 ?
+                            <View style={{ position: 'absolute', right: 5, top: 5, width: sizeWidth(10), height: sizeHeight(2.5),backgroundColor:'red', justifyContent: 'center', alignItems: 'center',zIndex:100,borderRadius:2 }}>
+                              <Text style={{ fontSize: sizeFont(3), color: '#fff',fontSize:sizeFont(2) }}>-{numeral((item.PRICE - item.PRICE_PROMOTION) / item.PRICE * 100).format('0.00')}%</Text>
+                            </View> : null}
                       <View
                         style={{
                           width: "100%",
@@ -529,16 +566,19 @@ class ListProducts extends Component {
                           length: 12,
                         })}{" "}
                       </Text>
-                      <Text style={styles.textPrice}>
-                        {numeral(
-                          handleMoney(status, item, authUser)
-                        ).format("0,0")} đ
-                    </Text>
-                      <Text>
-                        {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text>
-                          HH: <Text style={{ color: '#3399FF' }}>{numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")} ({item.COMISSION_PRODUCT}%)</Text>
-                        </Text>}
-                      </Text>
+                      {item.END_PROMOTION && this.checkTime(item.START_PROMOTION, item.END_PROMOTION) >=0 ? <View>
+                            <View style={styles.textPrice1}>
+                              <View style={{flexDirection:'row',alignItems:'center',alignItems:'center'}}>
+                                <Text style={styles.textPrice}>{numeral(item.PRICE_PROMOTION).format("0,0")} đ</Text>
+                                <Text style={{ textDecorationLine: 'line-through', color: 'gray', fontSize: sizeFont(3),marginLeft:sizeWidth(1)}}>{numeral(item.PRICE).format("0,0")} đ</Text>
+                              </View>
+                              {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text style={{ color: '#3399FF', fontSize: sizeFont(3.5), paddingBottom: 5 }}>HH: {numeral(item.COMISSION_PRODUCT * item.PRICE_PROMOTION * 0.01).format("0,0")}đ ({item.COMISSION_PRODUCT}%)</Text>}
+                            </View>
+                          </View> : <View style={{ flexDirection: 'column' }}><Text style={styles.textPrice}>
+                            {numeral(item.PRICE).format("0,0")} đ
+                          </Text>
+                              {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text style={{ color: '#3399FF', fontSize: sizeFont(3.5), paddingBottom: 5 }}>HH: {numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")}đ ({item.COMISSION_PRODUCT}%)</Text>}
+                            </View>}
                     </TouchableOpacity>
                   );
                 }}

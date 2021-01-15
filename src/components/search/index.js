@@ -21,7 +21,7 @@ export default class SearchComponent extends Component {
           {
             borderRadius: 50,
             borderWidth: 3,
-            borderColor: "#E1AC06",
+            borderColor: "#4d7335",
             width: sizeWidth(80),
           },
           style,

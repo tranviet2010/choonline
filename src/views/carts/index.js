@@ -88,7 +88,7 @@ class Carts extends Component {
     getConfigCommission({
       USERNAME: this.props.authUser.USERNAME,
       VALUES: this.state.SUM,
-      IDSHOP: 'http://banbuonthuoc.moma.vn'
+      IDSHOP: 'F6LKFY'
     })
       .then((res) => {
         this.setState({
@@ -146,7 +146,7 @@ class Carts extends Component {
   render() {
     const { listItem, authUser, status } = this.props;
     const { count, SUM, rose, sumall, moneyAll,tramtong } = this.state;
-    console.log("this tramtong", tramtong);
+    console.log("this tramtong", listItem);
     return (
       <View style={{ flex: 1 }}>
         <View style={{ flex: 1.2 }}>
@@ -194,7 +194,7 @@ class Carts extends Component {
                     >
                       {item.PRODUCT_NAME}
                     </Text>
-                    <View style={styles.viewChildDetail}>
+                    {/* <View style={styles.viewChildDetail}>
                       <Text style={styles.textTitle}>Thuộc tính:</Text>
                       <IconComponets
                         name="edit"
@@ -202,6 +202,10 @@ class Carts extends Component {
                         color={COLOR.BUTTON}
                         onPress={() => { console.log('gio hang') }}
                       />
+                    </View> */}
+                    <View style={styles.viewChildDetail}>
+                      <Text style={styles.textTitle}>Mã SP:</Text>
+                      <Text style={{fontWeight:'bold'}}>{item.CODE_PRODUCT}</Text>
                     </View>
                     <View style={styles.viewChildDetail}>
                       <Text style={styles.textTitle}>Đơn giá:</Text>

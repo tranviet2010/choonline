@@ -315,13 +315,13 @@ const styles = StyleSheet.create({
   cuttoms: {
     marginTop: 5,
     padding: 10,
-    backgroundColor: "#E1AC06",
+    backgroundColor: "#4d7335",
     alignItems: 'center',
     width: sizeWidth(30),
   },
   confix: {
     height:sizeHeight(5),
-    borderColor: '#E1AC06',
+    borderColor: '#4d7335',
     paddingLeft: 10,
     paddingRight: 10,
     borderWidth: 1,

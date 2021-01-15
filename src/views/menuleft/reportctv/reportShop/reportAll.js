@@ -53,7 +53,7 @@ const mapStateToProps = (state) => {
 const styles = StyleSheet.create({
     container: {
 
-        borderColor: '#E1AC06',
+        borderColor: '#4d7335',
         borderWidth: 2,
         borderRadius:15,
         alignItems: "center"

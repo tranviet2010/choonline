@@ -38,6 +38,7 @@ import FooterAdmin from "../footeradmin";
 import _ from "lodash";
 import { IGNORED_TAGS } from "react-native-render-html/src/HTMLUtils";
 import { GetProperties } from "../../../../service/order";
+import { alphanumeric } from "../../../../utils/check";
 var numeral = require("numeral");
 const tags = _.without(
   IGNORED_TAGS,
@@ -336,26 +337,8 @@ class DetailProducts extends Component {
     }
   };
   render() {
-
-
     const { count, activeTab, cartLength, loading, data, inside, properties, setSelectedValue } = this.state;
-    console.log("this is properties",properties)
     const { status, authUser } = this.props;
-    console.log({setSelectedValue});
-
-    console.log("this is data status", status);
-    var color = inside ? "#E1AC06" : "#F5F5F5";
-    var color2 = inside ? "#F5F5F5" : "#E1AC06";
-
-
-    var colorText = inside ? "white" : "#C5C9C9";
-    var colorText1 = inside ? "#C5C9C9" : "white";
-
-    var colorBor = inside ? "black" : "#C5C9C9";
-    var colorBor1 = inside ? "#C5C9C9" : "black";
-
-    var backGround = inside ? "#149CC6" : "#C6C6C6";
-    var backGround1 = inside ? "#C6C6C6" : "#149CC6";
     return loading ? (
       <Spinner
         visible={loading}
@@ -366,12 +349,14 @@ class DetailProducts extends Component {
         <View style={{ flex: 1, backgroundColor: "#fff" }}>
           <ScrollView>
             <SliderBox
-              images={[data.IMG1, data.IMG2, data.IMG3]}
+              images={[data.IMG1!=null?data.IMG1:require('../../../../assets/images/emptypic.jpg'), data.IMG2!=null?data.IMG2:require('../../../../assets/images/emptypic.jpg'), data.IMG3!=null?data.IMG3:require('../../../../assets/images/emptypic.jpg')]}
               dotColor={COLOR.BUTTON}
               resizeMode="contain"
               inactiveDotColor={COLOR.HEADER}
               ImageComponentStyle={{
-                height: sizeHeight(25),
+                marginTop: 5,
+                height: sizeHeight(40),
+                width:sizeWidth(95)
               }}
             />
             <View style={{ marginTop: sizeHeight(3) }}>
@@ -409,7 +394,7 @@ class DetailProducts extends Component {
                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 5 }}>
                       <Text style={{ fontWeight: 'bold' }}>{val.NAME}</Text>
 
-                      <View style={{ borderColor: '#E1AC06', borderWidth: 1, alignItems: 'center', borderRadius: 10 }}>
+                      <View style={{ borderColor: '#4d7335', borderWidth: 1, alignItems: 'center', borderRadius: 10 }}>
                         <Picker
                           selectedValue={setSelectedValue}
                           style={{ height: 30, width: sizeWidth(50) }}
@@ -436,14 +421,13 @@ class DetailProducts extends Component {
                   style={{ width: 45, height: 25 }}
                 />
                 <TouchableOpacity
-                  onPress={() => {
-
-                  }}
+                  onPress={() =>
+                    this.props.navigation.navigate("Chi tiết chính sách", {
+                      item: '566',
+                    })
+                  }
                 >
-                  <Text style={{ fontSize: 17, width: sizeWidth(77) }}>Chính sách vận chuyển:
-                  ...........................................................................
-                  ............................................</Text>
-
+                  <Text style={{ fontSize: 17, width: sizeWidth(77), marginLeft: 10, fontStyle: 'italic', textDecorationLine: 'underline' }}>Chính sách vận chuyển</Text>
                 </TouchableOpacity>
               </View>
               <View style={{ marginTop: 10, marginBottom: 10, justifyContent: 'center', alignItems: 'center' }}>
@@ -475,9 +459,9 @@ class DetailProducts extends Component {
                   <HTML
                     ignoredTags={tags}
                     html={
-                      data.CONTENT_WEB === null
+                      data.CONTENT_FB === null
                         ? "<h5>Mô tả:...</h5>"
-                        : data.CONTENT_WEB
+                        : data.CONTENT_FB
                     }
                     onLinkPress={(event, href) =>
                       console.log("clicked link: ", href)
@@ -488,13 +472,14 @@ class DetailProducts extends Component {
                 </View>
               </View>
             </View>
-            {status === "" || authUser.GROUPS == "3" ? <View>
+            {authUser.GROUPS == "3"?null:<View>
+            {status === "" ? <View>
               <Text style={{ padding: 5, color: 'blue',fontStyle:'italic' }}>Hãy đăng ký tài khoản để được mua sản phẩm này với giá gốc, tham gia bán hàng cùng F6LKFY và hưởng hoa hồng CỰC SỐC</Text>
               <View style={{marginBottom: sizeHeight(5), justifyContent: 'center', alignItems: 'center'}}>
                 <TouchableOpacity
                   style={{
                     justifyContent: 'center', alignItems: 'center',width:sizeWidth(60),height:sizeHeight(5.5)
-                    ,backgroundColor:'#E1AC06',borderRadius:25
+                    ,backgroundColor:'#4d7335',borderRadius:25
                   }}
                   onPress={() => {
                     this.props.navigation.navigate("SignUp");
@@ -634,7 +619,7 @@ class DetailProducts extends Component {
               //           onPress={() => {
               //             this.onShare();
               //           }}
-              //           style={{ backgroundColor: '#E1AC06', width: sizeWidth(35), borderRadius: 5, padding: 7 }}
+              //           style={{ backgroundColor: '#4d7335', width: sizeWidth(35), borderRadius: 5, padding: 7 }}
               //         >
               //           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
               //             <Image
@@ -678,7 +663,7 @@ class DetailProducts extends Component {
               //             onPress={() => {
               //               this.onShareFaceBook();
               //             }}
-              //             style={{ backgroundColor: '#E1AC06', width: sizeWidth(35), borderRadius: 5, padding: 7 }}
+              //             style={{ backgroundColor: '#4d7335', width: sizeWidth(35), borderRadius: 5, padding: 7 }}
               //           >
               //             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
               //               <Image
@@ -708,7 +693,7 @@ class DetailProducts extends Component {
               //     }
               //   </View>
               // </View>
-            }
+            }</View>}
           </ScrollView>
 
 

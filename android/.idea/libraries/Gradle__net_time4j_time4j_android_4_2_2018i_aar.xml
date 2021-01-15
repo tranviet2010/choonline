@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: net.time4j:time4j-android:4.2-2018i@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b134ddbcfa509154dd56eab1b52fa16d/time4j-android-4.2-2018i/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f78c338dcebbc840f849723e7d4fc852/jetified-time4j-android-4.2-2018i/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f78c338dcebbc840f849723e7d4fc852/jetified-time4j-android-4.2-2018i/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f78c338dcebbc840f849723e7d4fc852/jetified-time4j-android-4.2-2018i/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.time4j/time4j-android/4.2-2018i/58bd4d69f1605cbeec3dc51df6e0e11f14ab5603/time4j-android-4.2-2018i-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.time4j/time4j-android/4.2-2018i/8cd1c5bebc430e5f0a3439b8a7266c33ba80086e/time4j-android-4.2-2018i-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

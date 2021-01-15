@@ -127,7 +127,7 @@ class index extends Component {
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
             <Text style={{ fontSize: 16 }}>Hiển thị theo</Text>
             {/* <View style={{
-              borderColor: '#E1AC06',
+              borderColor: '#4d7335',
               borderWidth: 2,
               borderRadius: 15,
               alignItems: "center",
@@ -165,7 +165,7 @@ class index extends Component {
                 defaultValue={selectedValue}
                 placeholder="Trạng thái"
                 containerStyle={{ height: 40 }}
-                style={{ backgroundColor: '#fafafa', width: sizeWidth(50), borderColor: '#E1AC06', borderWidth: 2 }}
+                style={{ backgroundColor: '#fafafa', width: sizeWidth(50), borderColor: '#4d7335', borderWidth: 2 }}
                 itemStyle={{
                   justifyContent: 'flex-start',
                 }}
@@ -200,7 +200,7 @@ const mapStateToProps = (state) => {
 };
 const styles = StyleSheet.create({
   confix: {
-    borderColor: '#E1AC06',
+    borderColor: '#4d7335',
     paddingLeft: 10,
     paddingRight: 10,
     width:sizeWidth(30),
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   confix2: {
-    borderColor: '#E1AC06',
+    borderColor: '#4d7335',
     borderWidth: 2,
     width: sizeWidth(40),
     height: sizeHeight(7),

@@ -1,0 +1,9 @@
+com/partmarket/BuildConfig.java
+ com.partmarket.BuildConfig
+com/partmarket/MainActivity.java
+ com.partmarket.MainActivity
+com/partmarket/MainApplication.java
+ com.partmarket.MainApplication
+ com.partmarket.MainApplication$1
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList

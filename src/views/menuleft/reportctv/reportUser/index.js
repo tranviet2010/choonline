@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView,Picker } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Picker } from 'react-native';
 import { sizeFont, sizeHeight, sizeWidth } from '../../../../utils/helper/size.helper';
+import { COLOR } from '../../../../utils/color/colors';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { connect } from 'react-redux';
 var numeral = require("numeral");
@@ -14,8 +15,8 @@ class UserReport extends Component {
         this.state = {
             Data: [],
             loading: false,
-            year:'',
-            moth:'',
+            year: '2021',
+            moth: '1',
         }
     }
     handLoad = () => {
@@ -25,10 +26,11 @@ class UserReport extends Component {
             YEAR: this.state.year,
             MOTH: this.state.moth,
             PAGE: '1',
-            NUMOFPAGE: '10',
-            IDSHOP: "F6LKFY"
+            NUMOFPAGE: '30',
+            IDSHOP: 'F6LKFY'
         })
             .then((res) => {
+                console.log('hello res',res);
                 console.log("this is config", res);
                 if (res.data.ERROR == '0000') {
                     this.setState({
@@ -36,11 +38,8 @@ class UserReport extends Component {
                     })
                 }
                 else {
-                    this.setState({
-                        Data: []
-                    })
+                    alert("không có dữ liệu")
                 }
-
             })
             .catch((err) => {
                 this.setState({
@@ -71,107 +70,115 @@ class UserReport extends Component {
     }
 
     render() {
-        const { Data,year,moth } = this.state;
+        const { Data, year, moth } = this.state;
         const { authUser, status } = this.props;
-        console.log("this is dat", Data);
+        console.log("this is dat", moth);
         return (
             <View >
                 <View style={{ padding: 10 }}>
-                    <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+                    <View >
                         <Text style={{ fontWeight: 'bold' }}>Tên CTV: {authUser.FULL_NAME}</Text>
-                        <Text style={{ fontWeight: 'bold' }}>Mã user: {authUser.USERNAME}</Text>
+                        <Text style={{}}>Mã user: {authUser.USERNAME}</Text>
                     </View>
-                    <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-                        <Text style={{ fontWeight: 'bold' }}>Số điện thoại: {authUser.MOBILE}</Text>
-                        <Text style={{ fontWeight: 'bold' }}>Email: {authUser.EMAIL}</Text>
+                    <View >
+                        <Text style={{ fontWeight: '500' }}>Số điện thoại: {authUser.MOBILE}</Text>
+                        <Text style={{}}>Email: {authUser.EMAIL}</Text>
                     </View>
 
                 </View>
                 <View style={{ padding: 10 }}>
-                    <Text style={{ fontWeight: 'bold' }}>Tổng doanh thu: {numeral(this.doanhthu()).format("0,0")} đ</Text>
-                    <Text style={{ fontWeight: 'bold' }}>Tổng hoa hồng: {numeral(this.hoahong()).format("0,0")} đ</Text>
+                    <Text style={{ fontWeight: '500' }}>Tổng doanh thu: {numeral(this.doanhthu()).format("0,0")} đ</Text>
+                    <Text style={{ fontWeight: '500' }}>Tổng hoa hồng: {numeral(this.hoahong()).format("0,0")} đ</Text>
                 </View>
                 <View>
-                <View style={{justifyContent:'center',alignItems:'center'}}> 
-                    <Text style={{fontWeight:'bold'}}>Tìm kiếm</Text>
-                </View>
-                <View style={{padding:10,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}> 
-                    <View>
-                        
-                        <View
-                            style={{
-                                ...(Platform.OS !== 'android' && {
-                                    zIndex: 10
-                                })
+                    <View style={{ padding: 10, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <View style={{}}>
+                            <Text style={{ marginBottom: 5, fontWeight: '500' }}>Năm</Text>
+                            <View>
+                                <View
+                                    style={{
+                                        ...(Platform.OS !== 'android' && {
+                                            zIndex: 10
+                                        })
 
-                            }}
-                        >
-                            <DropDownPicker
-                            
-                                items={[
-                                    { label:'2019', value:'2019' },
-                                    { label:'2020', value:'2020' },
-                                ]}
-                                defaultValue={year}
-                                placeholder="Chọn năm"
-                                containerStyle={{ height: 40 }}
-                                style={{ backgroundColor: '#fafafa', width: sizeWidth(40), borderColor: '#E1AC06', borderWidth: 1 }}
-                                itemStyle={{
-                                    justifyContent: 'flex-start'
-                                }}
-                                dropDownStyle={{ backgroundColor: '#fafafa', width: sizeWidth(40) }}
-                                onChangeItem={item => this.setState({
-                                    year: item.value
-                                }, () => { this.handLoad() })}
-                            />
+                                    }}
+                                >
+                                    <DropDownPicker
+
+                                        items={[
+                                            { label: '2019', value: '2019' },
+                                            { label: '2020', value: '2020' },
+                                            { label: '2021', value: '2021' },
+                                        ]}
+                                        defaultValue={year}
+                                        placeholder="2020"
+                                        containerStyle={{ height: sizeHeight(5.7) }}
+                                        style={{ backgroundColor: '#fafafa', width: sizeWidth(40), borderColor: '#4d7335', borderWidth: 1 }}
+                                        itemStyle={{
+                                            justifyContent: 'flex-start'
+                                        }}
+                                        dropDownStyle={{ backgroundColor: '#fafafa', width: sizeWidth(40) }}
+                                        onChangeItem={item => this.setState({
+                                            year: item.value
+                                        })}
+                                    />
+                                </View>
+                            </View>
                         </View>
-                    </View>
-                    <View>
-                    
-                        <View
-                            style={{
-                                ...(Platform.OS !== 'android' && {
-                                    zIndex: 10
-                                })
+                        <View>
+                            <Text style={{ marginBottom: 5, fontWeight: '500' }}>Tháng</Text>
+                            <View>
 
-                            }}
-                        >
-                            <DropDownPicker
-                            
-                                items={[
-                                    { label:'1', value:'1' },
-                                    { label:'2', value:'2' },
-                                    { label:'3', value:'3' },
-                                    { label:'4', value:'4' },
-                                    { label:'5', value:'5' },
-                                    { label:'6', value:'6' },
-                                    { label:'7', value:'7' },
-                                    { label:'8', value:'8' },
-                                    { label:'9', value:'9' },
-                                    { label:'10', value:'10' },
-                                    { label:'11', value:'11' },
-                                    { label:'12', value:'12' },
-                                ]}
-                                defaultValue={moth}
-                                placeholder="Chọn tháng"
-                                containerStyle={{ height: 40 }}
-                                style={{ backgroundColor: '#fafafa', width: sizeWidth(40), borderColor: '#E1AC06', borderWidth: 1 }}
-                                itemStyle={{
-                                    justifyContent: 'flex-start'
-                                }}
-                                dropDownStyle={{ backgroundColor: '#fafafa', width: sizeWidth(40) }}
-                                onChangeItem={item => this.setState({
-                                    moth: item.value
-                                }, () => { this.handLoad() })}
-                            />
+                                <View
+                                    style={{
+                                        ...(Platform.OS !== 'android' && {
+                                            zIndex: 10
+                                        })
+
+                                    }}
+                                >
+                                    <DropDownPicker
+
+                                        items={[
+                                            { label: '1', value: '1' },
+                                            { label: '2', value: '2' },
+                                            { label: '3', value: '3' },
+                                            { label: '4', value: '4' },
+                                            { label: '5', value: '5' },
+                                            { label: '6', value: '6' },
+                                            { label: '7', value: '7' },
+                                            { label: '8', value: '8' },
+                                            { label: '9', value: '9' },
+                                            { label: '10', value: '10' },
+                                            { label: '11', value: '11' },
+                                            { label: '12', value: '12' },
+                                        ]}
+                                        defaultValue={moth}
+                                        placeholder="Chọn tháng"
+                                        containerStyle={{ height: sizeHeight(5.7) }}
+                                        style={{ backgroundColor: '#fafafa', width: sizeWidth(40), borderColor: '#4d7335', borderWidth: 1 }}
+                                        itemStyle={{
+                                            justifyContent: 'flex-start'
+                                        }}
+                                        dropDownStyle={{ backgroundColor: '#fafafa', width: sizeWidth(40) }}
+                                        onChangeItem={item => this.setState({
+                                            moth: item.value
+                                        })}
+                                    />
+                                </View>
+                            </View>
                         </View>
+
                     </View>
-
+                    <TouchableOpacity
+                        onPress={() => this.handLoad()}
+                        style={{ justifyContent: 'center', alignItems: 'center', marginBottom: sizeHeight(3), zIndex: -2 }}>
+                        <Text style={{ backgroundColor: '#149CC6', padding: 7, color: '#fff' }}>Tìm kiếm</Text>
+                    </TouchableOpacity>
                 </View>
-                </View>
-                <View style={{ height: 5, backgroundColor: '#BFC4C4',zIndex:-2 }}></View>
+                <View style={{ height: 5, backgroundColor: '#BFC4C4', zIndex: -2 }}></View>
 
-                <View style={{ marginTop: 20,zIndex:-1 }}>
+                <View style={{ marginTop: 20, zIndex: -1 }}>
                     <View>
                         <View style={{ flexDirection: 'column' }}>
                             <View style={[styles.mainUser, styles.custom, styles.customTop]}>
@@ -184,7 +191,9 @@ class UserReport extends Component {
                             </View>
                             <ScrollView>
 
-                                {Data.length == 0 ? <Text style={{ fontSize: sizeFont(6), padding: 20 }}>Không có dữ liệu</Text> : Data.map((val, key) => {
+                                {Data.length == 0 ? <View style={{ width: sizeWidth(100), height: sizeHeight(40), justifyContent: 'center', alignItems: 'center' }}>
+                                    <Text style={{ fontSize: sizeFont(4), padding: 20, color: 'gray' }}>Không có dữ liệu</Text>
+                                </View> : Data.map((val, key) => {
                                     return (
                                         <TouchableOpacity
                                             onPress={() => this.props.navigation.navigate("DetailOrder", {
@@ -193,11 +202,11 @@ class UserReport extends Component {
                                             })}
                                         >
                                             <View style={[styles.mainUser, styles.custom]}>
-                                                <View style={[styles.row2, styles.row21]}><Text style={{ fontSize: sizeFont(3) }}>{val.CREATE_DATE}</Text></View>
-                                                <View style={[styles.row3, styles.row21]}><Text style={{ fontSize: sizeFont(3) }}>{val.FN_TIME}</Text></View>
-                                                <View style={[styles.row4, styles.row21]}><Text style={{ fontSize: sizeFont(3) }}>{val.CODE_ORDER}</Text></View>
-                                                <View style={[styles.row5, styles.row21]} ><Text style={{ fontSize: sizeFont(3) }}>{numeral(val.SUM_MONEY).format("0,0")}</Text></View>
-                                                <View style={[styles.row6, styles.row21]}><Text style={{ fontSize: sizeFont(3) }}>{numeral(val.SUM_COMMISSION).format("0,0")}</Text></View>
+                                                <View style={[styles.row2, styles.row21]}><Text style={{ fontSize: sizeFont(3), color: '#fff' }}>{val.CREATE_DATE}</Text></View>
+                                                <View style={[styles.row3, styles.row21]}><Text style={{ fontSize: sizeFont(3), color: '#fff' }}>{val.FN_TIME}</Text></View>
+                                                <View style={[styles.row4, styles.row21]}><Text style={{ fontSize: sizeFont(3), color: '#fff' }}>{val.CODE_ORDER}</Text></View>
+                                                <View style={[styles.row5, styles.row21]} ><Text style={{ fontSize: sizeFont(3), color: '#fff' }}>{numeral(val.SUM_MONEY).format("0,0")}</Text></View>
+                                                <View style={[styles.row6, styles.row21]}><Text style={{ fontSize: sizeFont(3), color: '#fff' }}>{numeral(val.SUM_COMMISSION).format("0,0")}</Text></View>
                                             </View>
                                         </TouchableOpacity>
                                     )
@@ -224,24 +233,24 @@ const mapStateToProps = (state) => {
 const styles = StyleSheet.create({
     mainUser: {
         flexDirection: 'row',
+        backgroundColor: '#4d7335',
     },
     row2: {
 
         textAlign: 'center',
         width: sizeWidth(20),
         fontSize: sizeFont(3),
-        borderRightColor: 'gray',
+        borderRightColor: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
         borderRightWidth: 1,
-        height: sizeHeight(5),
     },
     row3: {
 
         textAlign: 'center',
         width: sizeWidth(20),
         fontSize: sizeFont(3),
-        borderRightColor: 'gray',
+        borderRightColor: '#fff',
         borderRightWidth: 1,
     },
     row4: {
@@ -249,7 +258,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         width: sizeWidth(20),
         fontSize: sizeFont(3),
-        borderRightColor: 'gray',
+        borderRightColor: '#fff',
         borderRightWidth: 1,
     },
     row5: {
@@ -257,7 +266,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         width: sizeWidth(20),
         fontSize: sizeFont(3),
-        borderRightColor: 'gray',
+        borderRightColor: '#fff',
         borderRightWidth: 1,
     },
     row6: {
@@ -265,8 +274,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         width: sizeWidth(20),
         fontSize: sizeFont(3),
-        borderRightColor: 'gray',
-        borderRightWidth: 1,
     },
     row7: {
 
@@ -277,19 +284,19 @@ const styles = StyleSheet.create({
         borderRightWidth: 1,
     },
     types: {
-        backgroundColor: '#000',
+        backgroundColor: COLOR.MAIN,
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: sizeFont(3.5),
         fontWeight: 'bold',
     },
     custom: {
-        borderBottomColor: 'gray',
+        borderBottomColor: '#fff',
         borderBottomWidth: 1,
 
     },
     customTop: {
-        borderTopColor: 'gray',
+        borderTopColor: '#fff',
         borderTopWidth: 1,
     },
     row21: {

@@ -77,7 +77,7 @@ class HeaderHome extends Component {
               </View>
             </View>
           </View>) : null}
-        <View style={{ height: 5, backgroundColor: '#E1AC06' }}></View>
+        <View style={{ height: 5, backgroundColor: '#4d7335' }}></View>
       </View>
     );
   }

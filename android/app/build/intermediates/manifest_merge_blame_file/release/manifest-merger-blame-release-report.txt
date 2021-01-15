@@ -1,0 +1,192 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.partmarket"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:4:5-67
+11-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:4:22-64
+12
+13    <queries>
+13-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:10:5-14:15
+14        <intent>
+14-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:11:9-13:18
+15            <action android:name="android.media.action.IMAGE_CAPTURE" />
+15-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:12:13-73
+15-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:12:21-70
+16        </intent>
+17    </queries>
+18
+19    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+19-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:16:5-81
+19-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:16:22-78
+20    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+20-->[com.google.android.gms:play-services-iid:17.0.0] /Users/mac/.gradle/caches/transforms-2/files-2.1/e8620fd632b790438cfc37daa3693269/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:5-82
+20-->[com.google.android.gms:play-services-iid:17.0.0] /Users/mac/.gradle/caches/transforms-2/files-2.1/e8620fd632b790438cfc37daa3693269/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:22-79
+21    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+21-->[com.android.installreferrer:installreferrer:1.1.2] /Users/mac/.gradle/caches/transforms-2/files-2.1/c2aa05c45855c7536327fa6c13691822/jetified-installreferrer-1.1.2/AndroidManifest.xml:9:5-110
+21-->[com.android.installreferrer:installreferrer:1.1.2] /Users/mac/.gradle/caches/transforms-2/files-2.1/c2aa05c45855c7536327fa6c13691822/jetified-installreferrer-1.1.2/AndroidManifest.xml:9:22-107
+22
+23    <application
+23-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:6:5-25:19
+24        android:name="com.partmarket.MainApplication"
+24-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:7:7-38
+25        android:allowBackup="false"
+25-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:11:7-34
+26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+26-->[androidx.core:core:1.3.1] /Users/mac/.gradle/caches/transforms-2/files-2.1/c560b8721f05ca12656603dd382025ab/core-1.3.1/AndroidManifest.xml:24:18-86
+27        android:icon="@mipmap/ic_launcher"
+27-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:9:7-41
+28        android:label="@string/app_name"
+28-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:8:7-39
+29        android:roundIcon="@mipmap/ic_launcher_round"
+29-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:10:7-52
+30        android:theme="@style/AppTheme" >
+30-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:12:7-38
+31        <activity
+31-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:13:7-23:18
+32            android:name="com.partmarket.MainActivity"
+32-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:14:9-37
+33            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+33-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:16:9-86
+34            android:label="@string/app_name"
+34-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:15:9-41
+35            android:launchMode="singleTask"
+35-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:17:9-40
+36            android:windowSoftInputMode="adjustResize" >
+36-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:18:9-51
+37            <intent-filter>
+37-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:19:9-22:25
+38                <action android:name="android.intent.action.MAIN" />
+38-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:20:13-65
+38-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:20:21-62
+39
+40                <category android:name="android.intent.category.LAUNCHER" />
+40-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:21:13-73
+40-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:21:23-70
+41            </intent-filter>
+42        </activity>
+43        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+43-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:24:7-84
+43-->/Users/mac/Documents/choonline/android/app/src/main/AndroidManifest.xml:24:17-81
+44
+45        <receiver
+45-->[:react-native-device-info] /Users/mac/Documents/choonline/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:13:9-22:20
+46            android:name="com.learnium.RNDeviceInfo.RNDeviceReceiver"
+46-->[:react-native-device-info] /Users/mac/Documents/choonline/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:14:13-70
+47            android:enabled="true"
+47-->[:react-native-device-info] /Users/mac/Documents/choonline/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:15:13-35
+48            android:exported="true"
+48-->[:react-native-device-info] /Users/mac/Documents/choonline/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:16:13-36
+49            android:permission="android.permission.INSTALL_PACKAGES" >
+49-->[:react-native-device-info] /Users/mac/Documents/choonline/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:17:13-69
+50            <intent-filter>
+50-->[:react-native-device-info] /Users/mac/Documents/choonline/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:19:13-21:29
+51                <action android:name="com.android.vending.INSTALL_REFERRER" />
+51-->[:react-native-device-info] /Users/mac/Documents/choonline/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:20:17-79
+51-->[:react-native-device-info] /Users/mac/Documents/choonline/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:20:25-76
+52            </intent-filter>
+53        </receiver>
+54
+55        <provider
+55-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:19:9-27:20
+56            android:name="androidx.core.content.FileProvider"
+56-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:20:13-62
+57            android:authorities="com.partmarket.provider"
+57-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:21:13-60
+58            android:exported="false"
+58-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:22:13-37
+59            android:grantUriPermissions="true" >
+59-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:23:13-47
+60            <meta-data
+60-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:24:13-26:58
+61                android:name="android.support.FILE_PROVIDER_PATHS"
+61-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:25:17-67
+62                android:resource="@xml/provider_paths" />
+62-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:26:17-55
+63        </provider>
+64
+65        <activity
+65-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:29:9-31:72
+66            android:name="com.yalantis.ucrop.UCropActivity"
+66-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:30:13-60
+67            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+67-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:31:13-69
+68
+69        <provider
+69-->[:react-native-image-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:12:9-20:20
+70            android:name="com.imagepicker.ImagePickerProvider"
+70-->[:react-native-image-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:13:13-63
+71            android:authorities="com.partmarket.imagepickerprovider"
+71-->[:react-native-image-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:14:13-71
+72            android:exported="false"
+72-->[:react-native-image-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:15:13-37
+73            android:grantUriPermissions="true" >
+73-->[:react-native-image-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:16:13-47
+74            <meta-data
+74-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:24:13-26:58
+75                android:name="android.support.FILE_PROVIDER_PATHS"
+75-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:25:17-67
+76                android:resource="@xml/imagepicker_provider_paths" />
+76-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:26:17-55
+77        </provider>
+78        <provider
+78-->[:react-native-share] /Users/mac/Documents/choonline/node_modules/react-native-share/android/build/intermediates/library_manifest/release/AndroidManifest.xml:10:9-18:20
+79            android:name="cl.json.RNShareFileProvider"
+79-->[:react-native-share] /Users/mac/Documents/choonline/node_modules/react-native-share/android/build/intermediates/library_manifest/release/AndroidManifest.xml:11:13-55
+80            android:authorities="com.partmarket.rnshare.fileprovider"
+80-->[:react-native-share] /Users/mac/Documents/choonline/node_modules/react-native-share/android/build/intermediates/library_manifest/release/AndroidManifest.xml:12:13-72
+81            android:exported="false"
+81-->[:react-native-share] /Users/mac/Documents/choonline/node_modules/react-native-share/android/build/intermediates/library_manifest/release/AndroidManifest.xml:13:13-37
+82            android:grantUriPermissions="true" >
+82-->[:react-native-share] /Users/mac/Documents/choonline/node_modules/react-native-share/android/build/intermediates/library_manifest/release/AndroidManifest.xml:14:13-47
+83            <meta-data
+83-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:24:13-26:58
+84                android:name="android.support.FILE_PROVIDER_PATHS"
+84-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:25:17-67
+85                android:resource="@xml/share_download_paths" />
+85-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:26:17-55
+86        </provider>
+87        <provider
+87-->[:react-native-webview] /Users/mac/Documents/choonline/node_modules/react-native-webview/android/build/intermediates/library_manifest/release/AndroidManifest.xml:12:9-20:20
+88            android:name="com.reactnativecommunity.webview.RNCWebViewFileProvider"
+88-->[:react-native-webview] /Users/mac/Documents/choonline/node_modules/react-native-webview/android/build/intermediates/library_manifest/release/AndroidManifest.xml:13:13-83
+89            android:authorities="com.partmarket.fileprovider"
+89-->[:react-native-webview] /Users/mac/Documents/choonline/node_modules/react-native-webview/android/build/intermediates/library_manifest/release/AndroidManifest.xml:14:13-64
+90            android:exported="false"
+90-->[:react-native-webview] /Users/mac/Documents/choonline/node_modules/react-native-webview/android/build/intermediates/library_manifest/release/AndroidManifest.xml:15:13-37
+91            android:grantUriPermissions="true" >
+91-->[:react-native-webview] /Users/mac/Documents/choonline/node_modules/react-native-webview/android/build/intermediates/library_manifest/release/AndroidManifest.xml:16:13-47
+92            <meta-data
+92-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:24:13-26:58
+93                android:name="android.support.FILE_PROVIDER_PATHS"
+93-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:25:17-67
+94                android:resource="@xml/file_provider_paths" />
+94-->[:react-native-image-crop-picker] /Users/mac/Documents/choonline/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:26:17-55
+95        </provider>
+96
+97        <activity
+97-->[com.google.android.gms:play-services-base:17.0.0] /Users/mac/.gradle/caches/transforms-2/files-2.1/4858ba8f6e273fdf2dcb9d88023c9534/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+98            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+98-->[com.google.android.gms:play-services-base:17.0.0] /Users/mac/.gradle/caches/transforms-2/files-2.1/4858ba8f6e273fdf2dcb9d88023c9534/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+99            android:exported="false"
+99-->[com.google.android.gms:play-services-base:17.0.0] /Users/mac/.gradle/caches/transforms-2/files-2.1/4858ba8f6e273fdf2dcb9d88023c9534/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+100            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+100-->[com.google.android.gms:play-services-base:17.0.0] /Users/mac/.gradle/caches/transforms-2/files-2.1/4858ba8f6e273fdf2dcb9d88023c9534/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+101
+102        <meta-data
+102-->[com.google.android.gms:play-services-basement:17.0.0] /Users/mac/.gradle/caches/transforms-2/files-2.1/f46279d3478497538e817a8da381f082/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+103            android:name="com.google.android.gms.version"
+103-->[com.google.android.gms:play-services-basement:17.0.0] /Users/mac/.gradle/caches/transforms-2/files-2.1/f46279d3478497538e817a8da381f082/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+104            android:value="@integer/google_play_services_version" />
+104-->[com.google.android.gms:play-services-basement:17.0.0] /Users/mac/.gradle/caches/transforms-2/files-2.1/f46279d3478497538e817a8da381f082/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+105    </application>
+106
+107</manifest>

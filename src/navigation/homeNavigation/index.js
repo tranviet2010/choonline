@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
-import { TouchableOpacity, StyleSheet, TextInput, Image, Easing, Linking,Platform } from "react-native";
+import { TouchableOpacity, StyleSheet, TextInput, Image, Easing, Linking, Platform } from "react-native";
 import Home from "../../views/home";
 import { COLOR } from "../../utils/color/colors";
 
@@ -21,10 +21,12 @@ import ChildListItem from "../../views/home/childitem";
 import { connect } from "react-redux";
 import { View } from "native-base";
 import DetailProducts from "../../views/home/listItem/details";
+import DetailOrder from "../../views/ordermain/detailorder";
 import DetailAddressCart from "../../views/carts/addresscart";
 import ListCountries from "../../views/orders/collaborator/countries";
 import ListDistrict from "../../components/district";
 import ListDistrictChild from "../../components/districtChild";
+import bank from "../../components/bank";
 import { Badge, Text } from "react-native-paper";
 import SubChildItem from "../../views/home/subchilditem";
 import ComponentTrend from "../../views/products/trend";
@@ -102,16 +104,16 @@ MyHomeStack = (props) => {
           title: "",
           headerStyle: {
             backgroundColor: COLOR.HEADER,
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
           },
           headerTitleStyle: {
             color: COLOR.HEADER,
           },
           headerTitle: () => {
             return (
-                <View style={{justifyContent:'center',alignItems:'center'}}>
-                    <Text style={{color:'white',fontSize:sizeFont(5)}}>{props.idshop.SHOP_NAME}</Text>
-                </View>
+              <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ color: 'white', fontSize: sizeFont(5), marginRight: sizeWidth(15), fontWeight: 'bold' }}>CHỢ CHUNG CƯ</Text>
+              </View>
             )
           },
           headerLeft: () => (
@@ -128,12 +130,12 @@ MyHomeStack = (props) => {
           ),
           headerRight: () => {
             return (
-              <View style={{ flexDirection: 'row-reverse' }}>
+              <View style={{ flexDirection: 'row-reverse', justifyContent: 'center', alignItems: 'center' }}>
                 <View>
                   <TouchableOpacity
-                    style={{marginRight: sizeWidth(3) }}
+                    style={{ marginRight: sizeWidth(3) }}
                   >
-                    {authUser.GROUPS!=3?<HeaderLeftComponet
+                    {authUser.GROUPS != 3 ? <HeaderLeftComponet
                       navigation={navigation}
                       onPress={() =>
                         navigation.navigate("CartHome", {
@@ -143,7 +145,7 @@ MyHomeStack = (props) => {
                       name="shopping-cart"
                       size={sizeFont(6)}
                       color="white"
-                    />:null}
+                    /> : null}
                     {listItem.length != 0 ? (
                       <View style={styles.viewList}>
                         <Text
@@ -183,16 +185,16 @@ MyHomeStack = (props) => {
                     }}>99+</Text>}
                   </View>}
                 </View>
-                <TouchableOpacity 
-                onPress={()=>Linking.openURL('http://google.com')}
-            >
-              <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                <Image
-                  source={require("../../assets/images/mess.png")}
-                  style={{ width: 30, height: 30, justifyContent: 'center', alignItems: 'center', marginLeft: sizeWidth(1) }}
-                />
-              </View>
-            </TouchableOpacity >
+                <TouchableOpacity
+                  onPress={() => Linking.openURL('http://google.com')}
+                >
+                  <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                    <Image
+                      source={require("../../assets/images/mess.png")}
+                      style={{ width: 27, height: 27, justifyContent: 'center', alignItems: 'center', marginLeft: sizeWidth(1) }}
+                    />
+                  </View>
+                </TouchableOpacity >
               </View>
             );
           },
@@ -202,11 +204,11 @@ MyHomeStack = (props) => {
         name="Info"
         component={Notification}
         options={({ route }) => ({
-          title:'Thông báo',
+          title: 'Thông báo',
           headerTitleAlign: "center",
           headerBackTitle: null,
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTitleStyle: {
@@ -240,7 +242,7 @@ MyHomeStack = (props) => {
           title: route.params.TITLE,
           headerBackTitle: null,
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTitleStyle: {
@@ -267,7 +269,7 @@ MyHomeStack = (props) => {
           headerTitleAlign: "center",
           headerBackTitle: null,
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTitleStyle: {
@@ -288,16 +290,32 @@ MyHomeStack = (props) => {
         name="FullItem"
         component={FullItem}
         options={({ route }) => ({
-          title:"Tất cả",
+          title: "Tất cả",
           headerTitleAlign: "center",
           headerBackTitle: null,
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTitleStyle: {
             color: "#fff",
           }
+        })}
+      />
+      <HomeStack.Screen
+        name="DetailOrder"
+        component={DetailOrder}
+        options={({ route }) => ({
+          title: "Chi tiết đơn hàng",
+          headerStyle: {
+            backgroundColor: COLOR.HEADER,
+            height: sizeHeight(10),
+          },
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            color: 'white',
+          },
+          headerTintColor: '#fff'
         })}
       />
       <HomeStack.Screen
@@ -308,7 +326,7 @@ MyHomeStack = (props) => {
           title: "Giỏ hàng",
           headerBackTitle: null,
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTitleStyle: {
@@ -342,7 +360,7 @@ MyHomeStack = (props) => {
           headerTitleAlign: "center",
           headerBackTitle: null,
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTitleStyle: {
@@ -352,7 +370,7 @@ MyHomeStack = (props) => {
           headerLeft: () => (
             <HeaderLeftComponet
               navigation={navigation}
-              onPress={() => navigation.navigate(route.params.NAME)}
+              onPress={() => navigation.navigate('CartHome')}
               name="chevron-left"
               size={sizeFont(6)}
               color="#fff"
@@ -365,10 +383,19 @@ MyHomeStack = (props) => {
         component={Polycitech}
         options={{
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTintColor: '#fff',
+          headerLeft: () => (
+            <HeaderLeftComponet
+              navigation={navigation}
+              onPress={() => navigation.navigate('HomePay')}
+              name="chevron-left"
+              size={sizeFont(6)}
+              color="#fff"
+            />
+          ),
         }}
       />
       <HomeStack.Screen
@@ -377,11 +404,20 @@ MyHomeStack = (props) => {
         options={{
           title: 'Báo cáo',
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTitleAlign: "center",
           headerTintColor: '#fff',
+          headerLeft: () => (
+            <HeaderLeftComponet
+              navigation={navigation}
+              onPress={() => navigation.navigate('HomePay')}
+              name="chevron-left"
+              size={sizeFont(6)}
+              color="#fff"
+            />
+          ),
         }}
       />
       <HomeStack.Screen
@@ -390,7 +426,7 @@ MyHomeStack = (props) => {
         options={{
           title: 'Chi tiết hoa hồng theo CTV',
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER
           },
           headerTintColor: '#fff',
@@ -402,7 +438,7 @@ MyHomeStack = (props) => {
         options={{
           title: 'Chỉnh sửa thông tin CTV/ KH',
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER
           },
           headerTintColor: '#fff',
@@ -414,11 +450,20 @@ MyHomeStack = (props) => {
         options={{
           title: 'Báo cáo chung',
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTitleAlign: "center",
           headerTintColor: '#fff',
+          headerLeft: () => (
+            <HeaderLeftComponet
+              navigation={navigation}
+              onPress={() => navigation.navigate('HomePay')}
+              name="chevron-left"
+              size={sizeFont(6)}
+              color="#fff"
+            />
+          ),
         }}
       />
       <HomeStack.Screen
@@ -427,11 +472,20 @@ MyHomeStack = (props) => {
         options={{
           title: 'Cập nhật thông tin CTV/KH',
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTitleAlign: "center",
           headerTintColor: '#fff',
+          headerLeft: () => (
+            <HeaderLeftComponet
+              navigation={navigation}
+              onPress={() => navigation.navigate('HomePay')}
+              name="chevron-left"
+              size={sizeFont(6)}
+              color="#fff"
+            />
+          ),
         }}
       />
       <HomeStack.Screen
@@ -440,7 +494,7 @@ MyHomeStack = (props) => {
         options={{
           title: 'Báo cáo theo mặt hàng',
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTitleAlign: "center",
@@ -453,11 +507,20 @@ MyHomeStack = (props) => {
         options={{
           title: 'Báo cáo biến động',
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTitleAlign: "center",
           headerTintColor: '#fff',
+          headerLeft: () => (
+            <HeaderLeftComponet
+              navigation={navigation}
+              onPress={() => navigation.navigate('HomePay')}
+              name="chevron-left"
+              size={sizeFont(6)}
+              color="#fff"
+            />
+          ),
         }}
       />
       <HomeStack.Screen
@@ -465,10 +528,19 @@ MyHomeStack = (props) => {
         component={Info}
         options={{
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTintColor: '#fff',
+          headerLeft: () => (
+            <HeaderLeftComponet
+              navigation={navigation}
+              onPress={() => navigation.navigate('HomePay')}
+              name="chevron-left"
+              size={sizeFont(6)}
+              color="#fff"
+            />
+          ),
         }}
 
       />
@@ -476,9 +548,9 @@ MyHomeStack = (props) => {
         name="ctvdow"
         component={InfoCTV}
         options={{
-          title:"Danh sách CTV/ KH",
+          title: authUser.GROUPS==3?'Danh sách CTV/ KH':'Danh sách CTV ',
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTintColor: '#fff',
@@ -490,10 +562,19 @@ MyHomeStack = (props) => {
         component={EducateCTV}
         options={{
           headerStyle: {
-            height: Platform.OS=="ios" ?sizeHeight(12):sizeHeight(9),
+            height: Platform.OS == "ios" ? sizeHeight(12) : sizeHeight(9),
             backgroundColor: COLOR.HEADER,
           },
           headerTintColor: '#fff',
+          headerLeft: () => (
+            <HeaderLeftComponet
+              navigation={navigation}
+              onPress={() => navigation.navigate('HomePay')}
+              name="chevron-left"
+              size={sizeFont(6)}
+              color="#fff"
+            />
+          ),
         }}
 
       />
@@ -525,6 +606,15 @@ MyHomeStack = (props) => {
             backgroundColor: COLOR.HEADER,
           },
           headerTintColor: '#fff',
+          headerLeft: () => (
+            <HeaderLeftComponet
+              navigation={navigation}
+              onPress={() => navigation.navigate('HomePay')}
+              name="chevron-left"
+              size={sizeFont(6)}
+              color="#fff"
+            />
+          ),
         }}
 
       />
@@ -540,7 +630,7 @@ MyHomeStack = (props) => {
         }}
 
       />
-      
+
       <HomeStack.Screen
         name="reportCTV"
         component={ReportCTV}
@@ -587,6 +677,30 @@ MyHomeStack = (props) => {
         }}
       />
       <HomeStack.Screen
+        name="Listbank"
+        component={bank}
+        options={({ route }) => ({
+          title: "Chọn Ngân Hàng",
+          headerTitleAlign: "center",
+          headerStyle: {
+            backgroundColor: COLOR.HEADER,
+          },
+          headerTitleStyle: {
+            color: "#fff",
+          },
+          headerLeft: () => (
+            <HeaderLeftComponet
+              navigation={navigation}
+              onPress={() => navigation.navigate(route.params.NAME)}
+              name="chevron-left"
+              size={sizeFont(6)}
+              color="#fff"
+            />
+          ),
+          headerRight: () => null,
+        })}
+      />
+      <HomeStack.Screen
         name="Detail container"
         component={CtvDetail}
         options={{
@@ -610,37 +724,47 @@ MyHomeStack = (props) => {
           headerTintColor: '#fff',
           headerRight: () => {
             return (
-                <View>
-                  <TouchableOpacity
-                    style={{marginRight: sizeWidth(3) }}
-                  >
-                    {authUser.GROUPS!=3?<HeaderLeftComponet
-                      navigation={navigation}
-                      onPress={() =>
-                        navigation.navigate("CartHome", {
-                          NAME: "HomePay",
-                        })
-                      }
-                      name="shopping-cart"
-                      size={sizeFont(6)}
-                      color="#fff"
-                    />:null}
-                    {listItem.length != 0 ? (
-                      <View style={styles.viewList}>
-                        <Text
-                          style={{
-                            color: "#fff",
-                            textAlign: "center",
-                            fontSize: sizeFont(3),
-                          }}
-                        >
-                          {listItem.length}
-                        </Text>
-                      </View>
-                    ) : null}
-                  </TouchableOpacity>
-                </View>
-            )}
+              <View>
+                <TouchableOpacity
+                  style={{ marginRight: sizeWidth(3) }}
+                >
+                  {authUser.GROUPS != 3 ? <HeaderLeftComponet
+                    navigation={navigation}
+                    onPress={() =>
+                      navigation.navigate("CartHome", {
+                        NAME: "DetailProducts",
+                      })
+                    }
+                    name="shopping-cart"
+                    size={sizeFont(6)}
+                    color="#fff"
+                  /> : null}
+                  {listItem.length != 0 ? (
+                    <View style={styles.viewList}>
+                      <Text
+                        style={{
+                          color: "#fff",
+                          textAlign: "center",
+                          fontSize: sizeFont(3),
+                        }}
+                      >
+                        {listItem.length}
+                      </Text>
+                    </View>
+                  ) : null}
+                </TouchableOpacity>
+              </View>
+            )
+          },
+          headerLeft: () => (
+            <HeaderLeftComponet
+              navigation={navigation}
+              onPress={() => navigation.navigate('HomePay')}
+              name="chevron-left"
+              size={sizeFont(6)}
+              color="#fff"
+            />
+          ),
         })}
       />
       <HomeStack.Screen
@@ -813,7 +937,7 @@ const mapStateToProps = (state) => {
     authUser: state.authUser.authUser,
     listItem: state.order.listItem,
     countNotify: state.notify.countNotify,
-    idshop:state.product.database,
+    idshop: state.product.database,
   };
 };
 

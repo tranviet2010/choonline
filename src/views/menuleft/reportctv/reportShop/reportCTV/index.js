@@ -16,16 +16,17 @@ class ReportList extends Component {
             selectmonth: '',
             selectisu: '',
             selectaccout: '',
-
+            search:'',
         }
     }
     handLoad = () => {
         ReportCTVTT({
             USERNAME: this.props.username,
+            SEARCH:this.state.search,
             YEAR: this.state.selectyear,
             MONTH: this.state.selectmonth,
-            REPORT_TYPE: this.state.selectisu,
-            IDSHOP: "F6LKFY"
+            REPORT_TYPE: this.state.selectaccout,
+            IDSHOP: 'F6LKFY'
         })
             .then((result) => {
                 console.log("this is ReportCTVTT", result);
@@ -34,10 +35,14 @@ class ReportList extends Component {
                         data: result.data.INFO
                     })
                 } else {
-                    Alert.alert("Thông báo", "Không có dữ liệu");
+                    this.setState({
+                        data: []
+                    })
                 }
             }).catch((err) => {
-                console.log("errrro", err)
+                this.setState({
+                    data: []
+                })
             })
     }
     componentDidMount() {
@@ -63,20 +68,20 @@ class ReportList extends Component {
                             >
                                 <DropDownPicker
                                     items={[
-                                        { label: '2020', value: '2020' },
-                                        { label: '2019', value: '2019' }
+                                        { label: '2021', value: '2021' },
+                                        { label: '2020', value: '2020' }
                                     ]}
                                     defaultValue={selectyear}
                                     placeholder="2020"
                                     containerStyle={{ height: sizeHeight(5.8) }}
-                                    style={{ backgroundColor: '#fafafa', width: sizeWidth(33), borderColor: '#E1AC06', borderWidth: 1 }}
+                                    style={{ backgroundColor: '#fafafa', width: sizeWidth(33), borderColor: '#4a8939', borderWidth: 1 }}
                                     itemStyle={{
                                         justifyContent: 'flex-start'
                                     }}
                                     dropDownStyle={{ backgroundColor: '#fafafa', width: sizeWidth(33) }}
                                     onChangeItem={item => this.setState({
                                         selectyear: item.value
-                                    }, () => { this.handLoad() })}
+                                    })}
                                 />
                             </View>
                         </View>
@@ -108,14 +113,14 @@ class ReportList extends Component {
                                     defaultValue={selectmonth}
                                     placeholder="1"
                                     containerStyle={{ height: sizeHeight(5.8) }}
-                                    style={{ backgroundColor: '#fafafa', width: sizeWidth(33), borderColor: '#E1AC06', borderWidth: 1 }}
+                                    style={{ backgroundColor: '#fafafa', width: sizeWidth(33), borderColor: '#4a8939', borderWidth: 1 }}
                                     itemStyle={{
                                         justifyContent: 'flex-start'
                                     }}
                                     dropDownStyle={{ backgroundColor: '#fafafa', width: sizeWidth(33) }}
                                     onChangeItem={item => this.setState({
                                         selectmonth: item.value
-                                    }, () => { this.handLoad() })}
+                                    })}
                                 />
                             </View>
                         </View>
@@ -137,20 +142,20 @@ class ReportList extends Component {
                         >
                             <DropDownPicker
                                 items={[
-                                    { label: '2020', value: '2020' },
-                                    { label: '2019', value: '2019' }
+                                    { label: 'Theo CTV', value: '1' },
+                                    { label: 'Doanh số', value: '2' }
                                 ]}
                                 defaultValue={selectaccout}
                                 placeholder="Tất cả"
                                 containerStyle={{ height: sizeHeight(5.8) }}
-                                style={{ backgroundColor: '#fafafa', width: sizeWidth(40), borderColor: '#E1AC06', borderWidth: 1 }}
+                                style={{ backgroundColor: '#fafafa', width: sizeWidth(40), borderColor: '#4a8939', borderWidth: 1 }}
                                 itemStyle={{
                                     justifyContent: 'flex-start'
                                 }}
                                 dropDownStyle={{ backgroundColor: '#fafafa', width: sizeWidth(40) }}
                                 onChangeItem={item => this.setState({
                                     selectaccout: item.value
-                                }, () => { this.handLoad() })}
+                                })}
                             />
                         </View>
                     </View>
@@ -158,12 +163,13 @@ class ReportList extends Component {
                         <View>
                             <TextInput 
                                 placeholder="Nhập mã hoặc tên CTV"
-                                style={{borderColor:'#E1AC06',paddingLeft:15,borderWidth:1,width:sizeWidth(60),borderRadius:50,height:sizeHeight(5)}}
+                                onChangeText={(text)=>{this.setState({search:text})}}
+                                style={{borderColor:'#4a8939',paddingLeft:15,borderWidth:1,width:sizeWidth(60),borderRadius:50,height:sizeHeight(5)}}
                             />
                         </View>
                         <View>
                             <TouchableOpacity
-                                onPress={()=>{}}
+                                onPress={()=>{this.handLoad()}}
                                 style={{justifyContent:'center',alignItems:'center',width:sizeWidth(20),height:sizeHeight(5),backgroundColor:'#149CC6'}}
                             >
                                 <Text style={{color:'#fff'}}>Tìm kiếm</Text>
@@ -177,7 +183,7 @@ class ReportList extends Component {
 
                     </View>
                 </View>
-                <View style={{ height: 5, backgroundColor: '#E1AC06', marginBottom: 15, zIndex: -1 }}></View>
+                <View style={{ height: 5, backgroundColor: '#4a8939', marginBottom: 15, zIndex: -1 }}></View>
                 <ScrollView horizontal={true} style={{ zIndex: -1 }}>
                     <View style={{ flexDirection: 'column' }}>
                         <View style={[styles.mainUser, styles.custom, styles.customTop]}>
@@ -253,7 +259,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         height: sizeHeight(5),
         width: sizeWidth(10),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4a8939',
         borderRightWidth: 1,
         justifyContent: 'center',
         alignItems: 'center'
@@ -261,7 +267,7 @@ const styles = StyleSheet.create({
     row2: {
         textAlign: 'center',
         width: sizeWidth(40),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4a8939',
         borderRightWidth: 1,
         height: sizeHeight(5),
         justifyContent: 'center',
@@ -270,7 +276,7 @@ const styles = StyleSheet.create({
     row3: {
         textAlign: 'center',
         width: sizeWidth(30),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4a8939',
         borderRightWidth: 1,
         justifyContent: 'center',
         alignItems: 'center'
@@ -279,7 +285,7 @@ const styles = StyleSheet.create({
     row4: {
         textAlign: 'center',
         width: sizeWidth(13),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4a8939',
         borderRightWidth: 1,
         justifyContent: 'center',
         alignItems: 'center'
@@ -288,7 +294,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         paddingLeft: sizeWidth(5.5),
         width: sizeWidth(30),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4a8939',
         borderRightWidth: 1,
         justifyContent: 'center',
         alignItems: 'center'
@@ -297,7 +303,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         paddingLeft: sizeWidth(5.5),
         width: sizeWidth(30),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4a8939',
         borderRightWidth: 1,
         justifyContent: 'center',
         alignItems: 'center'
@@ -305,18 +311,18 @@ const styles = StyleSheet.create({
     row7: {
         textAlign: 'center',
         width: sizeWidth(20),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4a8939',
         borderRightWidth: 1,
         justifyContent: 'center',
         alignItems: 'center'
     },
     custom: {
-        borderBottomColor: '#E1AC06',
+        borderBottomColor: '#4a8939',
         borderBottomWidth: 1,
 
     },
     customTop: {
-        borderTopColor: '#E1AC06',
+        borderTopColor: '#4a8939',
         borderTopWidth: 1,
     },
     row21: {

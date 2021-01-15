@@ -39,17 +39,26 @@ class FullItem extends Component {
         this.see = false;
     }
     handleSearch = () => {
-        const arry=this.state.data.filter(el=>el.PRODUCT_NAME.indexOf(this.state.search)!=-1)
+        const arry = this.state.data.filter(el => el.PRODUCT_NAME.indexOf(this.state.search) != -1)
         this.setState({
-            data:arry
+            data: arry
         })
     };
+    checkTime = (a, b) => {
+        var start = a;
+        var end = b;
+        var datePart1 = start.split("/");
+        var datePart2 = end.split("/");
 
+        var dateObject1 = new Date(+datePart1[2], datePart1[1] - 1, +datePart1[0]);
+        var dateObject2 = new Date(+datePart2[2], datePart2[1] - 1, +datePart2[0]);
+        return dateObject2 - dateObject1;
+    }
 
     render() {
-        const { loading, refreshing, search,data } = this.state;
+        const { loading, refreshing, search, data } = this.state;
         const { navigation, authUser, status } = this.props;
-        
+
         console.log("this is data", data);
         return (
             <View style={{ backgroundColor: "#fff", height: sizeHeight(100) }}>
@@ -77,13 +86,12 @@ class FullItem extends Component {
                         onBlur={() => (this.see = false)}
                         onChangeText={(text) => this.setState({ search: text })}
 
-                        onSubmitEditing={()=>this.handleSearch()}
+                        onSubmitEditing={() => this.handleSearch()}
                         style={{
                             width: sizeWidth(85),
                             paddingVertical: sizeHeight(1.5),
                         }}
                     />
-
                 </View>
                 <View>
                     <View style={{ width: sizeWidth(96), alignItems: 'center', justifyContent: 'center' }}>
@@ -103,7 +111,7 @@ class FullItem extends Component {
                             onMomentumScrollBegin={this.onMomentumScrollBegin}
                             extraData={this.state}
                             // ListFooterComponent={() => {
-                            //     return loading ? (
+                            //     return loading ? ( 
                             //         <ActivityIndicator size={sizeFont(7)} color="red" />
                             //     ) : null;
                             // }}
@@ -119,7 +127,11 @@ class FullItem extends Component {
                                             })
                                         }
                                     >
-                                        <View style={{justifyContent:'center',alignItems:'center'}}>
+                                        {item.END_PROMOTION && this.checkTime(item.START_PROMOTION, item.END_PROMOTION) >= 0 ?
+                                            <View style={{ position: 'absolute', right: 5, top: 5, width: sizeWidth(10), height: sizeHeight(2.5), backgroundColor: 'red', justifyContent: 'center', alignItems: 'center', zIndex: 100, borderRadius: 2 }}>
+                                                <Text style={{ fontSize: sizeFont(3), color: '#fff', fontSize: sizeFont(2) }}>-{numeral((item.PRICE - item.PRICE_PROMOTION) / item.PRICE * 100).format('0.00')}%</Text>
+                                            </View> : null}
+                                        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                                             <Image
                                                 source={{ uri: item.IMAGE_COVER }}
                                                 PlaceholderContent={<ActivityIndicator />}
@@ -129,10 +141,19 @@ class FullItem extends Component {
                                         </View>
                                         <Text style={styles.textName}>{item.PRODUCT_NAME} </Text>
                                         {/* <Text style={styles.textCode}>{item.PRODUCT_NAME} </Text> */}
-                                        <Text style={styles.textPrice}>
-                                            {numeral(handleMoney(status, item, authUser)).format("0,0")}
-                  VNĐ
-                </Text>
+                                        {item.END_PROMOTION && this.checkTime(item.START_PROMOTION, item.END_PROMOTION) >= 0 ? <View>
+                                            <View style={styles.textPrice1}>
+                                                <View style={{ flexDirection: 'row', alignItems: 'center', alignItems: 'center' }}>
+                                                    <Text style={styles.textPrice}>{numeral(item.PRICE_PROMOTION).format("0,0")} đ</Text>
+                                                    <Text style={{ textDecorationLine: 'line-through', color: 'gray', fontSize: sizeFont(3) }}>{numeral(item.PRICE).format("0,0")} đ</Text>
+                                                </View>
+                                                {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text style={{ color: '#3399FF', fontSize: sizeFont(3.5), paddingBottom: 5, marginLeft: sizeWidth(2) }}>HH: {numeral(item.COMISSION_PRODUCT * item.PRICE_PROMOTION * 0.01).format("0,0")}đ ({item.COMISSION_PRODUCT}%)</Text>}
+                                            </View>
+                                        </View> : <View style={{ flexDirection: 'column' }}><Text style={styles.textPrice}>
+                                            {numeral(item.PRICE).format("0,0")} đ
+                          </Text>
+                                                {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text style={{ color: '#3399FF', fontSize: sizeFont(3.5), paddingBottom: 5, marginLeft: sizeWidth(2) }}>HH: {numeral(item.COMISSION_PRODUCT * item.PRICE * 0.01).format("0,0")}đ ({item.COMISSION_PRODUCT}%)</Text>}
+                                            </View>}
                                     </TouchableOpacity>
                                 );
                             }}
@@ -152,45 +173,44 @@ class FullItem extends Component {
 }
 const styles = StyleSheet.create({
     touchFlatListChild: {
-      borderRadius: 6,
-      borderColor: COLOR.BUTTON,
-      borderWidth: 0.5,
-      marginVertical: sizeHeight(1),
-      width: sizeWidth(47),
-      overflow: "hidden",
-      marginRight: sizeWidth(2),
-      justifyContent:'center',
-      alignItems:'center',
+        borderRadius: 6,
+        borderColor: COLOR.BUTTON,
+        borderWidth: 0.5,
+        marginVertical: sizeHeight(1),
+        width: sizeWidth(47),
+        overflow: "hidden",
+        marginRight: sizeWidth(2),
+
     },
     imageSize: {
-      width: sizeWidth(45),
-      justifyContent:'center',
-      alignItems:'center',
-      // width: sizeWidth(30),
-      height: sizeHeight(20),
-      
-      //height: sizeHeight(20),
-      overflow: "visible",
+        width: sizeWidth(45),
+        justifyContent: 'center',
+        alignItems: 'center',
+        // width: sizeWidth(30),
+        height: sizeHeight(20),
+
+        //height: sizeHeight(20),
+        overflow: "visible",
     },
     textName: {
-      fontSize: sizeFont(4),
-      paddingVertical: sizeHeight(3.5),
-      paddingHorizontal: sizeWidth(2),
-      paddingTop: sizeHeight(4.5),
-      paddingVertical: sizeHeight(1),
+        fontSize: sizeFont(4),
+        paddingVertical: sizeHeight(3.5),
+        paddingHorizontal: sizeWidth(2),
+        paddingTop: sizeHeight(4.5),
+        paddingVertical: sizeHeight(1),
     },
     textCode: {
-      fontSize: sizeFont(4),
-      fontWeight: "bold",
-      paddingHorizontal: sizeWidth(2),
+        fontSize: sizeFont(4),
+        fontWeight: "bold",
+        paddingHorizontal: sizeWidth(2),
     },
     textPrice: {
-      color: COLOR.BUTTON,
-      fontSize: sizeFont(3.8),
-      paddingVertical: sizeHeight(1),
-      paddingHorizontal: sizeWidth(2),
+        color: 'red',
+        fontSize: sizeFont(3.8),
+        paddingVertical: sizeHeight(0.5),
+        paddingHorizontal: sizeWidth(2),
     },
-  });
+});
 
 const mapStateToProps = (state) => {
     return {

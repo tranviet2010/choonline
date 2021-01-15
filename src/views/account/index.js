@@ -18,7 +18,7 @@ class Account extends Component {
     const {discription,full_name}=this.props.route.params;
   
     return (
-      <View style={{ backgroundColor: "#E1AC06", height: sizeHeight(110) }}>
+      <View style={{ backgroundColor: "#4d7335", height: sizeHeight(110) }}>
         <StatusBar
           barStyle="light-content"
           backgroundColor={COLOR.HEADER}

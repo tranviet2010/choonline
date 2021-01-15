@@ -291,6 +291,29 @@ class DetailProducts extends Component {
       return alert('không có data');
     }
   };
+  shareFacebook=()=>{
+    const shareOptions = {
+      title: 'Share via',
+      message: 'some message',
+      url: 'some share url',
+      social: Share1.Social.FACEBOOK,
+      whatsAppNumber: "9199999999",  // country code + phone number
+      filename: 'test' , // only for base64 file in Android
+    };
+  
+    Share1.shareSingle(shareOptions)
+      .then((res) => { console.log(res) })
+      .catch((err) => { err && console.log(err); });
+  }
+  checkTime = (a, b) => {
+    var start = a;
+    var end = b;
+    var datePart1 = start.split("/");
+    var datePart2 = end.split("/");
+    var dateObject1 = new Date(+datePart1[2], datePart1[1] - 1, +datePart1[0]);
+    var dateObject2 = new Date(+datePart2[2], datePart2[1] - 1, +datePart2[0]);
+    return dateObject2 - dateObject1;
+}
   showLinkSP = () => {
     var { data } = this.state;
     if (data) {
@@ -335,6 +358,7 @@ class DetailProducts extends Component {
     console.log("data home detail", data);
     console.log("data home setSelectedValue", setSelectedValue);
     console.log("dây là properties", properties)
+    // console.log("check time",this.checkTime(data.START_PROMOTION, data.END_PROMOTION));
     const images = [{
       // Simplest usage.
       url: 'https://avatars2.githubusercontent.com/u/7970947?v=3&s=460',
@@ -364,21 +388,21 @@ class DetailProducts extends Component {
     ) : (
         <View style={{ flex: 1, backgroundColor: "#fff" }}>
           <ScrollView>
-            <SliderBox
-              images={[data.IMG1, data.IMG2, data.IMG3]}
+          <SliderBox
+              images={[data.IMG1!=null?data.IMG1:require('../../../../assets/images/emptypic.jpg'), data.IMG2!=null?data.IMG2:require('../../../../assets/images/emptypic.jpg'), data.IMG3!=null?data.IMG3:require('../../../../assets/images/emptypic.jpg')]}
               dotColor={COLOR.BUTTON}
-              // resizeMode="contain"
+              resizeMode="contain"
               inactiveDotColor={COLOR.HEADER}
               ImageComponentStyle={{
                 marginTop: 5,
-                height: sizeHeight(50),
-                width: sizeWidth(95)
+                height: sizeHeight(40),
+                width:sizeWidth(95)
               }}
             />
             <View style={{ marginTop: sizeHeight(3) }}>
               <Text
                 style={{
-                  fontSize: sizeFont(5),
+                  fontSize: sizeFont(4),
                   marginLeft: sizeWidth(2),
                   paddingBottom: sizeHeight(1),
                   fontWeight: "bold"
@@ -387,26 +411,32 @@ class DetailProducts extends Component {
                 {data.PRODUCT_NAME}
               </Text>
               <View style={styles.viewChildDetail}>
-                <Text style={{ fontSize: sizeFont(4), color: COLOR.BUTTON, fontWeight: "bold" }}>
-                  Giá sản phẩm: {numeral(handleMoney(status, data, authUser)).format("0,0")} VNĐ
-              </Text>
-
+              <Text style={{ fontSize: sizeFont(4), color: COLOR.BUTTON, fontWeight: "500" }}>
+                  Giá sản phẩm: {data.END_PROMOTION && this.checkTime(data.START_PROMOTION, data.END_PROMOTION) > 0 ? <View>
+                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                      <Text style={{ color: 'red', marginRight: 10 }}>{numeral(data.PRICE_PROMOTION).format("0,0")} đ</Text>
+                      <Text style={{ textDecorationLine: 'line-through', color: 'gray', fontSize: sizeFont(3.5) }}>{numeral(data.PRICE).format("0,0")} đ</Text>
+                    </View>
+                  </View> : <Text >
+                      {numeral(data.PRICE).format("0,0")} đ
+                          </Text>}
+                </Text>
               </View>
               <View style={{ margin: sizeWidth(2), }}>
                 {this.props.authUser.GROUPS == 8 || this.props.authUser.GROUPS == undefined ? null : <Text>
                   Hoa hồng sản phẩm: <Text style={{ color: '#3399FF' }}>{numeral(data.COMISSION_PRODUCT * data.PRICE * 0.01).format("0,0")} ({data.COMISSION_PRODUCT}%)</Text>
                 </Text>}
               </View>
-              <View style={{ margin: sizeWidth(2), }}>
+              {/* <View style={{ margin: sizeWidth(2), }}>
                 {data.WARRANTY != null ? <Text>Bảo hành {data.WARRANTY} tháng</Text> : null}
-              </View>
+              </View> */}
               {/* {properties ? <View style={{ paddingLeft: 10, marginTop: 10 }}>
                 {properties != [] ? properties.map((val, key) => {
                   return (
                     <View key={key} style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 5 }}>
                       <Text style={{ fontWeight: 'bold' }}>{val.NAME}</Text>
 
-                      <View style={{ borderColor: '#E1AC06', borderWidth: 1, alignItems: 'center', borderRadius: 10 }}>
+                      <View style={{ borderColor: '#4d7335', borderWidth: 1, alignItems: 'center', borderRadius: 10 }}>
                         <Picker
                           selectedValue={setSelectedValue}
                           style={{ height: 30, width: sizeWidth(50) }}
@@ -469,12 +499,13 @@ class DetailProducts extends Component {
               <View style={{ marginTop: sizeHeight(3) }}>
                 {activeTab == 1 ? (
                   <View style={{ width: sizeWidth(96), alignSelf: "center" }}>
+                    <Text style={{fontWeight:'bold',fontSize:sizeFont(4.5)}}>Mô tả sản phẩm</Text>
                     <HTML
                       ignoredTags={tags}
                       html={
-                        data.CONTENT_WEB === null
+                        data.CONTENT_FB === null
                           ? "<h1>Không có dữ liệu</h1>"
-                          : data.CONTENT_WEB
+                          : data.CONTENT_FB
                       }
                       onLinkPress={(event, href) =>
                         console.log("clicked link: ", href)
@@ -511,13 +542,14 @@ class DetailProducts extends Component {
                 ]}
               />
             </View> */}
-            {status === "" || authUser.GROUPS == "3" ? <View>
+            {authUser.GROUPS == "3"?null:<View>
+            {status === "" ? <View>
               <Text style={{ padding: 5, color: 'blue', fontStyle: 'italic' }}>Hãy đăng ký tài khoản để được mua sản phẩm này với giá gốc, tham gia bán hàng cùng F6LKFY và hưởng hoa hồng CỰC SỐC</Text>
               <View style={{ marginBottom: sizeHeight(5), justifyContent: 'center', alignItems: 'center' }}>
                 <TouchableOpacity
                   style={{
                     justifyContent: 'center', alignItems: 'center', width: sizeWidth(60), height: sizeHeight(5.5)
-                    , backgroundColor: '#E1AC06', borderRadius: 25
+                    , backgroundColor: '#4d7335', borderRadius: 25
                   }}
                   onPress={() => {
                     this.props.navigation.navigate("SignUp");
@@ -543,6 +575,7 @@ class DetailProducts extends Component {
                       flexDirection: 'row', justifyContent: 'center',
                       alignItems: 'center', backgroundColor: '#4267b2', width: sizeWidth(95), height: sizeHeight(6), borderRadius: 5
                     }}
+                    onPress={()=>this.onShareFaceBook()}
                   >
 
                     <Text style={{ color: 'white' }}>Chia sẻ Facebook</Text>
@@ -607,7 +640,7 @@ class DetailProducts extends Component {
                 </View>
 
               </View>
-            }
+            }</View>}
           </ScrollView>
 
 

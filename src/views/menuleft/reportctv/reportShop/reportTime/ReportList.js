@@ -14,7 +14,7 @@ class ReportList extends Component {
             data: [],
             load: true,
             color1: '#F5F5F5',
-            color2: '#E1AC06',
+            color2: '#4d7335',
         }
     }
     componentDidMount() {
@@ -41,8 +41,8 @@ class ReportList extends Component {
         const { navigation } = this.props;
         const { startTime, endTime } = this.props;
         const { data, load, color1, color2 } = this.state;
-        const color = load ? '#E1AC06' : '#F5F5F5';
-        const color3 = load ? '#F5F5F5' : '#E1AC06';
+        const color = load ? '#4d7335' : '#F5F5F5';
+        const color3 = load ? '#F5F5F5' : '#4d7335';
         const colorText1 = load ? 'white' : 'black';
         const colorText2 = load ? 'black' : 'white';
         return (
@@ -50,7 +50,7 @@ class ReportList extends Component {
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 10 }}>
                     <View>
                         <TouchableOpacity
-                            style={{ width: sizeWidth(48), height: sizeHeight(7), borderColor: '#E1AC06', borderWidth: 2, justifyContent: 'center', backgroundColor: `${color}` }}
+                            style={{ width: sizeWidth(48), height: sizeHeight(7), borderColor: '#4d7335', borderWidth: 2, justifyContent: 'center', backgroundColor: `${color}` }}
                             onPress={() => this.setState({
                                 load: true,
                             })}
@@ -60,7 +60,7 @@ class ReportList extends Component {
                     </View>
                     <View>
                         <TouchableOpacity
-                            style={{ width: sizeWidth(48), height: sizeHeight(7), borderColor: '#E1AC06', borderWidth: 2, justifyContent: 'center', backgroundColor: `${color3}` }}
+                            style={{ width: sizeWidth(48), height: sizeHeight(7), borderColor: '#4d7335', borderWidth: 2, justifyContent: 'center', backgroundColor: `${color3}` }}
                             onPress={() => this.setState({
                                 load: false,
                             })}
@@ -114,53 +114,53 @@ const styles = StyleSheet.create({
         paddingTop: sizeHeight(1),
         textAlign: 'center',
         width: sizeWidth(35),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
     },
     row2: {
         paddingTop: sizeHeight(1),
         textAlign: 'center',
         width: sizeWidth(30),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
     },
     row3: {
         paddingTop: sizeHeight(1),
         textAlign: 'center',
         width: sizeWidth(30),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
     },
     row4: {
         paddingTop: sizeHeight(1),
         textAlign: 'center',
         width: sizeWidth(30),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
     },
     row5: {
         paddingTop: sizeHeight(1),
         textAlign: 'center',
         width: sizeWidth(30),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
     },
     row6: {
         paddingTop: sizeHeight(1),
         textAlign: 'center',
         width: sizeWidth(30),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
     },
     row7: {
         paddingTop: sizeHeight(1),
         textAlign: 'center',
         width: sizeWidth(20),
-        borderRightColor: '#E1AC06',
+        borderRightColor: '#4d7335',
         borderRightWidth: 1,
     },
     custom: {
-        borderBottomColor: '#E1AC06',
+        borderBottomColor: '#4d7335',
         borderBottomWidth: 1,
 
     },

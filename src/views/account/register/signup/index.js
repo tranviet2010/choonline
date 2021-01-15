@@ -56,12 +56,12 @@ export default class SignUp extends Component {
     Keyboard.dismiss();
     if (
       nameText.trim() == "" ||
-      !checkFullName(nameText) ||
+      !alphanumeric(nameText) ||
       nameText.length > 50
     ) {
       AlertCommon(
         "Thông báo",
-        "Vui lòng nhập họ và tên chỉ gồm chữ và số và nhỏ hơn 50 kí tự",
+        "Vui lòng nhập họ và tên chỉ gồm chữ, không chứa các ký tự đặc biệt và nhỏ hơn 50 kí tự",
         () => null
       );
     } else if (phoneText.trim() == "" || !isVietnamesePhoneNumber(phoneText)) {
@@ -76,19 +76,7 @@ export default class SignUp extends Component {
         "Email không đúng định dạng",
         () => null
       );
-    }else if (districtText=="") {
-      AlertCommon(
-        "Thông báo",
-        "Không để trống địa chỉ",
-        () => null
-      );
-    }else if (districtText.length>100) {
-      AlertCommon(
-        "Thông báo",
-        "Không nhập quá 100 ký tự",
-        () => null
-      );
-    }else if (password.length != 0 || alphanumeric(passwordText)) {
+    }else if (password.length == 0) {
       AlertCommon(
         "Mật khẩu yếu",
         "Mật khẩu phải có độ dài lớn hơn 8, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt",
@@ -130,7 +118,7 @@ export default class SignUp extends Component {
         keyboardShouldPersistTaps="handled"
       >
         <View style={styles.logoSignup}>
-          <View style={styles.iconSignup}><IconComponets name="user" size={sizeFont(15)} color="#E1AC06" /></View>
+          <View style={styles.iconSignup}><IconComponets name="user" size={sizeFont(15)} color="#4d7335" /></View>
           <View style={styles.viewSignup}>
             <Text style={{ fontSize: 30, textAlign: 'center' }}>CREATE <Text style={{ fontWeight: 'bold' }}>ACCOUT</Text></Text>
           </View>
@@ -185,7 +173,7 @@ export default class SignUp extends Component {
             color={COLOR.COLOR_ICON}
             onDelete={() => this.setState({ phoneText: "" })}
           />
-          <ComponentSign
+          {/* <ComponentSign
             placeholder="Tỉnh/thành phố *"
             placeholderTextColor="#999"
             type="phone"
@@ -221,7 +209,7 @@ export default class SignUp extends Component {
             primary={"#fff"}
             color={COLOR.COLOR_ICON}
             onDelete={() => this.setState({ phoneText: "" })}
-          />
+          /> */}
           <ComponentSign
             placeholder="Mật khẩu (dài hơn 6 ký tự) *"
             placeholderTextColor="#999"

@@ -22,16 +22,13 @@ import { connect } from "react-redux";
 import { countNotify } from "../../../action/notifyAction";
 import { size } from "lodash";
 class DetailNotifi extends Component {
-    constructor(props){
-        this.state={
-
-        }
-    }
-  
   render() {
+    const {DATA} =this.props.route.params;
+    
     return (
-        <View>
-            <Text>abcccc</Text>
+        <View style={{padding:10}}>
+            <Text style={{marginBottom:10,color:COLOR.MAIN}}>{DATA.SENT_TIME}</Text>
+            <Text>{DATA.CONTENT}</Text>
         </View>
     )
   }

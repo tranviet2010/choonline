@@ -28,31 +28,31 @@ class News extends Component {
       loading: true,
     };
   }
-  // componentDidMount() {
-  //   const { authUser } = this.props;
-  //   GetInformation({
-  //     USERNAME: authUser.USERNAME,
-  //     TYPES: 4,
-  //     CATEGORY: "",
-  //     IDSHOP: "F6LKFY",
-  //   })
-  //     .then((result) => {
-  //       if (result.data.ERROR === "0000") {
-  //         this.setState(
-  //           {
-  //             data: result.data.INFO,
+  componentDidMount() {
+    const { authUser } = this.props;
+    GetInformation({
+      USERNAME: authUser.USERNAME,
+      TYPES: 4,
+      CATEGORY: "",
+      IDSHOP: "F6LKFY",
+    })
+      .then((result) => {
+        if (result.data.ERROR === "0000") {
+          this.setState(
+            {
+              data: result.data.INFO,
               
-  //           },
-  //           () => this.setState({ loading: false })
-  //         );
-  //       } else {
-  //         this.setState({ loading: false });
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       this.setState({ loading: false });
-  //     });
-  // }
+            },
+            () => this.setState({ loading: false })
+          );
+        } else {
+          this.setState({ loading: false });
+        }
+      })
+      .catch((err) => {
+        this.setState({ loading: false });
+      });
+  }
   render() {
     const { loading, data } = this.state;
     const datanew=this.props.data;
@@ -69,7 +69,7 @@ class News extends Component {
             data={data}
             keyExtractor={(item) => item.ID}
             ListEmptyComponent={() => (
-              <View>
+              <View style={{padding:10}}>
                 <Text>Không có dữ liệu</Text>
               </View>
             )}

@@ -307,7 +307,7 @@ class UserChildren extends Component {
                     <View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 20 }}>
                             <View style={{
-                                justifyContent: 'center', alignContent: 'center', backgroundColor: '#E1AC06',
+                                justifyContent: 'center', alignContent: 'center', backgroundColor: '#4d7335',
                                 width: sizeWidth(100)
                             }}>
                                 <Text style={{ fontSize: 16, padding: 10, color: 'white', fontWeight: 'bold' }}>Thông tin cá nhân</Text>
@@ -367,7 +367,7 @@ class UserChildren extends Component {
                                     <IconComponets
                                         name="chevron-down"
                                         size={sizeFont(5)}
-                                        color="#E1AC06"
+                                        color="#4d7335"
                                     />
                                 </TouchableOpacity>
                             </View>
@@ -387,7 +387,7 @@ class UserChildren extends Component {
                                     <IconComponets
                                         name="chevron-down"
                                         size={sizeFont(5)}
-                                        color="#E1AC06"
+                                        color="#4d7335"
                                     />
                                 </TouchableOpacity>
                             </View>
@@ -407,7 +407,7 @@ class UserChildren extends Component {
                                     <IconComponets
                                         name="chevron-down"
                                         size={sizeFont(5)}
-                                        color="#E1AC06"
+                                        color="#4d7335"
                                     />
                                 </TouchableOpacity>
                             </View>
@@ -428,7 +428,7 @@ class UserChildren extends Component {
                             <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 15, marginBottom: 15 }}>
                                 <View style={{ alignItems: 'center' }}>
                                     <TouchableOpacity
-                                        style={{ width: sizeWidth(40), height: sizeHeight(15), borderColor: "#E1AC06", borderWidth: 2, borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}
+                                        style={{ width: sizeWidth(40), height: sizeHeight(15), borderColor: "#4d7335", borderWidth: 2, borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}
                                         onPress={() => { this.handleImage(2) }}
                                     >
                                         <Image
@@ -441,7 +441,7 @@ class UserChildren extends Component {
                                 </View>
                                 <View style={{ alignItems: 'center' }}>
                                     <TouchableOpacity
-                                        style={{ width: sizeWidth(40), height: sizeHeight(15), borderColor: "#E1AC06", borderWidth: 2, borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}
+                                        style={{ width: sizeWidth(40), height: sizeHeight(15), borderColor: "#4d7335", borderWidth: 2, borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}
                                         onPress={() => { this.handleImage(3) }}
                                     >
                                         <Image
@@ -458,7 +458,7 @@ class UserChildren extends Component {
                     <View>
                         <View>
                             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 20 }}>
-                                <View style={{ width: sizeWidth(100), backgroundColor: '#E1AC06' }}>
+                                <View style={{ width: sizeWidth(100), backgroundColor: '#4d7335' }}>
                                     <Text style={{ fontSize: 16, padding: 10, fontWeight: 'bold', color: 'white' }}>Tài khoản ngân hàng</Text>
                                 </View>
 
@@ -511,7 +511,7 @@ class UserChildren extends Component {
                     </View>
                     <View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 20 }}>
-                            <View style={{ width: sizeWidth(100), backgroundColor: '#E1AC06' }}>
+                            <View style={{ width: sizeWidth(100), backgroundColor: '#4d7335' }}>
                                 <Text style={{ fontSize: 16, padding: 10, fontWeight: 'bold', color: 'white' }}>Tài khoản ngân hàng</Text>
                             </View>
                         </View>
@@ -520,7 +520,7 @@ class UserChildren extends Component {
                                 <Text style={{ padding: 10, fontSize: sizeFont(4.5) }}>Để nâng cấp thành tài khoản CTV bạn cần nhập vào mã giới thiệu</Text>
                                 <TextInput
                                     placeholder="- Mã giới thiệu"
-                                    style={{ paddingLeft:10, width: sizeWidth(60), height: sizeHeight(6), borderColor: '#E1AC06', borderWidth: 2,borderRadius:5 }}
+                                    style={{ paddingLeft:10, width: sizeWidth(60), height: sizeHeight(6), borderColor: '#4d7335', borderWidth: 2,borderRadius:5 }}
 
                                 />
                             </View> : null}

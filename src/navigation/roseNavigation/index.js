@@ -186,6 +186,15 @@ MyHomeStack = (props) => {
             backgroundColor: COLOR.HEADER
           },
           headerTintColor: '#fff',
+          headerLeft: () => (
+            <HeaderLeftComponet
+              navigation={navigation}
+              onPress={() => navigation.navigate("Rose")}
+              name="chevron-left"
+              size={sizeFont(6)}
+              color="#fff"
+            />
+          ),
         }}
       />
       <HomeStack.Screen

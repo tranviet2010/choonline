@@ -26,15 +26,17 @@ class ListNotification extends Component {
   };
   handleType = (item) => {
     if (item.TYPE === 1 || item.TYPE === 6) {
-      return "Thông báo/ chính sách";
-    } else if (item.TYPE === 2 || item.TYPE === 3) {
-      return "Đơn hàng";
+      return "Chính sách";
+    } else if (item.TYPE === 3) {
+      return "DetailOrder";
     } else if (item.TYPE === 5) {
-      return "Công nợ";
+      return "";
+    } else if (item.TYPE === 2) {
+      return "";
     } else if (item.TYPE === 8) {
-      return "Đại lý mới";
+      return "";
     } else if (item.TYPE === 9) {
-      return "Sản phẩm";
+      return "";
     }
   };
   handleUpdate = async (item) => {
@@ -42,7 +44,7 @@ class ListNotification extends Component {
     await updateNotify({
       USERNAME: authUser.USERNAME,
       ID_NOTIFY: item.ID,
-      IDSHOP: "F6LKFY",
+      IDSHOP: 'F6LKFY',
     })
       .then((result) => {
         console.log("updateNotify", result)
@@ -54,7 +56,7 @@ class ListNotification extends Component {
       USERNAME: authUser.USERNAME,
       PAGE: 1,
       NUMOFPAGE: 15,
-      IDSHOP: "F6LKFY",
+      IDSHOP: 'F6LKFY',
     })
       .then((result) => {
         console.log("getListNotify", result);
@@ -76,7 +78,7 @@ class ListNotification extends Component {
       onRefresh,
       navigation,
     } = this.props;
-    console.log("this is notification",data);
+    console.log("this is notification", data);
     return (
       <FlatList
         initialNumToRender={5}
@@ -98,16 +100,16 @@ class ListNotification extends Component {
         onMomentumScrollBegin={onMomentumScrollBegin}
         extraData={data}
         keyExtractor={(item) => item.ID}
-        ListFooterComponent={() =>
-          loadMore === true ? (
-            <View style={{ marginTop: sizeHeight(2) }}>
-              {/* <ActivityIndicator
-                // color={COLOR.BUTTON}
-                size={"large"}
-              /> */}
-            </View>
-          ) : null
-        }
+        // ListFooterComponent={() =>
+        //   loadMore === true ? (
+        //     <View style={{ marginTop: sizeHeight(2) }}>
+        //       <ActivityIndicator
+        //         // color={COLOR.BUTTON}
+        //         size={"large"}
+        //       />
+        //     </View>
+        //   ) : null
+        // }
         renderItem={({ item, index }) => {
           return (
             <TouchableOpacity
@@ -118,10 +120,12 @@ class ListNotification extends Component {
                     item.IS_READ === 0 ? "#edf2fa" : "#FFFFFF",
                 },
               ]}
-              onPress={() => {
-                this.handleUpdate(item);
-                navigation.navigate("DetailNotifi");
-              }}
+              // onPress={() => {
+              //   this.handleUpdate(item);
+              //   navigation.navigate("chitiet", {
+              //     DATA: item
+              //   });
+              // }}
             >
               <View style={{ flexDirection: 'row' }}>
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -129,21 +133,28 @@ class ListNotification extends Component {
                     style={{ width: 40, height: 40, marginRight: 10 }}
                   />
                 </View>
-                <View>
+                <TouchableOpacity
+                  // onPress={() => {
+                  //   navigation.navigate(`${this.handleType(item)}`, {
+                  //     ID: item.CONTENT.substr(9, 8),
+                  //     NAME: 'infomation'
+                  //   });
+                  // }}
+                >
                   <View style={styles.viewHeader}>
-                    <Text style={{fontStyle:'italic',color:'gray'}}>
+                    <Text style={{ fontStyle: 'italic', color: 'gray' }}>
                       {item.SENT_TIME}
                     </Text>
-                    {/* <Text style={{ fontWeight: "bold", fontSize: sizeFont(4) }}>
-                      {this.handleType(item)}
-                    </Text> */}
+                    <Text style={{ fontWeight: "bold", fontSize: sizeFont(4) }}>
+                      {/* {this.handleType(item)} */}
+                    </Text>
                   </View>
-                  <View style={{width:sizeWidth(85)}}>
+                  <View style={{ width: sizeWidth(85) }}>
                     <Text>
                       {item.CONTENT}
                     </Text>
                   </View>
-                </View>
+                </TouchableOpacity>
               </View>
             </TouchableOpacity>
           );
