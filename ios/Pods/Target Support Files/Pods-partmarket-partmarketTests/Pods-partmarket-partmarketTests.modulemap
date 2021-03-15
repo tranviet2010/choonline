@@ -1,0 +1,6 @@
+module Pods_partmarket_partmarketTests {
+  umbrella header "Pods-partmarket-partmarketTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

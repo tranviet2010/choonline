@@ -1,0 +1,6 @@
+module Pods_partmarket {
+  umbrella header "Pods-partmarket-umbrella.h"
+
+  export *
+  module * { export * }
+}

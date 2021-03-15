@@ -1,0 +1,474 @@
+[
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_chinh.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_chinh.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_right.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_right.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_reload.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_reload.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_rose.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_rose.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_characterentitieshtml4_index.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_characterentitieshtml4_index.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_leftname.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_leftname.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_user.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_user.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_logo.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_logo.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_stackone.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_stackone.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_share1.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_share1.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnavigation_stack_src_views_assets_backiconmask.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnavigation_stack_src_views_assets_backiconmask.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_clock.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_clock.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_simplelineicons.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_simplelineicons.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_facebook.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_facebook.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativepaper_src_assets_backchevron.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativepaper_src_assets_backchevron.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_human.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_human.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_eyehidden.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_eyehidden.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_addimage.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_addimage.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_ionicons.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_ionicons.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_info.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_info.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_tick.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_tick.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_pass1.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_pass1.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_materialcommunityicons.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_materialcommunityicons.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_antdesign.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_antdesign.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_octicons.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_octicons.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_xoa.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_xoa.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_daux.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_daux.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_infomation.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_infomation.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_dropdow.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_dropdow.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_group.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_group.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_csstree_package.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_csstree_package.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeratings_src_images_airbnbstarselected.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeratings_src_images_airbnbstarselected.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_csstree_data_patch.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_csstree_data_patch.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_report.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_report.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_order.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_order.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_legacy.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_legacy.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_entypo.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_entypo.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_cartmain.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_cartmain.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeratings_src_images_rocket.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeratings_src_images_rocket.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeratings_src_images_heart.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeratings_src_images_heart.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_pw.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_pw.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_homeactive.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_homeactive.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_loc.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_loc.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_cssselect_lib_procedure.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_cssselect_lib_procedure.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_mess.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_mess.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_update.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_update.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_tymactive.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_tymactive.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_new.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_new.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_resetac.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_resetac.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_fontisto.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_fontisto.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_roseactive.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_roseactive.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_app.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/app.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_phone.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_phone.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_ship.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_ship.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_mdndata_css_atrules.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_mdndata_css_atrules.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_ring.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_ring.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_local.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_local.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_edit.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_edit.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_decode.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_decode.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_cart1.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_cart1.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_camera.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_camera.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_eye.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_eye.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeratings_src_images_airbnbstar.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeratings_src_images_airbnbstar.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_comment.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_comment.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_tym.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_tym.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeratings_src_images_star.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeratings_src_images_star.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_daux1.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_daux1.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_fontawesome5free.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_fontawesome5free.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_home.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_home.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_eye_hidden.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_eye_hidden.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_domserializer_foreignnames.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_domserializer_foreignnames.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_zocial.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_zocial.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_list.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_list.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_delete.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_delete.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_filter.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_filter.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_product1active.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_product1active.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_emptypic.jpg.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_emptypic.jpg"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_monney.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_monney.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_orderactive.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_orderactive.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_stacktwo.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_stacktwo.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_user2.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_user2.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_face.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_face.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_feather.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_feather.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_product1.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_product1.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_leftmenu.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_leftmenu.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_lich.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_lich.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_materialicons.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_materialicons.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_uerlogin.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_uerlogin.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_xml.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_xml.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_dowmenu.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_dowmenu.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_pass.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_pass.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_mdndata_css_syntaxes.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_mdndata_css_syntaxes.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_foundation.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_foundation.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_logout.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_logout.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeratings_src_images_bell.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeratings_src_images_bell.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_stringifyentities_lib_constant_dangerous.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_stringifyentities_lib_constant_dangerous.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_entities.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_entities.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_nativebase_dist_src_basic_icon_nbicons.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_nativebase_dist_src_basic_icon_nbicons.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_characterentitieslegacy_index.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_characterentitieslegacy_index.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_evilicons.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_evilicons.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_mdndata_css_properties.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_mdndata_css_properties.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_fontawesome5free_meta.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_fontawesome5free_meta.json"
+    },
+    {
+        "merged": "/Users/macos/Desktop/choonline/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_fontawesome.json.flat",
+        "source": "/Users/macos/Desktop/choonline/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_fontawesome.json"
+    }
+]
